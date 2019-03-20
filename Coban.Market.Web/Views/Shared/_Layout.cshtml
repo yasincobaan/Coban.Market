@@ -1,42 +1,92 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using Coban.Market.Language
+@using Coban.Market.Web.Models
+
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Coban Market | @ViewBag.Title</title>
+    @Styles.Render("~/main/css")
+    @Scripts.Render("~/jquery")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+                <div class="sidebar-brand-text mx-3">Coban</div><div class="sidebar-brand-icon">
+                    <img src="~/ContentAdmin/Images/logo.png" width="50px;" />
+                </div>
+
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index","Home")">
+                    <i class="fa fa-home"></i>
+                    <span>@Language.Home</span>
+                </a>
+            </li>
+
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                         @Html.Partial("_PartialLanguage")
+                        </li>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item no-arrow ">
+                            <div id="profiledropdown" class="dropdown">
+                                <a class="btn btn-default btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @*@if (CurrentSession.User != null)
+                                        {
+                                               <img id="profileimage" src="../../Images/@CurrentSession.User.ProfileImageFilename"
+                                              @{CurrentSession.User.Name + " " + CurrentSession.User.Surname}
+                                            }*@
+
+                                </a>
+                                <div id="profilelinks" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="dropitem1" class="dropdown-item" href="@Url.Action("MyLogs","ActivityLog")">@Language.ActivityLog</a>
+                                    <a id="dropitem2" class="dropdown-item" href="@Url.Action("Settings","Home")">@Language.Settings</a>
+                                    <a id="dropitem3" class="dropdown-item" href="@Url.Action("Logout","Account")">@Language.LogOut</a>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">
+                            @ViewBag.Title
+                        </h1>
+                    </div>
+                    @RenderBody()
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+            @*<footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>
+                                Copyright &copy; @DateTime.Now.Year
+                                <a id="website" href="http://www.yasincoban.com">
+                                    Coban Market
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </footer>*@
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    @Scripts.Render("~/main/js")
+    @RenderSection("scripts", false)
 </body>
 </html>

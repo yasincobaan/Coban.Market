@@ -5,6 +5,18 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.Web", "Coban.Market.Web\Coban.Market.Web.csproj", "{22BCDB26-FDCB-41F5-9DCF-F020A648403D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.Entities", "Coban.Market.Entities\Coban.Market.Entities.csproj", "{91AD8659-7268-4A7B-B777-45BCA50AACC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.DAL", "Coban.Market.DAL\Coban.Market.DAL.csproj", "{7473646C-544A-4108-B816-C4498ED28136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.Core", "Coban.Market.Core\Coban.Market.Core.csproj", "{3A97D1DB-27E7-436D-A63B-947CA7DC4B84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.Common", "Coban.Market.Common\Coban.Market.Common.csproj", "{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.BL", "Coban.Market.BL\Coban.Market.BL.csproj", "{9F226333-2B08-4CBC-BBC9-C48C2C63432F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coban.Market.Language", "Coban.Market.Language\Coban.Market.Language.csproj", "{E64E86CE-E0C5-4119-AEE9-5A48FB325EA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +27,30 @@ Global
 		{22BCDB26-FDCB-41F5-9DCF-F020A648403D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22BCDB26-FDCB-41F5-9DCF-F020A648403D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22BCDB26-FDCB-41F5-9DCF-F020A648403D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AD8659-7268-4A7B-B777-45BCA50AACC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AD8659-7268-4A7B-B777-45BCA50AACC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AD8659-7268-4A7B-B777-45BCA50AACC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AD8659-7268-4A7B-B777-45BCA50AACC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7473646C-544A-4108-B816-C4498ED28136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7473646C-544A-4108-B816-C4498ED28136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7473646C-544A-4108-B816-C4498ED28136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7473646C-544A-4108-B816-C4498ED28136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A97D1DB-27E7-436D-A63B-947CA7DC4B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A97D1DB-27E7-436D-A63B-947CA7DC4B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A97D1DB-27E7-436D-A63B-947CA7DC4B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A97D1DB-27E7-436D-A63B-947CA7DC4B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F226333-2B08-4CBC-BBC9-C48C2C63432F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F226333-2B08-4CBC-BBC9-C48C2C63432F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F226333-2B08-4CBC-BBC9-C48C2C63432F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F226333-2B08-4CBC-BBC9-C48C2C63432F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E64E86CE-E0C5-4119-AEE9-5A48FB325EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E64E86CE-E0C5-4119-AEE9-5A48FB325EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E64E86CE-E0C5-4119-AEE9-5A48FB325EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E64E86CE-E0C5-4119-AEE9-5A48FB325EA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

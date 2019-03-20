@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,19 +12,19 @@ namespace Coban.Market.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Change(String languageSelect)
         {
-            ViewBag.Message = "Your application description page.";
+            if (languageSelect != null)
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(languageSelect);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageSelect);
+            }
 
-            return View();
-        }
+            HttpCookie cookie = new HttpCookie("language");
+            cookie.Value = languageSelect;
+            Response.Cookies.Add(cookie);
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View("Index");
         }
     }
 }

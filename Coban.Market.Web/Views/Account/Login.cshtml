@@ -1,0 +1,80 @@
+﻿@using Coban.Market.Language
+@model Coban.Market.Entities.ValueObjects.LoginViewModel
+
+@{
+    ViewBag.Title = "Coban Market | " + Language.SignIn;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Coban Market @Language.FormLogin
+    </title>
+    <link href="~/ContentAdmin/Page/Account/Login/css/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <style>
+        .title {
+            text-align: center;
+        }
+
+        .error {
+            text-align: center;
+            font-size: 12px;
+            color: crimson;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        .text-danger {
+            text-align: center;
+            font-size: 12px;
+            color: crimson;
+            text-decoration: none;
+            list-style: none;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login">
+            <p class="title">
+                @Language.SignIn
+
+            </p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <p class="error">
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </p>
+
+                @Html.TextBoxFor(x => x.Email, new { @class = "email", @placeholder = @Language.Email })
+
+                <i class="fa fa-user">
+                </i>
+
+                @Html.TextBoxFor(x => x.Password, new { @class = "password", @placeholder = @Language.Password })
+
+                <i class="fa fa-key">
+                </i>
+
+                <a href="@Url.Action("ForgotPassword", "Account")">
+                    @Language.Forgotyourpassword
+                </a>
+                <button type="submit" class="sign">@Language.SignIn</button>
+            }
+        </div>
+    </div>
+</body>
+</html>

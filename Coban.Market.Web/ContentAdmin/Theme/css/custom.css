@@ -1,0 +1,33 @@
+﻿#website {
+    text-decoration: none;
+}
+
+.topbar {
+    z-index: 1 !important;
+    position: fixed;
+    width: -webkit-fill-available;
+    margin-right: +226px;
+}
+
+
+.sidebar-dark {
+    background-image: linear-gradient(#feac5e, #c779d0,#4bc0c8);
+}
+
+.navbar {
+    background-image: linear-gradient(to right,white, #feac5e);
+}
+
+#profileimage {
+    width: 45px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.justify-content-between {
+    padding-top: 80px;
+}
+#website:hover{
+    font-size:16px;
+    color:crimson;
+}

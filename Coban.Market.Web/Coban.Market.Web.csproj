@@ -45,10 +45,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,36 +133,65 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarketUserController.cs" />
+    <Compile Include="Filters\Auth.cs" />
+    <Compile Include="Filters\AuthAdmin.cs" />
+    <Compile Include="Filters\AuthEditör.cs" />
+    <Compile Include="Filters\AuthFullAdmin.cs" />
+    <Compile Include="Filters\Exc.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CacheHelper.cs" />
+    <Compile Include="Models\CurrentSession.cs" />
+    <Compile Include="Models\ViewModels\ErrorViewModel.cs" />
+    <Compile Include="Models\ViewModels\InfoViewModel.cs" />
+    <Compile Include="Models\ViewModels\NotifyViewModelBase.cs" />
+    <Compile Include="Models\ViewModels\OkViewModel.cs" />
+    <Compile Include="Models\ViewModels\WarningViewModel.cs" />
+    <Compile Include="Models\WebCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="ContentAdmin\Images\login-bg.jpeg" />
+    <Content Include="ContentAdmin\Images\logo.png" />
+    <Content Include="ContentAdmin\Other\DataTable\css\button-bootstrap.css" />
+    <Content Include="ContentAdmin\Other\DataTable\css\buttons.dataTables.min.css" />
+    <Content Include="ContentAdmin\Other\DataTable\css\dataTables.bootstrap.min.css" />
+    <Content Include="ContentAdmin\Other\DataTable\js\button.html5.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\buttons.colVis.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\buttons.flash.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\buttons.print.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\currencyDataTable.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\dataTables.bootstrap4.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\dataTables.buttons.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\jquery.dataTables.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\jszip3.1.3.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\pdfmake.min.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\resizable.js" />
+    <Content Include="ContentAdmin\Other\DataTable\js\vfs-font.js" />
+    <Content Include="ContentAdmin\Page\Account\Login\css\login.css" />
+    <Content Include="ContentAdmin\Page\Account\Login\js\login.js" />
+    <Content Include="ContentAdmin\Page\MarketUser\Create\css\create.css" />
+    <Content Include="ContentAdmin\Page\MarketUser\Create\js\create.js" />
+    <Content Include="ContentAdmin\Page\MarketUser\Index\css\index.css" />
+    <Content Include="ContentAdmin\Page\MarketUser\Index\js\index.js" />
+    <Content Include="ContentAdmin\Theme\css\bootstrap.css" />
+    <Content Include="ContentAdmin\Theme\css\custom.css" />
+    <Content Include="ContentAdmin\Theme\css\font.css" />
+    <Content Include="ContentAdmin\Theme\css\sb-admin-2.css" />
+    <Content Include="ContentAdmin\Theme\js\bootstrap.js" />
+    <Content Include="ContentAdmin\Theme\js\custom.js" />
+    <Content Include="ContentAdmin\Theme\js\jquery.js" />
+    <Content Include="ContentAdmin\Theme\js\moment.js" />
+    <Content Include="ContentAdmin\Theme\js\popper.js" />
+    <Content Include="ContentAdmin\Theme\js\sb-admin-2.js" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -163,28 +201,43 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="ContentUser\Theme\" />
+    <Folder Include="Images\MarketUser\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="ContentAdmin\Other\DataTable\json\languageTR.json" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\MarketUser\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialSearchBox.cshtml" />
+    <Content Include="Views\Shared\_PartialDatatable.cshtml" />
+    <Content Include="Views\Shared\_PartialLanguage.cshtml" />
+    <Content Include="Views\MarketUser\Create.cshtml" />
+    <Content Include="Views\MarketUser\IndexDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">
+      <Project>{9f226333-2b08-4cbc-bbc9-c48c2c63432f}</Project>
+      <Name>Coban.Market.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coban.Market.Common\Coban.Market.Common.csproj">
+      <Project>{CD4CBA68-7715-4D53-BC9F-8EECCB9E6782}</Project>
+      <Name>Coban.Market.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coban.Market.Entities\Coban.Market.Entities.csproj">
+      <Project>{91AD8659-7268-4A7B-B777-45BCA50AACC3}</Project>
+      <Name>Coban.Market.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Coban.Market.Language\Coban.Market.Language.csproj">
+      <Project>{e64e86ce-e0c5-4119-aee9-5a48fb325ea7}</Project>
+      <Name>Coban.Market.Language</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
