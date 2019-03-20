@@ -181,7 +181,7 @@
     <value>Username</value>
   </data>
   <data name="BackToList" xml:space="preserve">
-    <value>BackToList</value>
+    <value>Back To List</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
@@ -191,5 +191,17 @@
   </data>
   <data name="MarketUserSave" xml:space="preserve">
     <value>Create Market User</value>
+  </data>
+  <data name="CategoryDescription" xml:space="preserve">
+    <value>Category Description</value>
+  </data>
+  <data name="CategoryImage" xml:space="preserve">
+    <value>Category Image</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Category Title</value>
+  </data>
+  <data name="CreateCategory" xml:space="preserve">
+    <value>Create Category</value>
   </data>
 </root>

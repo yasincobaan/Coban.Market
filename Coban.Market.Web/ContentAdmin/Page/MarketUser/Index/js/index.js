@@ -36,7 +36,7 @@
                 "data": "ProfileImageFilename",
                 "render": function (data) {
 
-                    return '<img src="~/Images/MarketUser/' + data + '"/>';
+                    return '<img src="/Images/MarketUser/' + data + '"/>';
 
                 }
             },

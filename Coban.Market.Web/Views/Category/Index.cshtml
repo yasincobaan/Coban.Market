@@ -1,16 +1,19 @@
-﻿@using Coban.Market.Language
+﻿
 @{
-    ViewBag.Title = Language.Users;
+    ViewBag.Title = "Index";
 }
+
+
 @Styles.Render("~/daterangepicker/css")
 @Styles.Render("~/category/index/css")
-@Styles.Render("~/marketuser/index/css")
+
+
 
 @Html.Partial("_PartialSearchBox")
 @Html.Partial("_PartialDatatable")
 
-@Scripts.Render("~/marketuser/index/js")
 
 
+@Scripts.Render("~/category/index/js")
 @Scripts.Render("~/daterangepicker/js")
 @Scripts.Render("~/dateRangeStart/js")

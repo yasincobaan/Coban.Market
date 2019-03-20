@@ -79,11 +79,47 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BackToList.
+        ///   Looks up a localized string similar to Back To List.
         /// </summary>
         public static string BackToList {
             get {
                 return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category Description.
+        /// </summary>
+        public static string CategoryDescription {
+            get {
+                return ResourceManager.GetString("CategoryDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category Image.
+        /// </summary>
+        public static string CategoryImage {
+            get {
+                return ResourceManager.GetString("CategoryImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category Title.
+        /// </summary>
+        public static string CategoryTitle {
+            get {
+                return ResourceManager.GetString("CategoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Category.
+        /// </summary>
+        public static string CreateCategory {
+            get {
+                return ResourceManager.GetString("CreateCategory", resourceCulture);
             }
         }
         

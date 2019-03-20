@@ -14,6 +14,7 @@ namespace Coban.Market.Entities
         [DisplayName("Açıklama"), StringLength(150, ErrorMessage = "{0} alanı max. {1} karakter içermeli.")]
         public string Description { get; set; }
 
+        [DisplayName("Kategori Resmi")]
         public string Image { get; set; }
 
 

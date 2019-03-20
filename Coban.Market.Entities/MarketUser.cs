@@ -10,27 +10,19 @@ namespace Coban.Market.Entities
     [Table("MarketUsers")]
     public class MarketUser : MyEntityBase
     {
-        [DisplayName("İsim"), 
-            StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [DisplayName("İsim"), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Name { get; set; }
 
-        [DisplayName("Soyad"), 
-            StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [DisplayName("Soyad"), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Surname { get; set; }
 
-        [DisplayName("Kullanıcı Adı"), 
-            Required(ErrorMessage = "{0} alanı gereklidir."), 
-            StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [DisplayName("Kullanıcı Adı"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Username { get; set; }
 
-        [DisplayName("E-Posta"), 
-            Required(ErrorMessage = "{0} alanı gereklidir."), 
-            StringLength(70, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [DisplayName("E-Posta"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(70, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Email { get; set; }
 
-        [DisplayName("Şifre"), 
-            Required(ErrorMessage = "{0} alanı gereklidir."), 
-            StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [DisplayName("Şifre"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Password { get; set; }
 
         [StringLength(30), ScaffoldColumn(false)]

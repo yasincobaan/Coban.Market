@@ -28,7 +28,7 @@
     }
 </style>
 
-@*<div class="col-lg-12">
+<div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-success text-center">
@@ -85,6 +85,7 @@
                         {
                             if (item.Role == MarketUserRole.Editör)
                             {
+                               
                                 <img style="width:75px;" class="card-img-top photo" src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="@item.Name @item.Surname">
                             }
                         }
@@ -95,102 +96,5 @@
             </div>
         </div>
 
-    </div>*@
+    </div>
 
-<link href="~/ContentAdmin/style.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-<div class="drag-container">
-    <ul class="drag-list">
-        <li class="drag-column drag-column-on-hold">
-            <span class="drag-column-header">
-                <h2>On Hold</h2>
-                <svg class="drag-header-more" data-target="options1" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                </svg>
-            </span>
-            <div class="drag-options" id="options1">
-            </div>
-            <ul class="drag-inner-list" id="1">
-                @foreach (var item in Model)
-                {
-                    if (item.Role == MarketUserRole.FullAdmin)
-                    {
-                        <li class="drag-item" id="@item.Id">
-                            <img style="width:75px;" class="card-img-top photo" src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="@item.Name @item.Surname">
-                        </li>
-                    }
-                }
-            </ul>
-        </li>
-        <li class="drag-column drag-column-in-progress">
-            <span class="drag-column-header">
-                <h2>In Progress</h2>
-                <svg class="drag-header-more" data-target="options2" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/
-                </svg>
-            </span> <div class="drag-options" id="options2">
-            </div>
-            <ul class="drag-inner-list" id="2">
-                @foreach (var item in Model)
-                {
-                    if (item.Role == MarketUserRole.NewUser)
-                    {
-                        <li class="drag-item" id="@item.Id">
-                            <img style="width:75px;" class="card-img-top" src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="@item.Name @item.Surname">
-                        </li>
-                    }
-                }
-            </ul>
-        </li>
-        <li class="drag-column drag-column-needs-review">
-            <span class="drag-column-header">
-                <h2>Needs Review</h2>
-                <svg data-target="options3" class="drag-header-more" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/
-                </svg>
-            </span>
-            <div class="drag-options" id="options3">
-            </div>
-            <ul class="drag-inner-list" id="3">
-                @foreach (var item in Model)
-                {
-                    if (item.Role == MarketUserRole.Admin)
-                    {
-                        <li class="drag-item">
-                            <img style="width:75px;" class="card-img-top" src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="@item.Name @item.Surname">
-                        </li>
-                    }
-                }
-            </ul>
-        </li>
-        <li class="drag-column drag-column-approved">
-            <span class="drag-column-header">
-                <h2>Approved</h2>
-                <svg data-target="options4" class="drag-header-more" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/
-                </svg>
-            </span> <div class="drag-options" id="options4">
-            </div>
-            <ul class="drag-inner-list" id="4">
-                @foreach (var item in Model)
-                {
-                    if (item.Role == MarketUserRole.Editör)
-                    {
-                        <li class="drag-item">
-                            <img style="width:75px;" class="card-img-top" src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="@item.Name @item.Surname">
-                        </li>
-                    }
-                }
-            </ul>
-        </li>
-    </ul>
-</div>
-
-
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/dragula.min.js'></script>
-<script src="~/ContentAdmin/index.js"></script>

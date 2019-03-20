@@ -12,27 +12,27 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Theme/js/jquery.js"
             ));
 
+            #region Layout
             //Layout Css
             bundles.Add(new StyleBundle("~/main/css").Include(
                 "~/ContentAdmin/Theme/css/bootstrap.css",
                 "~/ContentAdmin/Theme/css/sb-admin-2.css",
-                 "~/ContentAdmin/Theme/css/font.css",
-                 "~/ContentAdmin/Theme/css/custom.css"
+                "~/ContentAdmin/Theme/css/font.css",
+                "~/ContentAdmin/Theme/css/custom.css"
             ));
 
             //Layout Js
             bundles.Add(new ScriptBundle("~/main/js").Include(
-                 "~/ContentAdmin/Theme/js/bootstrap.js",
-                 "~/ContentAdmin/Theme/js/sb-admin-2.js",
-                 "~/ContentAdmin/Theme/js/popper.js",
-                 "~/ContentAdmin/Theme/js/moment.js",
-                 "~/ContentAdmin/Theme/js/custom.js"
+                "~/ContentAdmin/Theme/js/bootstrap.js",
+                "~/ContentAdmin/Theme/js/sb-admin-2.js",
+                "~/ContentAdmin/Theme/js/popper.js",
+                "~/ContentAdmin/Theme/js/moment.js",
+                "~/ContentAdmin/Theme/js/custom.js"
 
             ));
+            #endregion
 
-
-
-
+            #region MyRegion
 
 
             //Datatable Css
@@ -58,6 +58,11 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/DataTable/js/vfs-font.js"
 
             ));
+            #endregion
+
+
+            #region MarketUser
+
 
 
             // MarketUser - Index - Css
@@ -68,7 +73,7 @@ namespace Coban.Market.Web
             // MarketUser - Index - Js
             bundles.Add(new ScriptBundle("~/marketuser/index/js").Include(
                 "~/ContentAdmin/Page/MarketUser/Index/js/index.js"
-              ));
+            ));
 
 
 
@@ -81,6 +86,58 @@ namespace Coban.Market.Web
             bundles.Add(new ScriptBundle("~/marketuser/create/js").Include(
                 "~/ContentAdmin/Page/MarketUser/Create/js/create.js"
             ));
+
+
+
+
+            #endregion
+
+
+
+
+
+            #region Category
+
+
+
+            // Category - Index - Css
+            bundles.Add(new StyleBundle("~/category/index/css").Include(
+                "~/ContentAdmin/Page/Category/Index/css/index.css"
+            ));
+
+            // Category - Index - Js
+            bundles.Add(new ScriptBundle("~/category/index/js").Include(
+                "~/ContentAdmin/Page/Category/Index/js/index.js"
+            ));
+
+            #endregion
+
+
+
+
+
+
+
+
+            #region Date Range Picker
+            // DateRangePicker - Css
+            bundles.Add(new StyleBundle("~/daterangepicker/css").Include(
+                "~/ContentAdmin/Other/DateRangePicker/css/daterangepicker.css"
+            ));
+
+            // DateRangePicker  - Js
+            bundles.Add(new ScriptBundle("~/daterangepicker/js").Include(
+                "~/ContentAdmin/Other/DateRangePicker/js/moment.min.js",
+                "~/ContentAdmin/Other/DateRangePicker/js/daterangepicker.min.js"
+
+
+            ));
+
+            // DateRangePicker  - Start
+            bundles.Add(new ScriptBundle("~/dateRangeStart/js").Include(
+                "~/ContentAdmin/Other/DateRangePicker/js/daterangestart.js"
+            ));
+            #endregion
 
         }
     }

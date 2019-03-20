@@ -192,4 +192,16 @@
   <data name="MarketUserSave" xml:space="preserve">
     <value>Yeni Kullanıcı Oluştur</value>
   </data>
+  <data name="CategoryDescription" xml:space="preserve">
+    <value>Kategori Açıklaması</value>
+  </data>
+  <data name="CategoryImage" xml:space="preserve">
+    <value>Kategori Resmi</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Kategori Başlığı</value>
+  </data>
+  <data name="CreateCategory" xml:space="preserve">
+    <value>Kategori Oluştur</value>
+  </data>
 </root>
