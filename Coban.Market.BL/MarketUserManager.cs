@@ -201,7 +201,7 @@ namespace Coban.Market.BL
             {
                 res.Result.Password = "0";
                 res.Result.IsActive = false;
-                res.Result.ProfileImageFilename = "new-user.png";
+                res.Result.ProfileImageFilename = "user.png";
                 res.Result.ActivateGuid = Guid.NewGuid();
 
                 if (base.Insert(res.Result) == 0)

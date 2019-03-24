@@ -18,7 +18,8 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Theme/css/bootstrap.css",
                 "~/ContentAdmin/Theme/css/sb-admin-2.css",
                 "~/ContentAdmin/Theme/css/font.css",
-                "~/ContentAdmin/Theme/css/custom.css"
+                "~/ContentAdmin/Theme/css/custom.css",
+                "~/ContentAdmin/Other/fancybox/jquery.fancybox-1.3.4.css"
             ));
 
             //Layout Js
@@ -27,7 +28,10 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Theme/js/sb-admin-2.js",
                 "~/ContentAdmin/Theme/js/popper.js",
                 "~/ContentAdmin/Theme/js/moment.js",
-                "~/ContentAdmin/Theme/js/custom.js"
+                "~/ContentAdmin/Theme/js/custom.js",
+                "~/ContentAdmin/Other/SweetAlert/js/sweetalert.js",
+                "~/ContentAdmin/Other/jquery.easing.js",
+                "~/ContentAdmin/Other/fancybox/jquery.fancybox-1.3.4.js"
 
             ));
             #endregion
@@ -111,8 +115,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
-
 
 
 

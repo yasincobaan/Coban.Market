@@ -31,22 +31,23 @@
                 }
             ],
         "columns": [
-            { "data": "Id", "title": "Kullanıcı Kimliği", "name": "Id", "autoWidth": true },
+            { "data": "Id", "title": "User Id", "name": "Id", "autoWidth": true },
             {
                 "data": "ProfileImageFilename",
+                "title": "User Photo",
                 "render": function (data) {
 
-                    return '<img src="/Images/MarketUser/' + data + '"/>';
+                    return '<img style="width:100px;" src="/Images/MarketUser/' + data + '"/>';
 
                 }
             },
-            { "data": "Name", "title": "İsim", "name": "Name", "autoWidth": true },
-            { "data": "Surname", "title": "Soyisim", "name": "Surname", "autoWidth": true },
-            { "data": "Username", "title": "Kullanıcı Adı", "name": "Username", "autoWidth": true },
-            { "data": "Email", "title": "E-Posta adresi", "name": "Email", "autoWidth": true },
+            { "data": "Name", "title": "Name", "name": "Name", "autoWidth": true },
+            { "data": "Surname", "title": "Surname", "name": "Surname", "autoWidth": true },
+            { "data": "Username", "title": "Username", "name": "Username", "autoWidth": true },
+            { "data": "Email", "title": "User Email", "name": "Email", "autoWidth": true },
             {
                 "data": "Role",
-                "title": "Kullanıcı Rolü",
+                "title": "User Role",
                 "name": "Role",
                 "autoWidth": true,
                 render: function (data, type, row) {
@@ -66,17 +67,19 @@
             },
             {
                 "data": "IsActive",
-                "title": "Aktiflik",
+                "title": "is Active",
                 "name": "IsActive",
                 "autoWidth": true,
                 render: function (data, type, row) {
                     if (data == true) {
-                        return 'Aktif';
+                        return 'Active';
                     } else {
-                        return 'Pasif';
+                        return 'Passive';
                     }
                 }
             }
         ]
     });
+
+    
 });

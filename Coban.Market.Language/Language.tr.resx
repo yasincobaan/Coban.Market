@@ -204,4 +204,7 @@
   <data name="CreateCategory" xml:space="preserve">
     <value>Kategori Oluştur</value>
   </data>
+  <data name="NewRecord" xml:space="preserve">
+    <value>Yeni Kayıt</value>
+  </data>
 </root>

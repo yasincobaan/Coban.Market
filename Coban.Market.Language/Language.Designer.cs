@@ -196,6 +196,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Record.
+        /// </summary>
+        public static string NewRecord {
+            get {
+                return ResourceManager.GetString("NewRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NowLang.
         /// </summary>
         public static string NowLang {

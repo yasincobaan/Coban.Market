@@ -1,24 +1,24 @@
 {
   "sDecimal": ",",
-  "sEmptyTable": "Tabloda herhangi bir veri mevcut deðil",
-  "sInfo": "_TOTAL_ kayýttan _START_ - _END_ arasýndaki kayýtlar gösteriliyor",
-  "sInfoEmpty": "Kayýt yok",
-  "sInfoFiltered": "(_MAX_ kayýt içerisinden bulunan)",
+  "sEmptyTable": "No data available in table",
+  "sInfo": "Showing records _START_ to _END_ of _TOTAL_",
+  "sInfoEmpty": "No record",
+  "sInfoFiltered": "(Found in _MAX_ records)",
   "sInfoPostFix": "",
   "sInfoThousands": ".",
-  "sLengthMenu": "Sayfada _MENU_ kayýt göster",
-  "sLoadingRecords": "Yükleniyor...",
-  "sProcessing": "Ýþleniyor...",
-  "sSearch": "Ara:",
-  "sZeroRecords": "Eþleþen kayýt bulunamadý",
+  "sLengthMenu": "Show _MENU_ record on page",
+  "sLoadingRecords": "Loading...",
+  "sProcessing": "Processing...",
+  "sSearch": "Search:",
+  "sZeroRecords": "No matching records found",
   "oPaginate": {
-    "sFirst": "Ýlk",
-    "sLast": "Son",
-    "sNext": "Sonraki",
-    "sPrevious": "Önceki"
+    "sFirst": "First",
+    "sLast": "Last",
+    "sNext": "Next",
+    "sPrevious": "Previous"
   },
   "oAria": {
-    "sSortAscending": ": artan sütun sýralamasýný aktifleþtir",
-    "sSortDescending": ": azalan sütun soralamasýný aktifleþtir"
+    "sSortAscending": ": activate incremental column sorting",
+    "sSortDescending": ": Enable decreasing column query"
   }
 }

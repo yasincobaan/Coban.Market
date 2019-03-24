@@ -63,7 +63,7 @@
                             @Language.Role
                         </div>
                         <div class="col-md-8">
-                            @if (CurrentSession.User.Role == MarketUserRole.FullAdmin)
+                            @if (CurrentSession.User==null)
                             {
                                 @Html.EnumDropDownListFor(model => model.Role, new { @class = "form-control" })
                             }
