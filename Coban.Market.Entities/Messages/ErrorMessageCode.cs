@@ -1,5 +1,4 @@
-﻿
-namespace Coban.Market.Entities.Messages
+﻿namespace Coban.Market.Entities.Messages
 {
     public enum ErrorMessageCode
     {

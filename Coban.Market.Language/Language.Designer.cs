@@ -19,7 +19,7 @@ namespace Coban.Market.Language {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Language {
@@ -124,6 +124,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Product.
+        /// </summary>
+        public static string CreateProduct {
+            get {
+                return ResourceManager.GetString("CreateProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -219,6 +228,96 @@ namespace Coban.Market.Language {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Brand.
+        /// </summary>
+        public static string ProductBrand {
+            get {
+                return ResourceManager.GetString("ProductBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProductDescription.
+        /// </summary>
+        public static string ProductDescription {
+            get {
+                return ResourceManager.GetString("ProductDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Discounted Price.
+        /// </summary>
+        public static string ProductDiscountedPrice {
+            get {
+                return ResourceManager.GetString("ProductDiscountedPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Image.
+        /// </summary>
+        public static string ProductImage {
+            get {
+                return ResourceManager.GetString("ProductImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product is Sale?.
+        /// </summary>
+        public static string ProductisSale {
+            get {
+                return ResourceManager.GetString("ProductisSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product is Stock?.
+        /// </summary>
+        public static string ProductisStock {
+            get {
+                return ResourceManager.GetString("ProductisStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Little Description.
+        /// </summary>
+        public static string ProductLittleDescription {
+            get {
+                return ResourceManager.GetString("ProductLittleDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Name.
+        /// </summary>
+        public static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Price.
+        /// </summary>
+        public static string ProductPrice {
+            get {
+                return ResourceManager.GetString("ProductPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Stock.
+        /// </summary>
+        public static string ProductStock {
+            get {
+                return ResourceManager.GetString("ProductStock", resourceCulture);
             }
         }
         

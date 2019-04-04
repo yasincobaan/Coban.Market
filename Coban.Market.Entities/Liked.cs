@@ -8,7 +8,6 @@ namespace Coban.Market.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         public virtual Product Products { get; set; }
         public virtual MarketUser LikedUser { get; set; }
     }

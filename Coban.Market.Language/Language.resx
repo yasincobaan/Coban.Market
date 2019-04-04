@@ -207,4 +207,37 @@
   <data name="NewRecord" xml:space="preserve">
     <value>New Record</value>
   </data>
+  <data name="CreateProduct" xml:space="preserve">
+    <value>Create Product</value>
+  </data>
+  <data name="ProductBrand" xml:space="preserve">
+    <value>Product Brand</value>
+  </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>ProductDescription</value>
+  </data>
+  <data name="ProductDiscountedPrice" xml:space="preserve">
+    <value>Product Discounted Price</value>
+  </data>
+  <data name="ProductImage" xml:space="preserve">
+    <value>Product Image</value>
+  </data>
+  <data name="ProductisSale" xml:space="preserve">
+    <value>Product is Sale?</value>
+  </data>
+  <data name="ProductisStock" xml:space="preserve">
+    <value>Product is Stock?</value>
+  </data>
+  <data name="ProductLittleDescription" xml:space="preserve">
+    <value>Product Little Description</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="ProductPrice" xml:space="preserve">
+    <value>Product Price</value>
+  </data>
+  <data name="ProductStock" xml:space="preserve">
+    <value>Product Stock</value>
+  </data>
 </root>

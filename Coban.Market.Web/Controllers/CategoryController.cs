@@ -24,6 +24,7 @@ namespace Coban.Market.Web.Controllers
         #region Create
         public ActionResult Create()
         {
+            ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
             return View();
         }
 
@@ -41,7 +42,7 @@ namespace Coban.Market.Web.Controllers
             {
                 categoryManager.Insert(category);
                 CacheHelper.RemoveCategoriesFromCache();
-                category = categoryManager.Find(x => x.Title == category.Title);
+                category = categoryManager.Find(x => x.Id == category.Id);
                 if (Image != null && (Image.ContentType == "image/jpeg" || Image.ContentType == "image/jpg" || Image.ContentType == "image/png"))
                 {
                     string filename = $"cat_{category.Id}.{Image.ContentType.Split('/')[1]}";
@@ -49,6 +50,7 @@ namespace Coban.Market.Web.Controllers
                     category.Image = filename;
                 }
                 categoryManager.Update(category);
+                ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category.CategoryId);
                 return RedirectToAction("Index");
             }
 
@@ -132,49 +134,31 @@ namespace Coban.Market.Web.Controllers
         }
 
 
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Category category = categoryManager.Find(x => x.Id == id.Value);
-
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
-
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(Category category, HttpPostedFileBase Image2)
         {
-            ModelState.Remove("CreatedOn");
-            ModelState.Remove("ModifiedOn");
-            ModelState.Remove("ModifiedUsername"); ModelState.Remove("CreatedUsername");
+            Category cat = categoryManager.Find(x => x.Id == category.Id);
 
-            if (ModelState.IsValid)
+            OperationResult operation = new OperationResult();
+
+            if (cat == null)
             {
-
-
-
-
-
-
-                Category cat = categoryManager.Find(x => x.Id == category.Id);
-                cat.Title = category.Title;
-                cat.Description = category.Description;
-
-                categoryManager.Update(cat);
-                CacheHelper.RemoveCategoriesFromCache();
-
-                return RedirectToAction("Index");
+                operation.Response += "Kategori Bulunamadı.";
+                return View("Index", operation);
             }
-            return View(category);
+            if (Image2 != null && (Image2.ContentType == "image/jpeg" || Image2.ContentType == "image/jpg" || Image2.ContentType == "image/png"))
+            {
+                string filename = $"cat_{category.Id}.{Image2.ContentType.Split('/')[1]}";
+                Image2.SaveAs(Server.MapPath($"~/Images/Category/{filename}"));
+                cat.Image = filename;
+            }
+            cat.Title = category.Title;
+            cat.Description = category.Description;
+            categoryManager.Update(cat);
+            CacheHelper.RemoveCategoriesFromCache();
+            operation.Result = true;
+            return View("Index", operation);
         }
 
 
@@ -203,6 +187,6 @@ namespace Coban.Market.Web.Controllers
 
 
 
-       
+
     }
 }

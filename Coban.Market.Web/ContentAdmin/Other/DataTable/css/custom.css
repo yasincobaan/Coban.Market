@@ -1,0 +1,19 @@
+﻿ #btnSave {
+     color: white;
+     cursor: pointer;
+ }
+
+ #errorP {
+     display: none;
+     font-size: 10px;
+     color: crimson;
+ }
+
+ #errorDiv {
+     display: none;
+     border: 1px solid black;
+ }
+
+ .swal2-confirm {
+     margin-left: 10px;
+ }

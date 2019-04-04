@@ -17,7 +17,9 @@ namespace Coban.Market.Entities
         [DisplayName("Kategori Resmi")]
         public string Image { get; set; }
 
-
+        public int? CategoryId { get; set; }
+        public virtual List<Category> Categories { get; set; }
+        
         public virtual List<Product> Products { get; set; }
 
         public Category()

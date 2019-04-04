@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Linq.Dynamic;
+using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers
 {
@@ -105,18 +106,23 @@ namespace Coban.Market.Web.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+
+        public JsonResult Delete(int id)
         {
+            OperationResult operation = new OperationResult();
+
             MarketUser mrktUser = mrktUserManager.Find(x => x.Id == id);
-            mrktUserManager.Delete(mrktUser);
+            if (mrktUser != null)
+            {
+                mrktUserManager.Delete(mrktUser);
+                CacheHelper.RemoveCategoriesFromCache();
+                operation.Result = true;
+                return Json(operation, JsonRequestBehavior.AllowGet);
 
-            return RedirectToAction("Index");
-        }
+            }
+            operation.Response += "Kategori Bulunamadı.";
+            return Json(operation, JsonRequestBehavior.AllowGet);
 
-        public ActionResult json(object asd )
-        {
-            return View();
         }
     }
 }

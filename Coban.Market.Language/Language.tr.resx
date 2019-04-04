@@ -207,4 +207,7 @@
   <data name="NewRecord" xml:space="preserve">
     <value>Yeni Kayıt</value>
   </data>
+  <data name="CreateProduct" xml:space="preserve">
+    <value>Ürün Oluştur</value>
+  </data>
 </root>

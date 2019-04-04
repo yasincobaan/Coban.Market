@@ -15,64 +15,55 @@
     </title>
     <link href="~/ContentAdmin/Page/Account/Login/css/login.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-
-    <style>
-        .title {
-            text-align: center;
-        }
-
-        .error {
-            text-align: center;
-            font-size: 12px;
-            color: crimson;
-            text-decoration: none;
-            list-style-type: none;
-        }
-
-        .text-danger {
-            text-align: center;
-            font-size: 12px;
-            color: crimson;
-            text-decoration: none;
-            list-style: none;
-            list-style-type: none;
-        }
-    </style>
+    <link href="~/ContentAdmin/Theme/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div class="wrapper">
         <div class="login">
             <p class="title">
                 @Language.SignIn
-
             </p>
-
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
                 <p class="error">
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     <br />
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </p>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = @Language.Email })
+                        </div>
+                    </div>
+                </div>
 
-                @Html.TextBoxFor(x => x.Email, new { @class = "email", @placeholder = @Language.Email })
-
-                <i class="fa fa-user">
-                </i>
-
-                @Html.TextBoxFor(x => x.Password, new { @class = "password", @placeholder = @Language.Password })
-
-                <i class="fa fa-key">
-                </i>
-
-                <a href="@Url.Action("ForgotPassword", "Account")">
-                    @Language.Forgotyourpassword
-                </a>
-                <button type="submit" class="sign">@Language.SignIn</button>
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+                            </div>
+                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = @Language.Password, type = "password" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-5">
+                        <a class="btn btn-link-success btn-sm float-left" href="@Url.Action("ForgotPassword", "Account")">
+                            @Language.Forgotyourpassword
+                        </a>
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success float-right" type="submit">@Language.SignIn</button>
+                    </div>
+                </div>
             }
         </div>
     </div>

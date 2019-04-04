@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="card shadow mb-4">
-            <a href="#monthsearch" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="a">
+            <a id="acilirKapanirMonth" href="#monthsearch" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="a">
                 <h6 class="m-0 font-weight-bold text-success text-center">
                     @Language.Monthandyearbasedsearch
                 </h6>
@@ -41,10 +41,10 @@
                         <span class="col-md-2">
                         </span>
                         <span class="col-md-2">
-                            <a href="#" class="btn btn-primary btn-icon-split mr-3" id="SearchMonthYear">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="SearchMonthYear">
+
+                                <i class="fas fa-search"></i>
+
                                 <span class="text">
                                     @Language.Search
                                 </span>
@@ -57,12 +57,12 @@
     </div>
     <div class="col-lg-6">
         <div class="card shadow mb-4 hei" id="hei">
-            <a href="#b" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="b">
+            <a id="acilirKapanirDatePicker" href="#datepicker" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="b">
                 <h6 class="m-0 font-weight-bold text-success text-center">
                     @Language.SearchforDates
                 </h6>
             </a>
-            <div class="collapse show" id="b" style="">
+            <div class="collapse show" id="datepicker" style="">
                 <div class="card-body">
                     <div class="form-group row">
                         <label class="control-label col-md-4">
@@ -78,13 +78,11 @@
                                 </div>
                             </div>
                         </span>
-                      
+
                         <span class="col-md-2">
 
-                            <a href="#" class="btn btn-primary btn-icon-split mr-3" id="SearchDateRange">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="SearchDateRange">
+                                <i class="fas fa-search"></i>
                                 <span class="text">
                                     @Language.Search
                                 </span>
@@ -99,3 +97,4 @@
     </div>
 </div>
 
+@Scripts.Render("~/searchBox/js")

@@ -44,11 +44,7 @@ namespace Coban.Market.Common.Helpers
                     result = true;
                 }
             }
-            catch (Exception)
-            {
-
-            }
-
+            catch (Exception){}
             return result;
         }
     }

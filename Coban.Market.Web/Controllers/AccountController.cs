@@ -10,7 +10,7 @@ namespace Coban.Market.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private  MarketUserManager mrktUserManager = new MarketUserManager();
+        private MarketUserManager mrktUserManager = new MarketUserManager();
 
         public ActionResult Login()
         {
@@ -35,6 +35,16 @@ namespace Coban.Market.Web.Controllers
             }
 
             return View(model);
+        }
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(string email)
+        {
+            return View();
         }
     }
 }

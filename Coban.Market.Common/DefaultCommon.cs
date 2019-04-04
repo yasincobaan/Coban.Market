@@ -4,7 +4,7 @@
     {
         public string GetCurrentUsername()
         {
-            return "system";
+            return "systemAdmin";
         }
     }
 }

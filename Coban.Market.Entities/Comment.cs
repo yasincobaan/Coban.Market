@@ -9,7 +9,6 @@ namespace Coban.Market.Entities
     {
         [Required, StringLength(300)]
         public string Text { get; set; }
-
         public virtual Product Products { get; set; }
         public virtual MarketUser Owner { get; set; }
     }

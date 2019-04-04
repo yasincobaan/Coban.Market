@@ -2,7 +2,7 @@
 
 namespace Coban.Market.DAL
 {
-    public class MyInitializer : CreateDatabaseIfNotExists<DatabaseContext>
+    public class MyInitializer : DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
         protected override void Seed(DatabaseContext context)
         {

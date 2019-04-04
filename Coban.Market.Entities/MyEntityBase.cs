@@ -10,18 +10,11 @@ namespace Coban.Market.Entities
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-
-
-
         [DisplayName("Oluşturma Tarihi"), ScaffoldColumn(false), Required]
         public DateTime CreatedOn { get; set; }
 
         [DisplayName("Oluşturan"), ScaffoldColumn(false), Required, StringLength(30)]
         public string CreatedUsername { get; set; }
-
-
-
-
 
         [DisplayName("Güncelleme Tarihi"), ScaffoldColumn(false), Required]
         public DateTime ModifiedOn { get; set; }

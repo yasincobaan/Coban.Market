@@ -11,7 +11,7 @@ namespace Coban.Market.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Liked> Likes { get; set; }
 
-        public DbSet<ProductStock> ProductStocks { get; set; }
+      
         
 
 

@@ -13,15 +13,24 @@
     @Styles.Render("~/main/css")
     @Scripts.Render("~/jquery")
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <script src="~/ContentAdmin/Theme/js/popper.js"></script>
+    <style>
+        .logo {
+            width: 50px;
+        }
+    </style>
 </head>
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
-                <div class="sidebar-brand-text mx-3">Coban</div><div class="sidebar-brand-icon">
-                    <img src="~/ContentAdmin/Images/logo.png" width="50px;" />
+                <div class="sidebar-brand-text mx-3">
+                    Coban
                 </div>
-
+                <div class="sidebar-brand-icon">
+                    <img src="~/ContentAdmin/Images/logo.png" class="logo" />
+                </div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -37,7 +46,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown no-arrow">
-                         @Html.Partial("_PartialLanguage")
+                            @Html.Partial("_PartialLanguage")
                         </li>
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item no-arrow ">
@@ -69,18 +78,6 @@
                     @RenderBody()
                 </div>
             </div>
-            @*<footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>
-                                Copyright &copy; @DateTime.Now.Year
-                                <a id="website" href="http://www.yasincoban.com">
-                                    Coban Market
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                </footer>*@
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
