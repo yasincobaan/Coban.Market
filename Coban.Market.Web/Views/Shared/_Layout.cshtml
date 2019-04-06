@@ -39,6 +39,65 @@
                     <span>@Language.Home</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="false" aria-controls="collapseCat">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Categories</span>
+                </a>
+                <div id="collapseCat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">
+                            Kategoriler
+                        </a>
+                        <a class="collapse-item" href="#">
+                            Kategori Ekle
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePrd" aria-expanded="false" aria-controls="collapsePrd">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Products</span>
+                </a>
+                <div id="collapsePrd" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">
+                            Products
+                        </a>
+                        <a class="collapse-item" href="#">
+                            Product Ekle
+                        </a>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="#">
+                            Users
+                        </a>
+                        <a class="collapse-item" href="#">
+                            User Ekle
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index","Home")">
+                    <i class="fa fa-home"></i>
+                    <span>
+                        Siparişler
+                    </span>
+                </a>
+            </li>
+           
 
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">

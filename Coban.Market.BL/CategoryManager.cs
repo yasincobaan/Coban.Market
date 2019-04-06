@@ -8,29 +8,22 @@ namespace Coban.Market.BL
     {
         public override int Delete(Category category)
         {
-            ProductManager noteManager = new ProductManager();
+            ProductManager prdManager = new ProductManager();
             LikedManager likedManager = new LikedManager();
             CommentManager commentManager = new CommentManager();
-
-            // Kategori ile ilişkili notların silinmesi gerekiyor.
+            
             foreach (Product prd in category.Products.ToList())
             {
-
-                // Note ile ilişikili like'ların silinmesi.
                 foreach (Liked like in prd.Likes.ToList())
                 {
                     likedManager.Delete(like);
                 }
-
-                // Note ile ilişkili comment'lerin silinmesi
                 foreach (Comment comment in prd.Comments.ToList())
                 {
                     commentManager.Delete(comment);
                 }
-
-                noteManager.Delete(prd);
+                prdManager.Delete(prd);
             }
-
             return base.Delete(category);
         }
     }

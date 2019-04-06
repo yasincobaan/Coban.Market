@@ -3,69 +3,111 @@
 
 @{
     ViewBag.Title = "Coban Market | " + Language.SignIn;
-    Layout = null;
 }
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <title>
-        Coban Market @Language.FormLogin
-    </title>
-    <link href="~/ContentAdmin/Page/Account/Login/css/login.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link href="~/ContentAdmin/Theme/css/bootstrap.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="wrapper">
-        <div class="login">
-            <p class="title">
-                @Language.SignIn
-            </p>
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <p class="error">
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    <br />
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </p>
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        <div class="input-group ">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
-                            </div>
-                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = @Language.Email })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
-                            </div>
-                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @placeholder = @Language.Password, type = "password" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-5">
-                        <a class="btn btn-link-success btn-sm float-left" href="@Url.Action("ForgotPassword", "Account")">
-                            @Language.Forgotyourpassword
-                        </a>
-                    </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-4">
-                        <button class="btn btn-success float-right" type="submit">@Language.SignIn</button>
-                    </div>
-                </div>
-            }
+<div class="page-title">
+    <div class="container">
+        <div class="column">
+            <h1>Login & Register</h1>
+        </div>
+        <div class="column">
+            <ul class="breadcrumbs">
+                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                <li class="separator">&nbsp;</li>
+                <li>Login & Register</li>
+            </ul>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+
+<div class="container  padding-bottom-3x">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="login-box" method="post">
+                <h4 class="margin-bottom-1x">Sign in with a Social Account</h4>
+                <div class="row margin-bottom-1x">
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block facebook-btn" href="#">
+                            <i class="socicon-facebook"></i>
+                            &nbsp;Facebook login
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block twitter-btn" href="#">
+                            <i class="socicon-twitter"></i>
+                            &nbsp;Twitter login
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block google-btn" href="#">
+                            <i class="socicon-googleplus"></i>
+                            &nbsp;Google+ login
+                        </a>
+                    </div>
+                </div>
+                <h4 class="margin-bottom-1x">Or using form below</h4>
+                <div class="form-group input-group">
+                    <input class="form-control" type="email" placeholder="Enter E-Mail" required><span class="input-group-addon"><i class="icon-mail"></i></span>
+                </div>
+                <div class="form-group input-group">
+                    <input class="form-control" type="password" placeholder="Enter Password" required><span class="input-group-addon"><i class="icon-lock"></i></span>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+                    <div class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox" id="remember_me" checked>
+                        <label class="custom-control-label" for="remember_me">Remember Me</label>
+                    </div><a class="navi-link" href="account-password-recovery.html">Forgot Password?</a>
+                </div>
+                <div class="text-center text-sm-right">
+                    <button class="btn btn-primary margin-bottom-none" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="padding-top-3x hidden-md-up"></div>
+            <h3 class="margin-bottom-1x padding-top-1x">No Account? Register Here</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ...</p>
+            <form class="row" method="post">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-fn">First Name</label>
+                        <input class="form-control" type="text" id="reg-fn" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-ln">Last Name</label>
+                        <input class="form-control" type="text" id="reg-ln" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-email">E-Mail Address</label>
+                        <input class="form-control" type="email" id="reg-email" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <input class="form-control" type="text" id="reg-phone" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-pass">Password</label>
+                        <input class="form-control" type="password" id="reg-pass" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-pass-confirm">Confirm Password</label>
+                        <input class="form-control" type="password" id="reg-pass-confirm" required>
+                    </div>
+                </div>
+                <div class="col-12 text-center text-sm-right">
+                    <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

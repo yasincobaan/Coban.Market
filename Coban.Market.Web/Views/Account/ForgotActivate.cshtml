@@ -1,8 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "ForgotPassword";
-    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    ViewBag.Title = "ForgotActivate";
 }
+
 
 <div class="page-title">
     <div class="container">
@@ -31,13 +31,17 @@
                 <li><span class="text-primary text-medium">3. </span>Use the link to change your password.</li>
             </ol>
             <div class="card mt-4">
-                @using (Html.BeginForm("ForgotPassword", "Account", FormMethod.Post))
+                @using (Html.BeginForm("ForgotActivate", "Account", FormMethod.Post))
                 {
-                    <div class="card-body">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="email" id="email-for-pass" placeholder="Enter your email address" required>
-                        </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="email" id="email-for-pass" placeholder="Enter your email address" required>
+
+                    </div> <div class="form-group">
+                        <input class="form-control" type="text" name="email" id="email-for-pass" placeholder="Enter your email address" required>
+
                     </div>
+                </div>
                     <div class="card-footer">
                         <button class="btn btn-primary" type="submit">Get New Password</button>
                     </div>
@@ -46,3 +50,5 @@
         </div>
     </div>
 </div>
+
+

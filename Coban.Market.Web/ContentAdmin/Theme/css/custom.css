@@ -11,11 +11,11 @@
 
 
 .sidebar-dark {
-    background-image: linear-gradient(#feac5e, #c779d0,#4bc0c8);
+    background-image: linear-gradient(#dc2430,#7b4397, #61045f);
 }
 
 .navbar {
-    background-image: linear-gradient(to right,white, #feac5e);
+    background-image: linear-gradient(to right,#dc2430,#7b4397, #61045f);
 }
 
 #profileimage {

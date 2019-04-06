@@ -32,5 +32,20 @@ namespace Coban.Market.Web.Controllers
 
             return View("Index");
         }
+
+        public ActionResult Search(string site_search)
+        {
+            //to do arama 
+            return View("Index");
+        }
+
+        public ActionResult ShopCategory(int? id)
+        {
+            //kategoriye göre filtrele
+            return View("Index");
+        }
+
+        
+
     }
 }

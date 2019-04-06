@@ -177,7 +177,7 @@ namespace Coban.Market.BL
         }
 
 
-        // Method hiding..
+        
         public new BusinessLayerResult<MarketUser> Insert(MarketUser data)
         {
             MarketUser user = Find(x => x.Username == data.Username || x.Email == data.Email);

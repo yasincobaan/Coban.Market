@@ -178,6 +178,7 @@
   <ItemGroup>
     <Content Include="ContentAdmin\Images\login-bg.jpeg" />
     <Content Include="ContentAdmin\Images\logo.png" />
+    <Content Include="ContentAdmin\Images\user.png" />
     <Content Include="ContentAdmin\Other\DataTable\css\button-bootstrap.css" />
     <Content Include="ContentAdmin\Other\DataTable\css\buttons.dataTables.min.css" />
     <Content Include="ContentAdmin\Other\DataTable\css\custom.css" />
@@ -471,6 +472,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Shared\_PartialFooter.cshtml" />
     <Content Include="Views\Shared\_PartialFeaturedProducts.cshtml" />
+    <Content Include="Views\Account\ForgotActivate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

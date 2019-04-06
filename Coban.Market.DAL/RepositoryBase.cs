@@ -9,7 +9,6 @@
         {
             CreateContext();
         }
-
         private static void CreateContext()
         {
             if (context == null)

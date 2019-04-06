@@ -1,8 +1,60 @@
-﻿
+﻿@using Coban.Market.Entities
+
 @{
     ViewBag.Title = "Index";
+    IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
+    IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
 }
-<div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-    <label class="custom-control-label" for="customCheck">Check this custom checkbox</label>
-</div>
+
+@Html.Partial("_PartialCategoryMainPage", categories)
+
+@Html.Partial("_PartialFeaturedProducts", products)
+
+<section class="bg-faded padding-top-3x padding-bottom-3x">
+    <div class="container">
+        <h3 class="text-center mb-30">Popular Brands</h3>
+        <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "loop": true, "autoplay": true, "autoplayTimeout": 4000, "responsive": {"0":{"items":2}, "470":{"items":3},"630":{"items":4},"991":{"items":5},"1200":{"items":6}} }'>
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/01.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/02.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/03.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/04.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/05.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/06.png" alt="Brands">
+            <img class="d-block w-110 opacity-75 m-auto" src="~/ContentCustomer/Theme/images/brands/07.png" alt="Brands">
+        </div>
+    </div>
+</section>
+
+<section class="container padding-top-3x padding-bottom-3x">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 text-center home-cat">
+            <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="~/ContentCustomer/Theme/images/services/01.png" alt="Shipping">
+            <h6>Free Shipping</h6>
+            <p class="text-muted margin-bottom-none">On order over $200 ...</p>
+        </div>
+        <div class="col-md-3 col-sm-6 text-center home-cat">
+            <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="~/ContentCustomer/Theme/images/services/02.png" alt="Money Back">
+            <h6>Money Back</h6>
+            <p class="text-muted margin-bottom-none">Moneyback guarantee ...</p>
+        </div>
+        <div class="col-md-3 col-sm-6 text-center home-cat">
+            <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="~/ContentCustomer/Theme/images/services/03.png" alt="Support">
+            <h6>24/7 Support</h6>
+            <p class="text-muted margin-bottom-none">Online consultations ...</p>
+        </div>
+        <div class="col-md-3 col-sm-6 text-center home-cat">
+            <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="~/ContentCustomer/Theme/images/services/04.png" alt="Payment">
+            <h6>Secure Payment</h6>
+            <p class="text-muted margin-bottom-none">Safe Shopping Guarantee ...</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+@Html.Partial("_PartialFooter")

@@ -12,33 +12,25 @@ namespace Coban.Market.DAL
     public class Repository<T> : RepositoryBase, IDataAccess<T> where T : class
     {
         private DbSet<T> _objectSet;
-
         public Repository()
         {
             _objectSet = context.Set<T>();
         }
-
-
-
         public List<T> List()
         {
             return _objectSet.ToList();
         }
-
         public IQueryable<T> ListQueryable()
         {
             return _objectSet.AsQueryable<T>();
         }
-
         public List<T> List(Expression<Func<T, bool>> where)
         {
             return _objectSet.Where(where).ToList();
         }
-
         public int Insert(T obj)
         {
             _objectSet.Add(obj);
-
             if (obj is MyEntityBase)
             {
                 MyEntityBase o = obj as MyEntityBase;
@@ -50,7 +42,6 @@ namespace Coban.Market.DAL
                 o.ModifiedOn = now;
                 o.ModifiedUsername = App.Common.GetCurrentUsername();
             }
-
             return Save();
         }
 
@@ -59,11 +50,9 @@ namespace Coban.Market.DAL
             if (obj is MyEntityBase)
             {
                 MyEntityBase o = obj as MyEntityBase;
-
                 o.ModifiedOn = DateTime.Now;
                 o.ModifiedUsername = App.Common.GetCurrentUsername();
             }
-
             return Save();
         }
 

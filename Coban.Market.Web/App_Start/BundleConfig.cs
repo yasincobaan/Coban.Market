@@ -79,8 +79,7 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/DateRangePicker/js/daterangestart.js"
             ));
             #endregion
-
-
+            
             #region SearchBox
 
             bundles.Add(new ScriptBundle("~/searchBox/js").Include(
@@ -88,13 +87,7 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
-
-
-
-
-
-
+            
             #region MarketUser
 
             // MarketUser - Index - Css
@@ -147,24 +140,24 @@ namespace Coban.Market.Web
 
             #endregion
 
-
+            #region Layout Customer Js
             // Layout Customer js
             bundles.Add(new ScriptBundle("~/layoutCustomer/js").Include(
-                        "~/ContentCustomer/Theme/js/modernizr.min.js",
-                         "~/ContentCustomer/Theme/js/jquery.min.js",
-                         "~/ContentCustomer/Theme/js/popper.min.js",
-                         "~/ContentCustomer/Theme/js/bootstrap.min.js",
-                         "~/ContentCustomer/Theme/js/count.min.js",
-                         "~/ContentCustomer/Theme/js/gmap.min.js",
-                         "~/ContentCustomer/Theme/js/imageloader.min.js",
-                         "~/ContentCustomer/Theme/js/isotope.min.js",
-                         "~/ContentCustomer/Theme/js/nouislider.min.js",
-                         "~/ContentCustomer/Theme/js/owl.carousel.min.js",
-                         "~/ContentCustomer/Theme/js/photoswipe-ui-default.min.js",
-                         "~/ContentCustomer/Theme/js/photoswipe.min.js",
-                         "~/ContentCustomer/Theme/js/velocity.min.js",
-                         "~/ContentCustomer/Theme/js/script.js",
-                         "~/ContentCustomer/Theme/js/custom.js"
+                "~/ContentCustomer/Theme/js/modernizr.min.js",
+                "~/ContentCustomer/Theme/js/jquery.min.js",
+                "~/ContentCustomer/Theme/js/popper.min.js",
+                "~/ContentCustomer/Theme/js/bootstrap.min.js",
+                "~/ContentCustomer/Theme/js/count.min.js",
+                "~/ContentCustomer/Theme/js/gmap.min.js",
+                "~/ContentCustomer/Theme/js/imageloader.min.js",
+                "~/ContentCustomer/Theme/js/isotope.min.js",
+                "~/ContentCustomer/Theme/js/nouislider.min.js",
+                "~/ContentCustomer/Theme/js/owl.carousel.min.js",
+                "~/ContentCustomer/Theme/js/photoswipe-ui-default.min.js",
+                "~/ContentCustomer/Theme/js/photoswipe.min.js",
+                "~/ContentCustomer/Theme/js/velocity.min.js",
+                "~/ContentCustomer/Theme/js/script.js",
+                "~/ContentCustomer/Theme/js/custom.js"
             ));
 
 
@@ -179,17 +172,10 @@ namespace Coban.Market.Web
                 "~/ContentCustomer/Theme/css/photoswipe.css",
                 "~/ContentCustomer/Theme/css/izitoast.css",
                 "~/ContentCustomer/Theme/css/style.css"
-                ));
+            ));
 
-
-
-
-
-
-
-
-
-
+            #endregion
+            
         }
     }
 }
