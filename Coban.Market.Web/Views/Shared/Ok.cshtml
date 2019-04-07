@@ -1,0 +1,42 @@
+﻿@model Coban.Market.Web.Models.ViewModels.OkViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+@Html.Partial("_Partialbreadcrumbs")
+
+<div class="container  padding-bottom-1x">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="login-box">
+                @Model.Header
+                <p>
+                    <h2 class="text-success"><span class="fa fa-check"></span>@Model.Title</h2>
+                </p>
+                <p class="text-justify ">
+                    @foreach (string msg in Model.Items)
+                    {
+                        @msg<br>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    string js = string.Empty;
+
+    if (Model.IsRedirecting)
+    {
+        js = "setTimeout(function () { window.location = '" + Model.RedirectingUrl + "'; }, " +
+             Model.RedirectingTimeout + ");";
+    }
+}
+
+<script>
+
+    $(function () {
+        @Html.Raw(js);
+    });
+
+</script>

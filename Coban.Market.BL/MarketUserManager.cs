@@ -12,9 +12,9 @@ namespace Coban.Market.BL
 {
     public class MarketUserManager : ManagerBase<MarketUser>
     {
-        public BusinessLayerResult<MarketUser> RegisterUser(RegisterViewModel data)
+        public BusinessLayerResult<MarketUser> RegisterUser(AccountViewModel data)
         {
-            MarketUser user = Find(x => x.Username == data.Username || x.Email == data.Email);
+            MarketUser user = Find(x => x.Username ==data.Username || x.Email ==data.Email);
             BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
 
             if (user != null)
@@ -24,7 +24,7 @@ namespace Coban.Market.BL
                     res.AddError(ErrorMessageCode.UsernameAlreadyExists, "Kullanıcı adı kayıtlı.");
                 }
 
-                if (user.Email == data.Email)
+                if (user.Email ==data.Email)
                 {
                     res.AddError(ErrorMessageCode.EmailAlreadyExists, "E-posta adresi kayıtlı.");
                 }
@@ -33,13 +33,14 @@ namespace Coban.Market.BL
             {
                 int dbResult = base.Insert(new MarketUser()
                 {
-                    Username = data.Username,
+                    Username =data.Username,
                     Email = data.Email,
                     ProfileImageFilename = "user_boy.png",
-                    Password = data.Password,
+                    Password =data.Password,
                     ActivateGuid = Guid.NewGuid(),
                     IsActive = false,
-                    Role = MarketUserRole.NewUser
+                    Role = MarketUserRole.NewUser,
+                    Phone = data.Phone
                 });
 
                 if (dbResult > 0)
@@ -70,10 +71,10 @@ namespace Coban.Market.BL
             return res;
         }
 
-        public BusinessLayerResult<MarketUser> LoginUser(LoginViewModel model)
+        public BusinessLayerResult<MarketUser> LoginUser(AccountViewModel data)
         {
             BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
-            res.Result = Find(x => x.Email == model.Email && x.Password == model.Password);
+            res.Result = Find(x => x.Email == data.Email && x.Password == data.Password);
 
             if (res.Result != null)
             {

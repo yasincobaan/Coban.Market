@@ -149,6 +149,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketUserController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OtherController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Filters\Auth.cs" />
@@ -414,6 +415,10 @@
     <Content Include="ContentCustomer\Theme\js\velocity.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Brand\apple1.png" />
+    <Content Include="Images\Brand\monster.png" />
+    <Content Include="Images\Brand\philips1.png" />
+    <Content Include="Images\Brand\samsungbrand.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -454,7 +459,7 @@
     <Content Include="ContentCustomer\Theme\fonts\socicond41d.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Account.cshtml" />
     <Content Include="Views\MarketUser\Index.cshtml" />
     <Content Include="Views\Shared\_PartialSearchBox.cshtml" />
     <Content Include="Views\Shared\_PartialDatatable.cshtml" />
@@ -473,6 +478,10 @@
     <Content Include="Views\Shared\_PartialFooter.cshtml" />
     <Content Include="Views\Shared\_PartialFeaturedProducts.cshtml" />
     <Content Include="Views\Account\ForgotActivate.cshtml" />
+    <Content Include="Views\Shared\_PartialServiceBrand.cshtml" />
+    <Content Include="Views\Shared\_Partialbreadcrumbs.cshtml" />
+    <Content Include="Views\Other\AboutUs.cshtml" />
+    <Content Include="Views\Shared\Ok.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

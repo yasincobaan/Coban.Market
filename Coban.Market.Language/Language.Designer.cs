@@ -160,6 +160,24 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Free Shipping.
+        /// </summary>
+        public static string FreeShipping {
+            get {
+                return ResourceManager.GetString("FreeShipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friday.
+        /// </summary>
+        public static string Friday {
+            get {
+                return ResourceManager.GetString("Friday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -183,6 +201,33 @@ namespace Coban.Market.Language {
         public static string MarketUserSave {
             get {
                 return ResourceManager.GetString("MarketUserSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monday.
+        /// </summary>
+        public static string Monday {
+            get {
+                return ResourceManager.GetString("Monday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Money Back ....
+        /// </summary>
+        public static string MoneyBack {
+            get {
+                return ResourceManager.GetString("MoneyBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Money Back Guarantee .
+        /// </summary>
+        public static string Moneybackguarantee {
+            get {
+                return ResourceManager.GetString("Moneybackguarantee", resourceCulture);
             }
         }
         
@@ -219,6 +264,24 @@ namespace Coban.Market.Language {
         public static string NowLang {
             get {
                 return ResourceManager.GetString("NowLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online consultations ....
+        /// </summary>
+        public static string OnlineConsultations {
+            get {
+                return ResourceManager.GetString("OnlineConsultations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On order over ₺100 ....
+        /// </summary>
+        public static string Over100 {
+            get {
+                return ResourceManager.GetString("Over100", resourceCulture);
             }
         }
         
@@ -331,6 +394,24 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Safe Shopping Guarantee ....
+        /// </summary>
+        public static string SafeShoppingGuarantee {
+            get {
+                return ResourceManager.GetString("SafeShoppingGuarantee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saturday.
+        /// </summary>
+        public static string Saturday {
+            get {
+                return ResourceManager.GetString("Saturday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
@@ -354,6 +435,15 @@ namespace Coban.Market.Language {
         public static string SearchforDates {
             get {
                 return ResourceManager.GetString("SearchforDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secure Payment.
+        /// </summary>
+        public static string SecurePayment {
+            get {
+                return ResourceManager.GetString("SecurePayment", resourceCulture);
             }
         }
         
@@ -399,6 +489,24 @@ namespace Coban.Market.Language {
         public static string SignIn {
             get {
                 return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunday.
+        /// </summary>
+        public static string Sunday {
+            get {
+                return ResourceManager.GetString("Sunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        public static string Support {
+            get {
+                return ResourceManager.GetString("Support", resourceCulture);
             }
         }
         

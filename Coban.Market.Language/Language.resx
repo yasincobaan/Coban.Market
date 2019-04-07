@@ -240,4 +240,40 @@
   <data name="ProductStock" xml:space="preserve">
     <value>Product Stock</value>
   </data>
+  <data name="FreeShipping" xml:space="preserve">
+    <value>Free Shipping</value>
+  </data>
+  <data name="MoneyBack" xml:space="preserve">
+    <value>Money Back ...</value>
+  </data>
+  <data name="Moneybackguarantee" xml:space="preserve">
+    <value>Money Back Guarantee </value>
+  </data>
+  <data name="OnlineConsultations" xml:space="preserve">
+    <value>Online consultations ...</value>
+  </data>
+  <data name="Over100" xml:space="preserve">
+    <value>On order over ₺100 ...</value>
+  </data>
+  <data name="SafeShoppingGuarantee" xml:space="preserve">
+    <value>Safe Shopping Guarantee ...</value>
+  </data>
+  <data name="SecurePayment" xml:space="preserve">
+    <value>Secure Payment</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
 </root>

@@ -1,0 +1,125 @@
+﻿@using Coban.Market.Language
+@model Coban.Market.Entities.ValueObjects.AccountViewModel
+@{
+    ViewBag.Title = Language.SignIn;
+}
+
+@Html.Partial("_Partialbreadcrumbs")
+
+<div class="container  padding-bottom-1x">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="login-box">
+                <h4 class="margin-bottom-1x">
+                    Sign in with a Social Account
+                </h4>
+                <div class="row margin-bottom-1x">
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block facebook-btn" href="#">
+                            <i class="socicon-facebook"></i>
+                            &nbsp;Facebook login
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block twitter-btn" href="#">
+                            <i class="socicon-twitter"></i>
+                            &nbsp;Twitter login
+                        </a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-4">
+                        <a class="btn btn-sm btn-block google-btn" href="#">
+                            <i class="socicon-googleplus"></i>
+                            &nbsp;Google+ login
+                        </a>
+                    </div>
+                </div>
+                <h4 class="margin-bottom-1x">
+                    Or using form below
+                </h4>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                 
+                    <div class="form-group input-group">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "E-Posta adresinizi giriniz", type = "email", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        <span class="input-group-addon"><i class="icon-mail"></i></span>
+                    </div>
+                    <div class="form-group input-group">
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifrenizi giriniz", type = "password", @required = "required" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        <span class="input-group-addon"><i class="icon-lock"></i></span>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+                        <div class="custom-control custom-checkbox"></div>
+                        <a class="navi-link" href="@Url.Action("ForgotPassword")">Forgot Password?</a>
+                    </div>
+                    <div class="col-lg-12 text-center text-lg-left">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                       
+                    </div>
+                    <div class="text-center text-sm-right">
+                        <button class="btn btn-primary margin-bottom-none" type="submit">Login</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <h3 class="margin-bottom-1x padding-top-1x">No Account? Register Here</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting ...</p>
+            <div class="row">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <div class="col-lg-12">
+                        <div class="form-group row">
+                            <div class="col-lg-2">First Name</div>
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control col-lg-4", placeholder = "İsmini giriniz", type = "text", @required = "required" })
+                            <div class="col-lg-2">Last Name</div>
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control col-lg-4", placeholder = "Soyisminizi giriniz", type = "text", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group row">
+                            <div class="col-lg-2">User Name</div>
+                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control col-lg-4", placeholder = "Kullanıcı adınızı giriniz", type = "text", @required = "required" })
+                            <div class="col-lg-2">Phone</div>
+                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control col-lg-4", placeholder = "Telefon numarasını giriniz", type = "text", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group row">
+                            <div class="col-lg-3">Email</div>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control col-lg-9", placeholder = "E-Mail adresinizi giriniz", type = "text", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group row">
+                            <div class="col-lg-2">Password</div>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control col-lg-4", placeholder = "Şifrenizi giriniz", type = "text", @required = "required" })
+                            <div class="col-lg-2">Password</div>
+                            @Html.TextBoxFor(model => model.RePassword, new { @class = "form-control col-lg-4", placeholder = "Şifrenizi tekrar giriniz", type = "text", @required = "required" })
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center text-lg-left">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })<br />
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })<br />
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })<br />
+                        @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-12 text-center text-lg-right">
+                        <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

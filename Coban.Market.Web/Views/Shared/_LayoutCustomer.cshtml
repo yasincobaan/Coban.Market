@@ -2,8 +2,8 @@
 @using Coban.Market.Web.Models
 @using Coban.Market.Entities
 @{
-    IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
-    IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
+//IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
+//IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -41,7 +41,7 @@
                         </a>
                     </span>
                 </li>
-                @foreach (var item in categories)
+                @*@foreach (var item in categories)
                 {
                     if (item.Categories != null && item.Id != 1)
                     {
@@ -64,7 +64,7 @@
                             </ul>
                         </li>
                     }
-                }
+                }*@
             </ul>
         </nav>
     </div>
@@ -107,7 +107,7 @@
                         </a>
                     </span>
                 </li>
-                @foreach (var item in categories)
+                @*@foreach (var item in categories)
                 {
                     if (item.Categories != null && item.Id != 1)
                     {
@@ -130,7 +130,7 @@
                             </ul>
                         </li>
                     }
-                }
+                }*@
             </ul>
         </nav>
     </div>
@@ -177,6 +177,7 @@
                 <a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
                 <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
                 <a class="site-logo" href="@Url.Action("Index","Home")"><img style="width: 50px;" src="~/ContentAdmin/Images/logo.png" alt="Inspina"></a>
+      
             </div>
         </div>
 

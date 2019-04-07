@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Coban.Market.BL;
+using Coban.Market.Entities;
 
 namespace Coban.Market.Web.Controllers
 {
@@ -45,7 +46,11 @@ namespace Coban.Market.Web.Controllers
             return View("Index");
         }
 
-        
+        public ActionResult SingleProduct(int? id)
+        {
+            Product mrktUser = prdManager.Find(x => x.Id == id);
+            return View(mrktUser);
+        }
 
     }
 }

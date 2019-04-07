@@ -34,7 +34,11 @@ namespace Coban.Market.Entities
         [DisplayName("Aktif")]
         public bool IsActive { get; set; }
 
-       
+        [DisplayName("Telefon Numarası"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        public string Phone { get; set; }
+
+        [DisplayName("Ödül Puanı"), Required(ErrorMessage = "{0} alanı gereklidir.")]
+        public int RewardScore { get; set; }
 
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }

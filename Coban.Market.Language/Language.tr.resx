@@ -210,4 +210,40 @@
   <data name="CreateProduct" xml:space="preserve">
     <value>Ürün Oluştur</value>
   </data>
+  <data name="Free Shipping" xml:space="preserve">
+    <value>Ücretsiz Kargo</value>
+  </data>
+  <data name="MoneyBack" xml:space="preserve">
+    <value>Para İade ...</value>
+  </data>
+  <data name="Moneybackguarantee" xml:space="preserve">
+    <value>Para iade garantisi</value>
+  </data>
+  <data name="OnlineConsultations" xml:space="preserve">
+    <value>Online danışmalar ...</value>
+  </data>
+  <data name="Over100" xml:space="preserve">
+    <value>₺200  'dan fazla siparişte ...</value>
+  </data>
+  <data name="SafeShoppingGuarantee" xml:space="preserve">
+    <value>Güvenli Alışveriş Garantisi ...</value>
+  </data>
+  <data name="SecurePayment" xml:space="preserve">
+    <value>Güvenli Ödeme</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Destek</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Cuma</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Pazartesi</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Cumartesi</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Cuma</value>
+  </data>
 </root>
