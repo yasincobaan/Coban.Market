@@ -15,51 +15,12 @@ namespace Coban.Market.Web.Controllers
     {
         private CategoryManager categoryManager = new CategoryManager();
 
+        #region Index
 
         public ActionResult Index()
         {
             return View();
         }
-
-        #region Create
-        public ActionResult Create()
-        {
-            ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
-            return View();
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Category category, HttpPostedFileBase Image)
-        {
-            ModelState.Remove("CreatedOn");
-            ModelState.Remove("CreatedUsername");
-            ModelState.Remove("ModifiedOn");
-            ModelState.Remove("ModifiedUsername");
-
-            if (ModelState.IsValid)
-            {
-                categoryManager.Insert(category);
-                CacheHelper.RemoveCategoriesFromCache();
-                category = categoryManager.Find(x => x.Id == category.Id);
-                if (Image != null && (Image.ContentType == "image/jpeg" || Image.ContentType == "image/jpg" || Image.ContentType == "image/png"))
-                {
-                    string filename = $"cat_{category.Id}.{Image.ContentType.Split('/')[1]}";
-                    Image.SaveAs(Server.MapPath($"~/Images/Category/{filename}"));
-                    category.Image = filename;
-                }
-                categoryManager.Update(category);
-                ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category.CategoryId);
-                return RedirectToAction("Index");
-            }
-
-            return View(category);
-        }
-
-
-        #endregion
-
         public ActionResult LoadData()
         {
 
@@ -132,9 +93,48 @@ namespace Coban.Market.Web.Controllers
             var data = catData.Skip(skip).Take(pageSize).OrderByDescending(x => x.CreatedOn).ToList();
             return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
         }
+        #endregion
+        
+        #region Create
+        public ActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
+            return View();
+        }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Category category, HttpPostedFileBase Image)
+        {
+            ModelState.Remove("CreatedOn");
+            ModelState.Remove("CreatedUsername");
+            ModelState.Remove("ModifiedOn");
+            ModelState.Remove("ModifiedUsername");
 
+            if (ModelState.IsValid)
+            {
+                categoryManager.Insert(category);
+                CacheHelper.RemoveCategoriesFromCache();
+                category = categoryManager.Find(x => x.Id == category.Id);
+                if (Image != null && (Image.ContentType == "image/jpeg" || Image.ContentType == "image/jpg" || Image.ContentType == "image/png"))
+                {
+                    string filename = $"cat_{category.Id}.{Image.ContentType.Split('/')[1]}";
+                    Image.SaveAs(Server.MapPath($"~/Images/Category/{filename}"));
+                    category.Image = filename;
+                }
+                categoryManager.Update(category);
+                ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category.CategoryId);
+                return RedirectToAction("Index");
+            }
+
+            return View(category);
+        }
+
+
+        #endregion
+        
+        #region Edit
         [HttpPost]
         public ActionResult Edit(Category category, HttpPostedFileBase Image2)
         {
@@ -163,6 +163,9 @@ namespace Coban.Market.Web.Controllers
 
 
 
+        #endregion
+
+        #region Delete
 
 
         [HttpPost]
@@ -186,7 +189,7 @@ namespace Coban.Market.Web.Controllers
         }
 
 
-
+        #endregion
 
     }
 }

@@ -18,7 +18,7 @@ namespace Coban.Market.Web.Controllers
         CategoryManager catManager = new CategoryManager();
         ProductManager prdManager = new ProductManager();
 
-
+        #region Login-Register
         public ActionResult Account()
         {
             ViewData["catList"] = catManager.ListQueryable();
@@ -60,7 +60,7 @@ namespace Coban.Market.Web.Controllers
                 if (res.Errors.Count > 0)
                 {
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
-                    return View("Account",model);
+                    return View("Account", model);
                 }
                 OkViewModel notifyObj = new OkViewModel()
                 {
@@ -75,60 +75,79 @@ namespace Coban.Market.Web.Controllers
 
             return View("Account", model);
         }
+        #endregion
 
+        #region Forgot Password
 
         [HttpGet]
         public ActionResult ForgotPassword()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult ForgotPassword(string email)
+        public ActionResult ForgotPassword(AccountViewModel model)
         {
-            MarketUser mrktUser = mrktUserManager.Find(x => x.Email == email);
+            ModelState.Remove("FirstName");
+            ModelState.Remove("LastName");
+            ModelState.Remove("Username");
+            ModelState.Remove("Password");
+            ModelState.Remove("RePassword");
+            ModelState.Remove("Phone");
 
-            if (mrktUser == null)
+            if (ModelState.IsValid)
             {
-                return View(email);
-            }
-            else
-            {
-                mrktUser.IsActive = false;
-                string siteUri = ConfigHelper.Get<string>("SiteRootUri");
-                string activateUri = $"{siteUri}/Account/ForgotActivate/{mrktUser.ActivateGuid}";
-                string body = $"Merhaba {mrktUser.Username};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUri}' target='_blank'>tıklayınız</a>.";
-                MailHelper.SendMail(body, mrktUser.Email, "Coban Market Şifre Yenileme");
+                BusinessLayerResult<MarketUser> res = mrktUserManager.ForgotPass(model);
 
-                return RedirectToAction("ForgotActivate", "Account");
+                if (res.Errors.Count > 0)
+                {
+                    res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
+                    return View("ForgotPassword", model);
+                }
+                OkViewModel notifyObj = new OkViewModel()
+                {
+                    Title = "Kayıt Başarılı",
+                    RedirectingUrl = "/Account/Account",
+                };
+
+                notifyObj.Items.Add("Lütfen e-posta adresinize gönderdiğimiz şifre yenileme linkine tıklayınız. Güvenlik sebepleriyle şifrenizi yenileyene kadar hesabınız devre dışı bırakılmıştır.");
+
+                return View("Ok", notifyObj);
             }
+
+            return View("ForgotPassword", model);
         }
 
 
 
+        #endregion
+
+        #region Forgot Password Recovery and Active
         [HttpGet]
-        public ActionResult ForgotActivate(Guid guid)
+        public ActionResult ForgotActivate(Guid id)
         {
+            MarketUser mrktUser = mrktUserManager.Find(x => x.ActivateGuid == id);
+            if (mrktUser != null)
+            {
+                return View(mrktUser);
+            }
+            //404
             return View();
         }
         [HttpPost]
-        public ActionResult ForgotActivate(string email)
+        public ActionResult ForgotActivate(Guid Id, string Password)
         {
-            MarketUser mrktUser = mrktUserManager.Find(x => x.Email == email);
+            BusinessLayerResult<MarketUser> res = mrktUserManager.ForgotActive(Id, Password);
 
-            if (mrktUser == null)
+            if (res.Errors.Count > 0)
             {
-                return View(email);
+                res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
             }
-            else
-            {
-                mrktUser.IsActive = false;
-                string siteUri = ConfigHelper.Get<string>("SiteRootUri");
-                string activateUri = $"{siteUri}/Account/ForgotActivate/{mrktUser.ActivateGuid}";
-                string body = $"Merhaba {mrktUser.Username};<br><br>Hesabınızı aktifleştirmek için <a href='{activateUri}' target='_blank'>tıklayınız</a>.";
-                MailHelper.SendMail(body, mrktUser.Email, "Coban Market Şifre Yenileme");
-
-                return RedirectToAction("ForgotActivate", "Account");
-            }
+            return RedirectToAction("Account");
         }
+
+
+        #endregion
+
     }
 }

@@ -15,8 +15,7 @@ namespace Coban.Market.Web.Controllers
 
         public ActionResult AboutUs()
         {
-            ViewData["catList"] = catManager.ListQueryable();
-            ViewData["prdList"] = prdManager.List().OrderByDescending(x => x.Id);
+          
             return View();
         }
        

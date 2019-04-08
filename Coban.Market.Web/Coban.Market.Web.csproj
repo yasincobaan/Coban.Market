@@ -482,6 +482,7 @@
     <Content Include="Views\Shared\_Partialbreadcrumbs.cshtml" />
     <Content Include="Views\Other\AboutUs.cshtml" />
     <Content Include="Views\Shared\Ok.cshtml" />
+    <Content Include="Views\Shared\_PartialProfileCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

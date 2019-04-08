@@ -1,25 +1,9 @@
-﻿
+﻿@model Coban.Market.Entities.MarketUser
 @{
     ViewBag.Title = "ForgotActivate";
 }
+@Html.Partial("_Partialbreadcrumbs")
 
-
-<div class="page-title">
-    <div class="container">
-        <div class="column">
-            <h1>Password Recovery</h1>
-        </div>
-        <div class="column">
-            <ul class="breadcrumbs">
-                <li><a href="index-1.html">Home</a></li>
-                <li class="separator">&nbsp;</li>
-                <li>Password Recovery</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- End Page Title -->
-<!-- Start Password Recovery -->
 <div class="container padding-top-1x padding-bottom-3x">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-10">
@@ -33,15 +17,15 @@
             <div class="card mt-4">
                 @using (Html.BeginForm("ForgotActivate", "Account", FormMethod.Post))
                 {
-                <div class="card-body">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="email" id="email-for-pass" placeholder="Enter your email address" required>
-
-                    </div> <div class="form-group">
-                        <input class="form-control" type="text" name="email" id="email-for-pass" placeholder="Enter your email address" required>
-
+                    @Html.TextBoxFor(x => x.Id)
+                  
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="Password" placeholder="Şifrenizi Giriniz" required>
+                        </div> <div class="form-group">
+                            <input class="form-control" type="password" name="RePassword" placeholder="Şifrenizi Tekrar Giriniz" required>
+                        </div>
                     </div>
-                </div>
                     <div class="card-footer">
                         <button class="btn btn-primary" type="submit">Get New Password</button>
                     </div>

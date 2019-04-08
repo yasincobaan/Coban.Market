@@ -32,8 +32,7 @@ namespace Coban.Market.Web.Controllers
 
             return View(res.Result);
         }
-
-
+        
         public ActionResult EditProfile()
         {
             BusinessLayerResult<MarketUser> res = mrktUserManager.GetUserById(CurrentSession.User.Id);
@@ -51,8 +50,7 @@ namespace Coban.Market.Web.Controllers
 
             return View(res.Result);
         }
-
-
+        
         [HttpPost]
         public ActionResult EditProfile(MarketUser model, HttpPostedFileBase Image)
         {

@@ -14,7 +14,7 @@ namespace Coban.Market.BL
     {
         public BusinessLayerResult<MarketUser> RegisterUser(AccountViewModel data)
         {
-            MarketUser user = Find(x => x.Username ==data.Username || x.Email ==data.Email);
+            MarketUser user = Find(x => x.Username == data.Username || x.Email == data.Email);
             BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
 
             if (user != null)
@@ -24,7 +24,7 @@ namespace Coban.Market.BL
                     res.AddError(ErrorMessageCode.UsernameAlreadyExists, "Kullanıcı adı kayıtlı.");
                 }
 
-                if (user.Email ==data.Email)
+                if (user.Email == data.Email)
                 {
                     res.AddError(ErrorMessageCode.EmailAlreadyExists, "E-posta adresi kayıtlı.");
                 }
@@ -33,10 +33,10 @@ namespace Coban.Market.BL
             {
                 int dbResult = base.Insert(new MarketUser()
                 {
-                    Username =data.Username,
+                    Username = data.Username,
                     Email = data.Email,
                     ProfileImageFilename = "user_boy.png",
-                    Password =data.Password,
+                    Password = data.Password,
                     ActivateGuid = Guid.NewGuid(),
                     IsActive = false,
                     Role = MarketUserRole.NewUser,
@@ -153,6 +153,58 @@ namespace Coban.Market.BL
             return res;
         }
 
+        public BusinessLayerResult<MarketUser> ForgotPass(AccountViewModel data)
+        {
+            BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
+            res.Result = Find(x => x.Email == data.Email);
+
+            if (res.Result != null)
+            {
+                res.Result.IsActive = false;
+                Update(res.Result);
+
+                string siteUri = ConfigHelper.Get<string>("SiteRootUri");
+                string activateUri = $"{siteUri}/Account/ForgotActivate/{res.Result.ActivateGuid}";
+                string body = $"Merhaba {res.Result.Username};<br><br>Hesabınızın şifresini değiştirmek için <a href='{activateUri}' target='_blank'>tıklayınız</a>.";
+                MailHelper.SendMail(body, res.Result.Email, "Coban Market Password Recovery");
+
+                return res;
+            }
+            else
+            {
+                res.AddError(ErrorMessageCode.ActivateIdDoesNotExists, "Kullanıcı bulunamadı.");
+            }
+
+            return res;
+        }
+
+        public BusinessLayerResult<MarketUser> ForgotActive(Guid Id, string Password)
+        {
+            BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
+            res.Result = Find(x => x.ActivateGuid == Id);
+
+            if (res.Result != null)
+            {
+                res.Result.Password = Password;
+
+                res.Result.IsActive = true;
+                Update(res.Result);
+
+                string siteUri = ConfigHelper.Get<string>("SiteRootUri");
+                string activateUri = $"{siteUri}/Account/ForgotActivate/{res.Result.ActivateGuid}";
+                string body = $"Merhaba {res.Result.Username};<br><br>Hesabınızın şifresi değiştirildi. Bunu siz yapmadıysanız lütfen  <a href='{activateUri}' target='_blank'>tıklayınız</a>.";
+                MailHelper.SendMail(body, res.Result.Email, "Coban Market Hatırlatma");
+
+                return res;
+            }
+            else
+            {
+                res.AddError(ErrorMessageCode.ActivateIdDoesNotExists, "Kullanıcı bulunamadı.");
+            }
+
+            return res;
+        }
+
         public BusinessLayerResult<MarketUser> ActivateUser(Guid activateId)
         {
             BusinessLayerResult<MarketUser> res = new BusinessLayerResult<MarketUser>();
@@ -177,8 +229,6 @@ namespace Coban.Market.BL
             return res;
         }
 
-
-        
         public new BusinessLayerResult<MarketUser> Insert(MarketUser data)
         {
             MarketUser user = Find(x => x.Username == data.Username || x.Email == data.Email);

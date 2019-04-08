@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Net;
 using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
 using Coban.Market.Entities;
-using Coban.Market.Web.Filters;
 using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers
