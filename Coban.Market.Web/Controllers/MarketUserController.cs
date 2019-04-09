@@ -14,16 +14,13 @@ namespace Coban.Market.Web.Controllers
     {
         private MarketUserManager mrktUserManager = new MarketUserManager();
 
+        #region Index
 
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult IndexDetails()
-        {
 
-            return View(mrktUserManager.ListQueryable());
-        }
 
         public ActionResult LoadData()
         {
@@ -66,6 +63,10 @@ namespace Coban.Market.Web.Controllers
         }
 
 
+        #endregion
+
+        #region Create
+
         public ActionResult Create()
         {
             return View();
@@ -104,6 +105,9 @@ namespace Coban.Market.Web.Controllers
         }
 
 
+        #endregion
+        
+        #region Delete
 
         [HttpPost]
 
@@ -124,5 +128,8 @@ namespace Coban.Market.Web.Controllers
             return Json(operation, JsonRequestBehavior.AllowGet);
 
         }
+
+        #endregion
+
     }
 }

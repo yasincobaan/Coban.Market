@@ -1,5 +1,4 @@
-﻿
-var table = $("#demoGrid").DataTable({
+﻿var table = $("#demoGrid").DataTable({
     "scrollX": true,
     "language": {
         "url": "http://localhost:50057/ContentAdmin/Other/DataTable/json/languageTR.json"
@@ -66,12 +65,9 @@ var table = $("#demoGrid").DataTable({
 
     ]
 });
-
 $('type[search]').on('keyup', function () {
     table.search(this.value).draw();
 });
-
-
 $("#SearchMonthYear").on('click', function () {
     var Year = $("#year").val();
 
@@ -86,7 +82,6 @@ $("#SearchMonthYear").on('click', function () {
     }
 
 });
-
 $("#SearchDateRange").on('click', function () {
 
     var first = $("#first").val();
@@ -94,7 +89,29 @@ $("#SearchDateRange").on('click', function () {
     var daterange = first + last;
     table.search("SearchDate" + daterange).draw();
 });
+$('#demoGrid tbody').on('click', 'button', function () {
+    var data = table.row($(this).parents('tr')).data();
 
+    $("#Title").val(data.Title);
+    $("#Description").val(data.Description);
+    $("#Id").val(data.Id);
+    $("#Image").attr("src", "Images/Category/" + data.Image);
+    $('#editModal').modal("show");
+
+
+
+
+});
+$("#Title").keydown(function () {
+    if ($(this).val().length < 3) {
+        $(this).css("border", "1px solid crimson");
+    }
+});
+$("#Description").keydown(function () {
+    if ($(this).val().length < 3) {
+        $(this).css("border", "1px solid crimson");
+    }
+});
 
 function DelCat(id) {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -117,7 +134,7 @@ function DelCat(id) {
         if (result.value) {
             swalWithBootstrapButtons.fire(
                 'Deleted!',
-                'Your file has been deleted.',
+                'Your record has been deleted.',
                 'success',
                 DelCategoryAjax(id)
             )
@@ -126,15 +143,13 @@ function DelCat(id) {
         ) {
             swalWithBootstrapButtons.fire(
                 'Cancelled',
-                'Your imaginary file is safe :)',
+                'Your record is safe :)',
                 'error'
             )
         }
         table.draw();
     })
 }
-
-
 function DelCategoryAjax(id) {
     $.ajax({
         url: '/Category/Delete/' + id,
@@ -151,19 +166,3 @@ function DelCategoryAjax(id) {
         }
     });
 }
-
-$('#demoGrid tbody').on('click', 'button', function () {
-    var data = table.row($(this).parents('tr')).data();
-
-    $("#Title").val(data.Title);
-    $("#Description").val(data.Description);
-    $("#Id").val(data.Id);
-    $("#Image").attr("src", "Images/Category/" + data.Image);
-    $('#editModal').modal("show");
-
-
-
-
-});
-
-

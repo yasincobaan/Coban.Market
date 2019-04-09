@@ -34,6 +34,21 @@ namespace Coban.Market.Entities
         [DisplayName("Aktif")]
         public bool IsActive { get; set; }
 
+        [DisplayName("Meslek")]
+        public string Job { get; set; }
+
+
+        [DisplayName("Facebook")]
+        public string Facebook { get; set; }
+
+        [DisplayName("Twitter")]
+        public string Twitter { get; set; }
+
+        [DisplayName("instagram")]
+        public string Instagram { get; set; }
+
+
+
         [DisplayName("Telefon Numarası"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string Phone { get; set; }
 
@@ -42,6 +57,13 @@ namespace Coban.Market.Entities
 
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }
+
+
+
+
+
+
+
 
 
         public virtual List<Product> Products { get; set; }

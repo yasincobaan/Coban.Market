@@ -73,6 +73,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Enums\EnumOrderState.cs" />
     <Compile Include="Enums\MarketUserRole.cs" />
+    <Compile Include="Enums\PriceExchangeRate.cs" />
     <Compile Include="Enums\ProductStockEnum.cs" />
     <Compile Include="Liked.cs" />
     <Compile Include="MarketUser.cs" />

@@ -146,10 +146,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketUserController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\OtherController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Filters\Auth.cs" />
@@ -435,8 +436,6 @@
     <Folder Include="Images\Category\" />
     <Folder Include="Images\MarketUser\" />
     <Folder Include="Images\Product\" />
-    <Folder Include="Views\Cart\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContentAdmin\Other\DataTable\json\languageTR.json" />
@@ -465,7 +464,6 @@
     <Content Include="Views\Shared\_PartialDatatable.cshtml" />
     <Content Include="Views\Shared\_PartialLanguage.cshtml" />
     <Content Include="Views\MarketUser\Create.cshtml" />
-    <Content Include="Views\MarketUser\IndexDetails.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -480,9 +478,13 @@
     <Content Include="Views\Account\ForgotActivate.cshtml" />
     <Content Include="Views\Shared\_PartialServiceBrand.cshtml" />
     <Content Include="Views\Shared\_Partialbreadcrumbs.cshtml" />
-    <Content Include="Views\Other\AboutUs.cshtml" />
+    <Content Include="Views\Support\AboutUs.cshtml" />
     <Content Include="Views\Shared\Ok.cshtml" />
     <Content Include="Views\Shared\_PartialProfileCard.cshtml" />
+    <Content Include="Views\Customer\AllProducts.cshtml" />
+    <Content Include="Views\Customer\SingleProduct.cshtml" />
+    <Content Include="Views\Support\ContactUs.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

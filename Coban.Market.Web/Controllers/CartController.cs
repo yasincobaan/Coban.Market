@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.Entities;
 using Coban.Market.Entities.Enums;
+using Coban.Market.Web.Models;
 using Coban.Market.Web.Models.OrderModels;
 
 namespace Coban.Market.Web.Controllers
@@ -90,19 +91,19 @@ namespace Coban.Market.Web.Controllers
         private void SaveOrder(Cart cart, ShippingDetails entity)
         {
             var order = new Order();
-            order.Username = Session.SessionID;
-            order.OrderNumber = "A" + (new Random()).Next(11111, 99999).ToString();
+            order.Username = CurrentSession.User.Username;
+            order.OrderNumber = "#A" + (new Random()).Next(11111, 99999).ToString();
             order.Total = cart.Total();
             order.OrderDate = DateTime.Now;
             order.OrderState = EnumOrderState.Waiting;
-            order.Username = User.Identity.Name;
+            order.Username = CurrentSession.User.Username;
 
-            order.AdresBasligi = entity.AdresBasligi;
-            order.Adres = entity.Adres;
-            order.Sehir = entity.Sehir;
-            order.Semt = entity.Semt;
-            order.Mahalle = entity.Mahalle;
-            order.PostaKodu = entity.PostaKodu;
+            order.AddressTitle = entity.AddressTitle;
+            order.Address = entity.Address;
+            order.City = entity.City;
+            order.District = entity.District;
+            order.Neighborhood = entity.Neighborhood;
+            order.PostCode = entity.PostCode;
 
             order.Orderlines = new List<OrderLine>();
 
