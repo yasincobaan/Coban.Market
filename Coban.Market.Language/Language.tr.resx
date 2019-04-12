@@ -246,4 +246,34 @@
   <data name="Sunday" xml:space="preserve">
     <value>Cuma</value>
   </data>
+  <data name="BarCode" xml:space="preserve">
+    <value>Barkod Numarası</value>
+  </data>
+  <data name="DiscountedPrice" xml:space="preserve">
+    <value>İndirimli Fiyat</value>
+  </data>
+  <data name="ExchangeRate" xml:space="preserve">
+    <value>Döviz Kuru</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Resim</value>
+  </data>
+  <data name="IsSale" xml:space="preserve">
+    <value>Satışta Mı?</value>
+  </data>
+  <data name="KdvPercent" xml:space="preserve">
+    <value>Kdv Yüzdesi</value>
+  </data>
+  <data name="LikeCount" xml:space="preserve">
+    <value>Beğenilme Sayısı</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Fiyat</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Stok Adedi</value>
+  </data>
+  <data name="StockCode" xml:space="preserve">
+    <value>Stok Kodu</value>
+  </data>
 </root>

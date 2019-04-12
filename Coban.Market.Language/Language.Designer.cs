@@ -88,6 +88,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Barcode.
+        /// </summary>
+        public static string BarCode {
+            get {
+                return ResourceManager.GetString("BarCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category Description.
         /// </summary>
         public static string CategoryDescription {
@@ -133,11 +142,29 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discounted Price.
+        /// </summary>
+        public static string DiscountedPrice {
+            get {
+                return ResourceManager.GetString("DiscountedPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExchangeRate.
+        /// </summary>
+        public static string ExchangeRate {
+            get {
+                return ResourceManager.GetString("ExchangeRate", resourceCulture);
             }
         }
         
@@ -183,6 +210,42 @@ namespace Coban.Market.Language {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string Image {
+            get {
+                return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Sale.
+        /// </summary>
+        public static string IsSale {
+            get {
+                return ResourceManager.GetString("IsSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kdv Percent.
+        /// </summary>
+        public static string KdvPercent {
+            get {
+                return ResourceManager.GetString("KdvPercent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Like Count.
+        /// </summary>
+        public static string LikeCount {
+            get {
+                return ResourceManager.GetString("LikeCount", resourceCulture);
             }
         }
         
@@ -291,6 +354,15 @@ namespace Coban.Market.Language {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
             }
         }
         
@@ -489,6 +561,24 @@ namespace Coban.Market.Language {
         public static string SignIn {
             get {
                 return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock.
+        /// </summary>
+        public static string Stock {
+            get {
+                return ResourceManager.GetString("Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock Code.
+        /// </summary>
+        public static string StockCode {
+            get {
+                return ResourceManager.GetString("StockCode", resourceCulture);
             }
         }
         

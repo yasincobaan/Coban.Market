@@ -468,7 +468,6 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Shared\_PartialCategoryMainPage.cshtml" />
     <Content Include="Views\Profile\ShowProfile.cshtml" />
     <Content Include="Views\Profile\EditProfile.cshtml" />
@@ -485,6 +484,7 @@
     <Content Include="Views\Customer\SingleProduct.cshtml" />
     <Content Include="Views\Support\ContactUs.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">
