@@ -306,4 +306,28 @@
   <data name="Selectfile" xml:space="preserve">
     <value>Dosya Seçiniz</value>
   </data>
+  <data name="ViewProducts" xml:space="preserve">
+    <value>Ürünleri Gör</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Sipariş Oluştur</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="RewardPoint" xml:space="preserve">
+    <value>Ödül Puanı</value>
+  </data>
+  <data name="Type to search..." xml:space="preserve">
+    <value>Aramak için yazın...</value>
+  </data>
+  <data name="ViewCart" xml:space="preserve">
+    <value>Sepeti Görüntüle</value>
+  </data>
+  <data name="AddCart" xml:space="preserve">
+    <value>Sepete Ekle</value>
+  </data>
+  <data name="FeaturedProducts" xml:space="preserve">
+    <value>Tavsiye Ürünler</value>
+  </data>
 </root>

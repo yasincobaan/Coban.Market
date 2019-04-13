@@ -51,6 +51,6 @@ namespace Coban.Market.Web.Controllers
             Product mrktUser = prdManager.Find(x => x.Id == id);
             return View(mrktUser);
         }
-
+      
     }
 }

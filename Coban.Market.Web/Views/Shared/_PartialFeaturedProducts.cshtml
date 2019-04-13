@@ -1,32 +1,37 @@
-﻿@{
+﻿@using Coban.Market.Entities
+@using Coban.Market.Language
+@using Coban.Market.Web.Models
+@{
+    List<Product> list = CacheHelper.GetProductsFromCache();
 }
-@*@using Coban.Market.Entities
-    @model IEnumerable<Coban.Market.Entities.Product>
-
-    <section class="container padding-top-3x padding-bottom-3x">
-        <h3 class="text-center mb-30">
-            Featured Products
-        </h3>
-        <div class="isotope-grid cols-4">
-            <div class="gutter-sizer"></div>
-            <div class="grid-sizer"></div>
-            @foreach (var item in Model)
-            {
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="@Url.Action("SingleProduct","Home",new{id=item.Id})">
-                            <img src="~/Images/Product/@item.Image1" alt="@item.LittleDescription">
+<section class="container padding-top-3x padding-bottom-3x">
+    <h3 class="text-center mb-30">
+        @Language.FeaturedProducts
+    </h3>
+    <div class="isotope-grid cols-4">
+        <div class="gutter-sizer"></div>
+        <div class="grid-sizer"></div>
+        @foreach (var item in list)
+        {
+            <div class="grid-item">
+                <div class="product-card">
+                    <a class="product-thumb" href="@Url.Action("SingleProduct","Home",new{id=item.Id})">
+                        <img  src="~/Images/Product/@item.Image1" alt="@item.LittleDescription">
+                    </a>
+                    <h3 class="product-title">
+                        <a href="@Url.Action("SingleProduct", "Home", new {id = item.Id})">
+                            @item.ProductName
                         </a>
-                        <h3 class="product-title"><a href="@Url.Action("SingleProduct","Home",new{id=item.Id})">@item.ProductName</a></h3>
-                        <h4 class="product-price"><del>₺@item.Price</del>₺@item.DiscountedPrice</h4>
-                        <div class="product-buttons">
-                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
-                                <i class="icon-heart"></i>
-                            </button>
-                            <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                        </div>
+                    </h3>
+                    <h4 class="product-price"><del>₺@item.Price</del>₺@item.DiscountedPrice</h4>
+                    <div class="product-buttons">
+                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
+                            <i class="icon-heart"></i>
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">@Language.AddCart</button>
                     </div>
                 </div>
-            }
-        </div>
-    </section>*@
+            </div>
+        }
+    </div>
+</section>

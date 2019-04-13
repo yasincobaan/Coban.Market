@@ -70,6 +70,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add To Cart.
+        /// </summary>
+        public static string AddCart {
+            get {
+                return ResourceManager.GetString("AddCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Of.
         /// </summary>
         public static string Allof {
@@ -142,6 +151,24 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checkout.
+        /// </summary>
+        public static string Checkout {
+            get {
+                return ResourceManager.GetString("Checkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -201,6 +228,15 @@ namespace Coban.Market.Language {
         public static string ExchangeRate {
             get {
                 return ResourceManager.GetString("ExchangeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Featured Products.
+        /// </summary>
+        public static string FeaturedProducts {
+            get {
+                return ResourceManager.GetString("FeaturedProducts", resourceCulture);
             }
         }
         
@@ -529,6 +565,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reward Point.
+        /// </summary>
+        public static string RewardPoint {
+            get {
+                return ResourceManager.GetString("RewardPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         public static string Role {
@@ -700,6 +745,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type to search....
+        /// </summary>
+        public static string TypeToSearch {
+            get {
+                return ResourceManager.GetString("TypeToSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {
@@ -714,6 +768,24 @@ namespace Coban.Market.Language {
         public static string Users {
             get {
                 return ResourceManager.GetString("Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Cart.
+        /// </summary>
+        public static string ViewCart {
+            get {
+                return ResourceManager.GetString("ViewCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Products.
+        /// </summary>
+        public static string ViewProducts {
+            get {
+                return ResourceManager.GetString("ViewProducts", resourceCulture);
             }
         }
     }

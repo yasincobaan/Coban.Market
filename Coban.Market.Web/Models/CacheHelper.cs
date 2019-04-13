@@ -21,15 +21,28 @@ namespace Coban.Market.Web.Models
 
             return result;
         }
-
         public static void RemoveCategoriesFromCache()
         {
             Remove("category-cache");
         }
-
         public static void Remove(string key)
         {
             WebCache.Remove(key);
+        }
+        public static List<Product> GetProductsFromCache()
+        {
+            var result = WebCache.Get("products-cache");
+            if (result == null)
+            {
+                ProductManager prdManager = new ProductManager();
+                result = prdManager.List();
+                WebCache.Set("products-cache", result, 20, true);
+            }
+            return result;
+        }
+        public static void RemoveProductsFromCache()
+        {
+            Remove("category-cache");
         }
     }
 }

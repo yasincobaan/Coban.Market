@@ -336,4 +336,28 @@
   <data name="Selectfile" xml:space="preserve">
     <value>Select File</value>
   </data>
+  <data name="ViewProducts" xml:space="preserve">
+    <value>View Products</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="RewardPoint" xml:space="preserve">
+    <value>Reward Point</value>
+  </data>
+  <data name="TypeToSearch" xml:space="preserve">
+    <value>Type to search...</value>
+  </data>
+  <data name="ViewCart" xml:space="preserve">
+    <value>View Cart</value>
+  </data>
+  <data name="AddCart" xml:space="preserve">
+    <value>Add To Cart</value>
+  </data>
+  <data name="FeaturedProducts" xml:space="preserve">
+    <value>Featured Products</value>
+  </data>
 </root>

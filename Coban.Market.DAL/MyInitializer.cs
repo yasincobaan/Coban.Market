@@ -7,7 +7,7 @@ using Coban.Market.Entities.Enums;
 
 namespace Coban.Market.DAL
 {
-    public class MyInitializer : DropCreateDatabaseAlways<DatabaseContext>
+    public class MyInitializer : DropCreateDatabaseIfModelChanges<DatabaseContext>
     {
         protected override void Seed(DatabaseContext context)
         {

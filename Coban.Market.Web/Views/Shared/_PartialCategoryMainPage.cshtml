@@ -1,23 +1,28 @@
-﻿@model IEnumerable<Coban.Market.Entities.Category>
-
+﻿@using Coban.Market.Entities
+@using Coban.Market.Language
+@using Coban.Market.Web.Models
+@{
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
+}
 <div class="container-fluid px-0">
     <div class="row mx-0">
-        @*@foreach (var item in Model.Take(6))
+        @foreach (var item in list.Take(6))
         {
-            if (item.Categories != null)
-            {
                 <div class="category-card col-lg-4 col-sm-6 fw-section padding-top-3x padding-bottom-3x" style="background-image:url(../../Images/Category/@item.Image)">
                     <span class="overlay home-2-hero-sub"></span>
                     <div class="d-flex justify-content-center">
                         <div class="px-3 text-center">
-                            <h2 class="display-4 text-white text-shadow">@item.Title</h2>
+                            <h2 class="display-4 text-white text-shadow">
+                                @item.Title
+                            </h2>
                             <div class="view-button">
-                                <a class="btn btn-primary" href="@Url.Action("ByCategory", "Home", new {id = 2})">View Products</a>
+                                <a class="btn btn-primary" href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
+                                    @Language.ViewProducts
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            }
-        }*@
+        }
     </div>
 </div>

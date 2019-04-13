@@ -1,9 +1,9 @@
-﻿@using System.Web.UI.WebControls
+﻿@using Coban.Market.Entities
+@using Coban.Market.Language
 @using Coban.Market.Web.Models
-@using Coban.Market.Entities
+
 @{
-//IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
-//IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -41,13 +41,13 @@
                         </a>
                     </span>
                 </li>
-                @*@foreach (var item in categories)
+                @foreach (var item in list)
                 {
                     if (item.Categories != null && item.Id != 1)
                     {
                         <li class="has-children">
                             <span>
-                                <a href="@Url.Action("ShopCategory", "Home", new {id = item.Id})">
+                                <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
                                     @item.Title
                                 </a>
                                 <span class="sub-menu-toggle"></span>
@@ -64,56 +64,60 @@
                             </ul>
                         </li>
                     }
-                }*@
+                }
             </ul>
         </nav>
     </div>
     <div class="offcanvas-container" id="mobile-menu">
         <a class="account-link" href="#">
-            <div class="user-ava">
-                <!-- Profil Fotosu -->
-                @if (CurrentSession.User == null)
-                {
-                    <img src="~/ContentAdmin/Images/user.png" alt="Username">
-                }
-                else
-                {
+            @if (CurrentSession.User != null)
+            {
+                <div class="user-ava">
                     <img src="~/Images/MarketUser/@CurrentSession.User.ProfileImageFilename" alt="@CurrentSession.User.Username">
-                }
-
-            </div>
-            <div class="user-info">
-                <h6 class="user-name">
-                    @if (CurrentSession.User == null)
-                    {
-                        <b>Username</b>
-                    }
-                    else
-                    {
+                </div>
+                <div class="user-info">
+                    <h6 class="user-name">
                         <b>@CurrentSession.User.Name</b>
                         <b>@CurrentSession.User.Surname</b>
-                    }
+                    </h6>
+                    <span class="text-sm text-white opacity-60">
+                        @CurrentSession.User.RewardScore @Language.RewardPoint
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="user-ava">
+                    <img src="~/Images/MarketUser/user.png" alt="Username">
+                </div>
+                <div class="user-info">
+                    <h6 class="user-name">
+                        <b>Name</b>
+                        <b>Surname</b>
+                    </h6>
+                    <span class="text-sm text-white opacity-60">
+                        0 @Language.RewardPoint
+                    </span>
+                </div>
+            }
 
-                </h6>
-                @*<span class="text-sm text-white opacity-60">530 Reward Points</span>*@
-            </div>
         </a>
         <nav class="offcanvas-menu">
             <ul class="menu">
                 <li class="has-children active">
                     <span>
-                        <a href="@Url.Action("ShopCategory", "Home")">
+                        <a href="@Url.Action("ByCategory", "Customer")">
                             All Categories
                         </a>
                     </span>
                 </li>
-                @*@foreach (var item in categories)
+                @foreach (var item in list)
                 {
                     if (item.Categories != null && item.Id != 1)
                     {
                         <li class="has-children">
                             <span>
-                                <a href="@Url.Action("ShopCategory", "Home", new {id = item.Id})">
+                                <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
                                     @item.Title
                                 </a>
                                 <span class="sub-menu-toggle"></span>
@@ -122,7 +126,7 @@
                                 @foreach (var subcategories in item.Categories)
                                 {
                                     <li>
-                                        <a href="@Url.Action("ShopCategory", "Home", new {id = subcategories.Id})">
+                                        <a href="@Url.Action("ByCategory", "Customer", new {id = subcategories.Id})">
                                             @subcategories.Title
                                         </a>
                                     </li>
@@ -130,7 +134,7 @@
                             </ul>
                         </li>
                     }
-                }*@
+                }
             </ul>
         </nav>
     </div>
@@ -160,24 +164,24 @@
         </div>
     </div>
     <header class="navbar navbar-sticky">
-        <div class="site-search">
-            @using (Html.BeginForm("Search", "Home", FormMethod.Post))
-            {
-                <input type="text" name="site_search" placeholder="Type to search...">
+        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+        {
+            <div class="site-search">
+                <input type="text" name="site_search" placeholder="@Language.TypeToSearch">
                 <div class="search-tools">
-                    <span class="clear-search">Clear</span>
+                    <span class="clear-search">@Language.Clear</span>
                     <span class="close-search"><i class="icon-cross"></i></span>
                 </div>
-            }
-        </div>
-
+            </div>
+        }
 
         <div class="site-branding">
             <div class="inner">
                 <a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
                 <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-                <a class="site-logo" href="@Url.Action("Index","Home")"><img style="width: 50px;" src="~/ContentAdmin/Images/logo.png" alt="Inspina"></a>
-      
+                <a class="site-logo" href="@Url.Action("Index", "Home")">
+                    <img style="width: 50px;" src="~/ContentAdmin/Images/logo.png" alt="Coban">
+                </a>
             </div>
         </div>
 
@@ -185,27 +189,32 @@
         <nav class="site-menu">
             <ul>
                 <li class="active">
-                    <a href="#"><span>Shop</span></a>
-                    <ul class="sub-menu">
-                        <li class="has-children">
-                            <a href="#"><span>Shop Categories</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="shop-categories-1.html">Categories Left Sidebar</a></li>
-                                <li><a href="shop-categories-2.html">Categories Right Sidebar</a></li>
-                                <li><a href="shop-categories-3.html">Categories No Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="cart.html">Shopping Cart</a></li>
+                    <a href="@Url.Action("ByCategory", "Customer")">
+                        <span>Kategoriler</span>
+                    </a>  <ul class="sub-menu">
+                        @foreach (var item in list)
+                        {
+                            if (item.Categories == null)
+                            {
+                                <li class="">
+                                    <a href="@Url.Action("ByCategory","Customer",new{id=item.Id})">
+                                        <span>@item.Title</span>
+                                    </a>
+                                </li>
+                            }
+
+                        }
                     </ul>
                 </li>
-
             </ul>
         </nav>
 
         <div class="toolbar">
             <div class="inner">
                 <div class="tools">
-                    <div class="search"><i class="icon-search"></i></div>
+                    <div class="search">
+                        <i class="icon-search"></i>
+                    </div>
 
                     <div class="account">
                         <a href="#"></a><i class="icon-head"></i>
@@ -245,7 +254,7 @@
                             <li><a href="@Url.Action("Logout","Account")"><i class="fa fa-lock"></i> Sign Out</a></li>
                         </ul>
                     </div>
-
+                    <!--Todo : Cart Bölgesi-->
                     <div class="cart">
                         <a href="#"></a>
                         <i class="icon-bag"></i>
@@ -274,12 +283,21 @@
                                     <span class="text-lg text-medium">$1920 </span>
                                 </div>
                             </div>
+
+
+
+
+
                             <div class="toolbar-dropdown-group">
                                 <div class="column">
-                                    <a class="btn btn-sm btn-block btn-secondary" href="#">View Cart</a>
+                                    <a class="btn btn-sm btn-block btn-secondary" href="@Url.Action("Index","Cart")">
+                                        @Language.ViewCart
+                                    </a>
                                 </div>
                                 <div class="column">
-                                    <a class="btn btn-sm btn-block btn-success" href="#">Checkout</a>
+                                    <a class="btn btn-sm btn-block btn-success" href="@Url.Action("Checkout","Cart")">
+                                        @Language.Checkout
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +309,9 @@
 
     </header>
     <div class="offcanvas-wrapper">
+
         @RenderBody()
+
     </div>
     <a class="scroll-to-top-btn" href="#">
         <i class="icon-arrow-up"></i>
