@@ -8,7 +8,8 @@ namespace Coban.Market.Web
         {
             #region Jquery
             bundles.Add(new ScriptBundle("~/jquery").Include(
-                "~/ContentAdmin/Theme/js/jquery.js"
+                "~/ContentAdmin/Theme/js/jquery.js",
+                "~/ContentAdmin/Theme/js/popper.js"
             ));
             #endregion
 
@@ -79,7 +80,7 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/DateRangePicker/js/daterangestart.js"
             ));
             #endregion
-            
+
             #region SearchBox
 
             bundles.Add(new ScriptBundle("~/searchBox/js").Include(
@@ -87,7 +88,7 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-            
+
             #region MarketUser
 
             // MarketUser - Index - Css
@@ -175,7 +176,7 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-            
+
         }
     }
 }

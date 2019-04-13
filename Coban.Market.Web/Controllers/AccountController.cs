@@ -13,11 +13,14 @@ namespace Coban.Market.Web.Controllers
 {
     public class AccountController : Controller
     {
+        #region Variables
+
         private MarketUserManager mrktUserManager = new MarketUserManager();
+        private CategoryManager catManager = new CategoryManager();
+        private ProductManager prdManager = new ProductManager();
 
-        CategoryManager catManager = new CategoryManager();
-        ProductManager prdManager = new ProductManager();
-
+        #endregion
+        
         #region Login-Register
         public ActionResult Account()
         {
@@ -146,6 +149,16 @@ namespace Coban.Market.Web.Controllers
             return RedirectToAction("Account");
         }
 
+
+        #endregion
+
+        #region Logout
+
+        public ActionResult Logout()
+        {
+            CurrentSession.Clear();
+            return RedirectToAction("Account");
+        }
 
         #endregion
 

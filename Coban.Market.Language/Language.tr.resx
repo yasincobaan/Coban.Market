@@ -276,4 +276,22 @@
   <data name="StockCode" xml:space="preserve">
     <value>Stok Kodu</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Kategoriler</value>
+  </data>
+  <data name="CategoryCreate" xml:space="preserve">
+    <value>Kategori Ekle</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Kullanıcı Oluştur</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Siparişler</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Ürünler</value>
+  </data>
+  <data name="ShowProfile" xml:space="preserve">
+    <value>Profili Görüntüle</value>
+  </data>
 </root>

@@ -51,40 +51,14 @@ namespace Coban.Market.Web.Controllers
             return View(res.Result);
         }
         
-        [HttpPost]
-        public ActionResult EditProfile(MarketUser model, HttpPostedFileBase Image)
+       
+        public ActionResult ActivityLog()
         {
-            ModelState.Remove("ModifiedUsername");
-
-            if (ModelState.IsValid)
-            {
-                if (Image != null &&
-                    (Image.ContentType == "image/jpeg" || Image.ContentType == "image/jpg" || Image.ContentType == "image/png"))
-                {
-                    string filename = $"user_{model.Id}.{Image.ContentType.Split('/')[1]}";
-                    Image.SaveAs(Server.MapPath($"~/images/{filename}"));
-                    model.ProfileImageFilename = filename;
-                }
-
-                BusinessLayerResult<MarketUser> res = mrktUserManager.UpdateProfile(model);
-
-                if (res.Errors.Count > 0)
-                {
-                    ErrorViewModel errorNotifyObj = new ErrorViewModel()
-                    {
-                        Items = res.Errors,
-                        Title = "Profil Güncellenemedi.",
-                        RedirectingUrl = "/Profile/EditProfile"
-                    };
-
-                    return View("Error", errorNotifyObj);
-                }
-                CurrentSession.Set<MarketUser>("login", res.Result);
-
-                return RedirectToAction("ShowProfile");
-            }
-
-            return View(model);
+            return View();
+        }
+        public ActionResult Settings()
+        {
+            return View();
         }
     }
 }

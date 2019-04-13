@@ -12,14 +12,13 @@
     <title>Coban Market | @ViewBag.Title</title>
     @Styles.Render("~/main/css")
     @Scripts.Render("~/jquery")
+
+    <!--
+    Bundle'a eklenecek
+    -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-    <script src="~/ContentAdmin/Theme/js/popper.js"></script>
-    <style>
-        .logo {
-            width: 50px;
-        }
-    </style>
+
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -33,71 +32,69 @@
                 </div>
             </a>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item active">
+            <li id="focusHome" class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index","Home")">
                     <i class="fa fa-home"></i>
                     <span>@Language.Home</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="false" aria-controls="collapseCat">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Categories</span>
+            <li class="nav-item" id="catItem">
+                <a id="catMenu" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCat" aria-expanded="false" aria-controls="collapseCat">
+                    <i class="fa fa-list-alt"></i>
+                    <span>@Language.Categories</span>
                 </a>
                 <div id="collapseCat" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">
-                            Kategoriler
+                        <a id="categoriesLinks" class="collapse-item" href="@Url.Action("Index","Category")">
+                            @Language.Categories
                         </a>
-                        <a class="collapse-item" href="#">
-                            Kategori Ekle
+                        <a id="categoryAddLinks" class="collapse-item" href="@Url.Action("Create","Category")">
+                            @Language.CategoryCreate
                         </a>
                     </div>
                 </div>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePrd" aria-expanded="false" aria-controls="collapsePrd">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Products</span>
+            <li class="nav-item" id="prdItem">
+                <a id="prdMenu" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePrd" aria-expanded="false" aria-controls="collapsePrd">
+                    <i class="fab fa-product-hunt"></i>
+                    <span>@Language.Products</span>
                 </a>
                 <div id="collapsePrd" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">
-                            Products
+                        <a id="productsLinks" class="collapse-item" href="@Url.Action("Index","Product")">
+                            @Language.Products
                         </a>
-                        <a class="collapse-item" href="#">
-                            Product Ekle
+                        <a id="productsAddLinks" class="collapse-item" href="@Url.Action("Create","Product")">
+                            @Language.CreateProduct
                         </a>
                     </div>
                 </div>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Users</span>
+            <li class="nav-item" id="userItem">
+                <a id="userMenu" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>@Language.Users</span>
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">
-                            Users
+                        <a id="usersLinks" class="collapse-item" href="@Url.Action("Index","MarketUser")">
+                            @Language.Users
                         </a>
-                        <a class="collapse-item" href="#">
-                            User Ekle
+                        <a id="usersAddLinks" class="collapse-item" href="@Url.Action("Create","MarketUser")">
+                            @Language.CreateUser
                         </a>
                     </div>
                 </div>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item" id="orderItem">
                 <a class="nav-link" href="@Url.Action("Index","Home")">
-                    <i class="fa fa-home"></i>
+                    <i class="fab fa-opencart"></i>
                     <span>
-                        Siparişler
+                        @Language.Orders
                     </span>
                 </a>
             </li>
-           
+
 
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
@@ -111,17 +108,29 @@
                         <li class="nav-item no-arrow ">
                             <div id="profiledropdown" class="dropdown">
                                 <a class="btn btn-default btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @*@if (CurrentSession.User != null)
-                                        {
-                                               <img id="profileimage" src="../../Images/@CurrentSession.User.ProfileImageFilename"
-                                              @{CurrentSession.User.Name + " " + CurrentSession.User.Surname}
-                                            }*@
-
+                                    @if (CurrentSession.User != null)
+                                    {
+                                        <img id="profileimage" src="../../Images/MarketUser/@CurrentSession.User.ProfileImageFilename" />
+                                        @CurrentSession.User.Name @CurrentSession.User.Surname
+                                    }
                                 </a>
                                 <div id="profilelinks" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="dropitem1" class="dropdown-item" href="@Url.Action("MyLogs","ActivityLog")">@Language.ActivityLog</a>
-                                    <a id="dropitem2" class="dropdown-item" href="@Url.Action("Settings","Home")">@Language.Settings</a>
-                                    <a id="dropitem3" class="dropdown-item" href="@Url.Action("Logout","Account")">@Language.LogOut</a>
+                                    <a id="dropitem4" class="dropdown-item" href="@Url.Action("ShowProfile", "Profile")">
+                                        <i class="fa fa-user"></i>
+                                        @Language.ShowProfile
+                                    </a>
+                                    <a id="dropitem1" class="dropdown-item" href="@Url.Action("ActivityLog", "Profile")">
+                                        <i class="fa fa-chart-line"></i>
+                                        @Language.ActivityLog
+                                    </a>
+                                    <a id="dropitem2" class="dropdown-item" href="@Url.Action("Settings", "Profile")">
+                                        <i class="fa fa-cogs"></i>
+                                        @Language.Settings
+                                    </a>
+                                    <a id="dropitem3" class="dropdown-item" href="@Url.Action("Logout", "Account")">
+                                        <i class="fa fa-sign-out-alt"></i>
+                                        @Language.LogOut
+                                    </a>
                                 </div>
                             </div>
 
@@ -130,7 +139,7 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">
+                        <h1 class="h3 mb-0 text-primary">
                             @ViewBag.Title
                         </h1>
                     </div>
@@ -140,8 +149,11 @@
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
+        <i class="fas fa-angle-up">
+
+        </i>
     </a>
+    <input id="url" value="@HttpContext.Current.Request.RawUrl"/>
     @Scripts.Render("~/main/js")
     @RenderSection("scripts", false)
 </body>

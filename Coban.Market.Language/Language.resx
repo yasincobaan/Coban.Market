@@ -306,4 +306,22 @@
   <data name="StockCode" xml:space="preserve">
     <value>Stock Code</value>
   </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="CategoryCreate" xml:space="preserve">
+    <value>Create Category</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Create User</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="ShowProfile" xml:space="preserve">
+    <value>Show Profile</value>
+  </data>
 </root>

@@ -27,7 +27,18 @@
 .justify-content-between {
     padding-top: 80px;
 }
-#website:hover{
-    font-size:16px;
-    color:crimson;
+
+#website:hover {
+    font-size: 16px;
+    color: crimson;
+}
+
+#profiledropdown {
+    padding-right: 70px;
+}
+.logo {
+    width: 50px;
+}
+#url {
+    display: none;
 }
