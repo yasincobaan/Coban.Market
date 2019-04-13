@@ -6,7 +6,7 @@ namespace Coban.Market.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            #region Jquery
+            #region Jquery and Popper Js
             bundles.Add(new ScriptBundle("~/jquery").Include(
                 "~/ContentAdmin/Theme/js/jquery.js",
                 "~/ContentAdmin/Theme/js/popper.js"

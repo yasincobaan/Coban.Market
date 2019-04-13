@@ -142,6 +142,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Category.
         /// </summary>
         public static string CreateCategory {
@@ -286,6 +295,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This may result in data loss..
+        /// </summary>
+        public static string LostData {
+            get {
+                return ResourceManager.GetString("LostData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Market User.
         /// </summary>
         public static string MarketUserSave {
@@ -381,6 +399,15 @@ namespace Coban.Market.Language {
         public static string Over100 {
             get {
                 return ResourceManager.GetString("Over100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent Category.
+        /// </summary>
+        public static string ParentCategory {
+            get {
+                return ResourceManager.GetString("ParentCategory", resourceCulture);
             }
         }
         
@@ -570,6 +597,15 @@ namespace Coban.Market.Language {
         public static string SelectedDates {
             get {
                 return ResourceManager.GetString("SelectedDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select File.
+        /// </summary>
+        public static string Selectfile {
+            get {
+                return ResourceManager.GetString("Selectfile", resourceCulture);
             }
         }
         

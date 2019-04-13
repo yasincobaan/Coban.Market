@@ -3,6 +3,8 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+
     IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
     IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
 }

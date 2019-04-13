@@ -10,50 +10,55 @@ namespace Coban.Market.Entities
     [Table("MarketUsers")]
     public class MarketUser : MyEntityBase
     {
-        [DisplayName("İsim"), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [Required(ErrorMessage = "The name field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The name field must contain max 50 min 3 characters.")]
         public string Name { get; set; }
 
-        [DisplayName("Soyad"), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [Required(ErrorMessage = "The surname field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The surname field must contain max 50 min 3 characters.")]
         public string Surname { get; set; }
 
-        [DisplayName("Kullanıcı Adı"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [Required(ErrorMessage = "The username field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The username field must contain max 50 min 3 characters.")]
         public string Username { get; set; }
 
-        [DisplayName("E-Posta"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(70, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+
+        [Required(ErrorMessage = "The email field required."),
+         StringLength(150, MinimumLength = 3, ErrorMessage = "The email field must contain max 150 min 3 characters.")]
         public string Email { get; set; }
 
-        [DisplayName("Şifre"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [Required(ErrorMessage = "The password field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The password field must contain max 50 min 3 characters.")]
         public string Password { get; set; }
 
         [StringLength(30), ScaffoldColumn(false)]
         public string ProfileImageFilename { get; set; }
 
-        [DisplayName("Rolü")]
         public MarketUserRole Role { get; set; }
 
-        [DisplayName("Aktif")]
+
         public bool IsActive { get; set; }
 
-        [DisplayName("Meslek")]
+
         public string Job { get; set; }
 
 
-        [DisplayName("Facebook")]
+
         public string Facebook { get; set; }
 
-        [DisplayName("Twitter")]
+
         public string Twitter { get; set; }
 
-        [DisplayName("instagram")]
+
         public string Instagram { get; set; }
 
 
 
-        [DisplayName("Telefon Numarası"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(25, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
+        [Required(ErrorMessage = "The phone field required.")]
         public string Phone { get; set; }
 
-        [DisplayName("Ödül Puanı"), Required(ErrorMessage = "{0} alanı gereklidir.")]
-        public int RewardScore { get; set; }
+
+        public int? RewardScore { get; set; }
 
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }

@@ -324,4 +324,16 @@
   <data name="ShowProfile" xml:space="preserve">
     <value>Show Profile</value>
   </data>
+  <data name="ParentCategory" xml:space="preserve">
+    <value>Parent Category</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="LostData" xml:space="preserve">
+    <value>This may result in data loss.</value>
+  </data>
+  <data name="Selectfile" xml:space="preserve">
+    <value>Select File</value>
+  </data>
 </root>

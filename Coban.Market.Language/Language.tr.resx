@@ -294,4 +294,16 @@
   <data name="ShowProfile" xml:space="preserve">
     <value>Profili Görüntüle</value>
   </data>
+  <data name="ParentCategory" xml:space="preserve">
+    <value>Üst Kategori</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="LostData" xml:space="preserve">
+    <value>Bu sayfa veri kaybına yol açabilir.</value>
+  </data>
+  <data name="Selectfile" xml:space="preserve">
+    <value>Dosya Seçiniz</value>
+  </data>
 </root>

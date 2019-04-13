@@ -2,6 +2,7 @@
 @model Coban.Market.Entities.ValueObjects.AccountViewModel
 @{
     ViewBag.Title = Language.SignIn;
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
 
 @Html.Partial("_Partialbreadcrumbs")
@@ -39,7 +40,7 @@
                 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                 
+
                     <div class="form-group input-group">
                         @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "E-Posta adresinizi giriniz", type = "email", @required = "required" })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -58,7 +59,7 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                       
+
                     </div>
                     <div class="text-center text-sm-right">
                         <button class="btn btn-primary margin-bottom-none" type="submit">Login</button>

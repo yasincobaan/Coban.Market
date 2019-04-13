@@ -33,43 +33,29 @@ var table = $("#demoGrid").DataTable({
     "columns": [
         { "data": "Id", "title": "Category Id", "name": "Id", "autoWidth": true },
         {
-            "data": "Image1", "title": "Product Image 1", "name": "Image1",
-            "render": function (data) {
-                return '<a data-fancybox="gallery" id="' + data + '" href="/Images/Product/' + data + '"><img style="width:70px;" src="/Images/Product/' + data + '"/></a>';
+            "render": function(data, type, full, meta) {
+                return '<a data-fancybox="gallery" id="' + full.Image1 + '" href="/Images/Product/' + full.Image1 + '"><img style="width:70px;" src="/Images/Product/' + full.Image1 + '"/></a>' +
+                    '<a data-fancybox="gallery" id="' + full.Image2 + '" href="/Images/Product/' + full.Image2 + '"><img style="width:70px;" src="/Images/Product/' + full.Image2 + '"/></a>' +
+                    '<a data-fancybox="gallery" id="' + full.Image3 + '" href="/Images/Product/' + full.Image3 + '"><img style="width:70px;" src="/Images/Product/' + full.Image3 + '"/></a>' +
+                    '<a data-fancybox="gallery" id="' + full.Image4 + '" href="/Images/Product/' + full.Image4 + '"><img style="width:70px;" src="/Images/Product/' + full.Image4 + '"/></a>';
             }
         },
-        {
-            "data": "Image2", "title": "Product Image 2", "name": "Image2",
-            "render": function (data) {
-                return '<a data-fancybox="gallery" id="' + data + '" href="/Images/Product/' + data + '"><img style="width:70px;" src="/Images/Product/' + data + '"/></a>';
-            }
-        },
-        {
-            "data": "Image3", "title": "Product Image 3 ", "name": "Image3",
-            "render": function (data) {
-                return '<a data-fancybox="gallery" id="' + data + '" href="/Images/Product/' + data + '"><img style="width:70px;" src="/Images/Product/' + data + '"/></a>';
-            }
-        },
-        {
-            "data": "Image4", "title": "Product Image 4", "name": "Image4",
-            "render": function (data) {
-                return '<a data-fancybox="gallery" id="' + data + '" href="/Images/Product/' + data + '"><img style="width:70px;" src="/Images/Product/' + data + '"/></a>';
-            }
-        },
-
-
-
-        { "data": "Brand", "title": "Brand", "name": "Brand", "autoWidth": true },
+        { "data": "ProductName", "title": "ProductName", "name": "ProductName", "autoWidth": true },
+        { "data": "ProductBrand", "title": "ProductBrand", "name": "ProductBrand", "autoWidth": true },
+        { "data": "ExchangeRate", "title": "ExchangeRate", "name": "ExchangeRate", "autoWidth": true },
         { "data": "Price", "title": "Price", "name": "Price", "autoWidth": true },
-        { "data": "DiscountedPrice", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "LittleDescription", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "Description", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "isSale", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "isStock", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "StockAdet", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "LikeCount", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "CategoryId", "title": "Brand", "name": "Brand", "autoWidth": true },
-        { "data": "Comments[]", "title": "Brand", "name": "Brand", "autoWidth": true },
+        { "data": "DiscountedPrice", "title": "DiscountedPrice", "name": "DiscountedPrice", "autoWidth": true },
+        { "data": "KdvPercent", "title": "KdvPercent", "name": "KdvPercent", "autoWidth": true },
+        { "data": "Description", "title": "Description", "name": "Description", "autoWidth": true },
+        { "data": "LittleDescription", "title": "LittleDescription", "name": "LittleDescription", "autoWidth": true },
+        { "data": "IsSale", "title": "IsSale", "name": "IsSale", "autoWidth": true },
+        { "data": "BarCode", "title": "BarCode", "name": "BarCode", "autoWidth": true },
+        { "data": "StockCode", "title": "StockCode", "name": "StockCode", "autoWidth": true },
+        { "data": "Stock", "title": "Stock", "name": "Stock", "autoWidth": true },
+        { "data": "Category", "title": "Category", "name": "Category", "autoWidth": true },
+
+
+
 
         {
             "data": "Id", "title": "Operations",

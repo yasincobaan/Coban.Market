@@ -8,18 +8,21 @@ namespace Coban.Market.Entities
     [Table("Categories")]
     public class Category : MyEntityBase
     {
-        [DisplayName("Kategori"), Required(ErrorMessage = "{0} alanı gereklidir."), StringLength(50, ErrorMessage = "{0} alanı max. {1} karakter içermeli.")]
+        [DataType(DataType.Text),
+        Required(ErrorMessage = "Title field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The title field must contain max 50 min 3 characters.")]
         public string Title { get; set; }
 
-        [DisplayName("Açıklama"), StringLength(150, ErrorMessage = "{0} alanı max. {1} karakter içermeli.")]
+        [DataType(DataType.Text),
+         Required(ErrorMessage = "Description field required."),
+         StringLength(50, MinimumLength = 3, ErrorMessage = "The description field must contain max 50 min 3 characters.")]
         public string Description { get; set; }
-
-        [DisplayName("Kategori Resmi")]
+        
         public string Image { get; set; }
 
         public int? CategoryId { get; set; }
         public virtual List<Category> Categories { get; set; }
-        
+
         public virtual List<Product> Products { get; set; }
 
         public Category()

@@ -61,10 +61,8 @@
                                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
                                     <i class="icon-heart"></i>
                                 </button>
-                                @Html.BeginForm("AddToCart", "Cart", new { id = item.Id })
-                                {
-                                <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                                }
+                                <a class="btn btn-outline-primary btn-sm" href="@Url.Action("AddToCart", "Cart", new { id = item.Id })">Add to Cart</a>
+                             
 
                             </div>
                         </div>

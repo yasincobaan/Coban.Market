@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using Coban.Market.Entities.Enums;
@@ -9,50 +10,47 @@ namespace Coban.Market.Entities
     [Table("Products")]
     public class Product : MyEntityBase
     {
-        [DisplayName("Ürün Adı")]
+        [DataType(DataType.Text),
+         Required(ErrorMessage = "Product name field required."),
+         StringLength(200, MinimumLength = 2, ErrorMessage = "The title field must contain max 200 min 2 characters.")]
         public string ProductName { get; set; }
-        [DisplayName("Ürün Markası")]
+        [DataType(DataType.Text),
+         Required(ErrorMessage = "Product brand field required."),
+         StringLength(200, MinimumLength = 2, ErrorMessage = "The brand field must contain max 200 min 2 characters.")]
         public string ProductBrand { get; set; }
-        [DisplayName("Döviz Kuru")]
         public PriceExchangeRate ExchangeRate { get; set; }
-        [DisplayName("KDV'siz ürün fiyatı")]
-        public double Price { get; set; }
-        [DisplayName("KDV'siz ürünün indirimli fiyatı")]
-        public double DiscountedPrice { get; set; }
-        [DisplayName("KDV Yüzdesi")]
-        public byte KdvPercent { get; set; }
 
 
 
-        [DisplayName("Ürün Resim 1")]
+        [DataType(DataType.Currency), Required(ErrorMessage = "The product price field required.")]
+       public double Price { get; set; }
+       [DataType(DataType.Currency)]
+        public double? DiscountedPrice { get; set; }
+      
+        [Range(-1, 101, ErrorMessage = "The tax field must be between 0 to 100")]
+        public byte TaxPercent { get; set; }
+      
         public string Image1 { get; set; }
-        [DisplayName("Ürün Resim 2")]
         public string Image2 { get; set; }
-        [DisplayName("Ürün Resim 3")]
         public string Image3 { get; set; }
-        [DisplayName("Ürün Resim 4")]
         public string Image4 { get; set; }
-
-        [DisplayName("Açıklama")]
+        
         [AllowHtml]
         public string Description { get; set; }
-        [DisplayName("Kısa Açıklama")]
+        
         [AllowHtml]
         public string LittleDescription { get; set; }
 
-        [DisplayName("Satışta mı ?")]
+      
         public bool IsSale { get; set; }
-        [DisplayName("Barkod Kodu")]
         public string BarCode { get; set; }
-        [DisplayName("Stok Kodu")]
-        public int StockCode { get; set; }
-        [DisplayName("Stok Adeti")]
-        public int Stock { get; set; }
+        public string StockCode { get; set; }
+        public int? Stock { get; set; }
 
-        [DisplayName("Beğenilme Sayısı")]
-        public int LikeCount { get; set; }
+      
+        public int? LikeCount { get; set; }
 
-        [DisplayName("Kategori")]
+      
         public int CategoryId { get; set; }
 
         public virtual MarketUser Owner { get; set; }

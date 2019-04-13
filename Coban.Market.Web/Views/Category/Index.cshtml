@@ -23,7 +23,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                    Bu sayfa veri kaybına yol açabilir.
+                    @Language.LostData
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -34,7 +34,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-4">
-                            <img src="" name="Image" class="Image" id="Image" width="250px;" />
+                            <img src="" name="Image" class="Image" id="Image" />
                         </div>
                         <div class="col-lg-8">
                             <div class="form group row" style="display: none;">
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>Title: </b>
+                                    <b>@Language.CategoryTitle : </b>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="Title" class="form-control Title" id="Title" />
@@ -54,7 +54,7 @@
                             <br />
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>Description: </b>
+                                    <b>@Language.CategoryDescription : </b>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="Description" class="form-control Title" id="Description" />
@@ -63,7 +63,7 @@
                             <br />
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>Kategori Resmi: </b>
+                                    <b>@Language.CategoryImage : </b>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group ">
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input Image" id="Image2" name="Image2">
-                                            <label class="custom-file-label" for="Image2">Dosya Seçiniz</label>
+                                            <label class="custom-file-label" for="Image2">@Language.Selectfile</label>
                                         </div>
                                     </div>
                                 </div>
@@ -84,10 +84,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        Close
+                       @Language.Close
                     </button>
                     <button type="submit" class="btn btn-success">
-                        Save changes
+                       @Language.Save
                     </button>
                 </div>
             }

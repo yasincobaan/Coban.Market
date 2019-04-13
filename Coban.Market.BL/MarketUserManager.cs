@@ -229,6 +229,9 @@ namespace Coban.Market.BL
             return res;
         }
 
+
+
+        //Method Hiding
         public new BusinessLayerResult<MarketUser> Insert(MarketUser data)
         {
             MarketUser user = Find(x => x.Username == data.Username || x.Email == data.Email);
@@ -250,7 +253,7 @@ namespace Coban.Market.BL
             }
             else
             {
-                res.Result.Password = "0";
+                res.Result.Password =data.Password;
                 res.Result.IsActive = false;
                 res.Result.ProfileImageFilename = "user.png";
                 res.Result.ActivateGuid = Guid.NewGuid();

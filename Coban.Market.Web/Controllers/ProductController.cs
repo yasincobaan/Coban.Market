@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
+using System.Web;
 using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
@@ -15,7 +16,7 @@ namespace Coban.Market.Web.Controllers
 
         private ProductManager prdManager = new ProductManager();
         private CategoryManager categoryManager = new CategoryManager();
-        private LikedManager likedManager = new LikedManager();
+      
 
         public ActionResult LoadData()
         {
@@ -112,7 +113,7 @@ namespace Coban.Market.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product prd)
+        public ActionResult Create(Product prd, HttpPostedFileBase Image1, HttpPostedFileBase Image2, HttpPostedFileBase Image3, HttpPostedFileBase Image4)
         {
             ModelState.Remove("CreatedOn");
             ModelState.Remove("CreatedUsername");
@@ -123,6 +124,36 @@ namespace Coban.Market.Web.Controllers
             {
                 prd.Owner = CurrentSession.User;
                 prdManager.Insert(prd);
+                prd = prdManager.Find(x => x.Id == prd.Id);
+
+                if (Image1 != null && (Image1.ContentType == "image/jpeg" || Image1.ContentType == "image/jpg" || Image1.ContentType == "image/png"))
+                {
+                    string filename = $"prd_1_{prd.Id}.{Image1.ContentType.Split('/')[1]}";
+                    Image1.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
+                    prd.Image1 = filename;
+                }
+
+                if (Image2 != null && (Image2.ContentType == "image/jpeg" || Image2.ContentType == "image/jpg" || Image2.ContentType == "image/png"))
+                {
+                    string filename = $"prd_2_{prd.Id}.{Image2.ContentType.Split('/')[1]}";
+                    Image2.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
+                    prd.Image2 = filename;
+                }
+
+                if (Image3 != null && (Image3.ContentType == "image/jpeg" || Image3.ContentType == "image/jpg" || Image3.ContentType == "image/png"))
+                {
+                    string filename = $"prd_3_{prd.Id}.{Image3.ContentType.Split('/')[1]}";
+                    Image3.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
+                    prd.Image3 = filename;
+                }
+
+                if (Image4 != null && (Image4.ContentType == "image/jpeg" || Image4.ContentType == "image/jpg" || Image4.ContentType == "image/png"))
+                {
+                    string filename = $"prd_4_{prd.Id}.{Image4.ContentType.Split('/')[1]}";
+                    Image4.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
+                    prd.Image4 = filename;
+                }
+                prdManager.Update(prd);
                 return RedirectToAction("Index");
             }
 
