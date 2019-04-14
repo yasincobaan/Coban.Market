@@ -6,7 +6,6 @@ using Coban.Market.Web.Models.ViewModels;
 using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
-using Coban.Market.Common.Helpers;
 using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers
@@ -24,8 +23,6 @@ namespace Coban.Market.Web.Controllers
         #region Login-Register
         public ActionResult Account()
         {
-            ViewData["catList"] = catManager.ListQueryable();
-            ViewData["prdList"] = prdManager.List().OrderByDescending(x => x.Id);
             return View();
         }
 
@@ -109,7 +106,7 @@ namespace Coban.Market.Web.Controllers
                 }
                 OkViewModel notifyObj = new OkViewModel()
                 {
-                    Title = "Kayıt Başarılı",
+                    Title = "Şifre Yenileme Linki Gönderildi.",
                     RedirectingUrl = "/Account/Account",
                 };
 
@@ -134,7 +131,7 @@ namespace Coban.Market.Web.Controllers
             {
                 return View(mrktUser);
             }
-            //404
+   
             return View();
         }
         [HttpPost]

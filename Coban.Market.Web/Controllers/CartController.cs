@@ -11,8 +11,11 @@ namespace Coban.Market.Web.Controllers
 {
     public class CartController : Controller
     {
-        ProductManager prdManager = new ProductManager();
-        OrderManager orderManager = new OrderManager();
+        #region Variables
+        private ProductManager prdManager = new ProductManager();
+        private OrderManager orderManager = new OrderManager();
+        #endregion
+
 
         public ActionResult Index()
         {
@@ -96,7 +99,7 @@ namespace Coban.Market.Web.Controllers
             order.Total = cart.Total();
             order.OrderDate = DateTime.Now;
             order.OrderState = EnumOrderState.Waiting;
-            order.Username = CurrentSession.User.Username;
+          
 
             order.AddressTitle = entity.AddressTitle;
             order.Address = entity.Address;
@@ -114,11 +117,19 @@ namespace Coban.Market.Web.Controllers
                 orderline.Price = pr.Quantity * pr.Product.Price;
                 orderline.ProductId = pr.Product.Id;
 
+                orderline.CreatedOn = DateTime.Now;
+                orderline.CreatedUsername = "system";
+                orderline.ModifiedOn = DateTime.Now;
+                orderline.ModifiedUsername = "system";
+
                 order.Orderlines.Add(orderline);
             }
-
+            order.CreatedOn=DateTime.Now;
+            order.CreatedUsername = "system";
+            order.ModifiedOn = DateTime.Now;
+            order.ModifiedUsername = "system";
             orderManager.Insert(order);
-            orderManager.Save();
+          
         }
     }
 }

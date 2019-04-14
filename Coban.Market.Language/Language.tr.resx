@@ -330,4 +330,25 @@
   <data name="FeaturedProducts" xml:space="preserve">
     <value>Tavsiye Ürünler</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaylar</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Kimlik</value>
+  </data>
+  <data name="OrderDateTime" xml:space="preserve">
+    <value>Sipariş Tarihi</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Sipariş Numarası</value>
+  </data>
+  <data name="OrderStatu" xml:space="preserve">
+    <value>Sipariş Durumu</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Toplam Ödeme</value>
+  </data>
+  <data name="TotalProducts" xml:space="preserve">
+    <value>Ürün Sayısı</value>
+  </data>
 </root>

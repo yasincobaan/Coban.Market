@@ -93,6 +93,13 @@
         $("#userMenu").removeClass("collapsed").addClass("show");
         $("#usersLinks").addClass("active");
     }
+    else if (url == "/Order") {
+        $("#orderItem").addClass("active");
+    
+    }
+    else if (url == "/Order/Index") {
+        $("#orderItem").addClass("active");
+    }
     else if (url == "/MarketUser/Create") {
         $("#userItem").addClass("active");
         $("#userMenu").attr("aria-expanded", "true");

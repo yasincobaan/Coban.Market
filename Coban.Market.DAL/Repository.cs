@@ -36,6 +36,7 @@ namespace Coban.Market.DAL
                 MyEntityBase o = obj as MyEntityBase;
                 DateTime now = DateTime.Now;
 
+                
 
                 o.CreatedOn = now;
                 o.CreatedUsername = App.Common.GetCurrentUsername();

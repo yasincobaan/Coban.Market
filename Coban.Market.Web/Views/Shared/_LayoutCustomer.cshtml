@@ -254,54 +254,8 @@
                             <li><a href="@Url.Action("Logout","Account")"><i class="fa fa-lock"></i> Sign Out</a></li>
                         </ul>
                     </div>
-                    <!--Todo : Cart Bölgesi-->
-                    <div class="cart">
-                        <a href="#"></a>
-                        <i class="icon-bag"></i>
-                        <span class="count">3</span>
-                        <span class="subtotal">$1000</span>
-                        <div class="toolbar-dropdown">
+                    @Html.Action("Summary", "Cart")
 
-
-                            <div class="dropdown-product-item">
-                                <span class="dropdown-product-remove"><i class="icon-cross"></i></span>
-                                <a class="dropdown-product-thumb" href="#">
-                                    <img src="~/ContentCustomer/Theme/images/cart-dropdown/01.jpg" alt="Product">
-                                </a>
-                                <div class="dropdown-product-info">
-                                    <a class="dropdown-product-title" href="#">Samsung Galaxy A8</a>
-                                    <span class="dropdown-product-details">1 x $520</span>
-                                </div>
-                            </div>
-
-
-                            <div class="toolbar-dropdown-group">
-                                <div class="column">
-                                    <span class="text-lg">Total:</span>
-                                </div>
-                                <div class="column text-right">
-                                    <span class="text-lg text-medium">$1920 </span>
-                                </div>
-                            </div>
-
-
-
-
-
-                            <div class="toolbar-dropdown-group">
-                                <div class="column">
-                                    <a class="btn btn-sm btn-block btn-secondary" href="@Url.Action("Index","Cart")">
-                                        @Language.ViewCart
-                                    </a>
-                                </div>
-                                <div class="column">
-                                    <a class="btn btn-sm btn-block btn-success" href="@Url.Action("Checkout","Cart")">
-                                        @Language.Checkout
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>

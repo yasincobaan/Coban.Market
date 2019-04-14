@@ -4,12 +4,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
-
-    IEnumerable<Category> categories = ViewData["catList"] as IEnumerable<Category>;
-    IEnumerable<Product> products = ViewData["prdList"] as IEnumerable<Product>;
 }
-
-@Html.Partial("_PartialCategoryMainPage", categories)
-@Html.Partial("_PartialFeaturedProducts", products)
+@Html.Partial("_PartialCategoryMainPage")
+@Html.Partial("_PartialFeaturedProducts")
 @Html.Partial("_PartialServiceBrand")
 @Html.Partial("_PartialFooter")

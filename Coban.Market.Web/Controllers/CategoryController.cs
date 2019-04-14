@@ -4,7 +4,6 @@ using Coban.Market.Web.Models;
 using System;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Coban.Market.BL.Results;
@@ -13,7 +12,10 @@ namespace Coban.Market.Web.Controllers
 {
     public class CategoryController : Controller
     {
+        #region Variables
         private CategoryManager categoryManager = new CategoryManager();
+        #endregion
+
 
         #region Index
 
@@ -23,8 +25,6 @@ namespace Coban.Market.Web.Controllers
         }
         public ActionResult LoadData()
         {
-
-
             var draw = Request.Form.GetValues("draw").FirstOrDefault();
             var start = Request.Form.GetValues("start").FirstOrDefault();
             var length = Request.Form.GetValues("length").FirstOrDefault();
@@ -166,10 +166,7 @@ namespace Coban.Market.Web.Controllers
         #endregion
 
         #region Delete
-
-
         [HttpPost]
-
         public JsonResult Delete(int id)
         {
             OperationResult operation = new OperationResult();
@@ -187,8 +184,6 @@ namespace Coban.Market.Web.Controllers
             return Json(operation, JsonRequestBehavior.AllowGet);
 
         }
-
-
         #endregion
 
     }

@@ -485,6 +485,11 @@
     <Content Include="Views\Support\ContactUs.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\Completed.cshtml" />
+    <Content Include="Views\Cart\Summary.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

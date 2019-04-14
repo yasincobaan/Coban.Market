@@ -30,13 +30,11 @@ namespace Coban.Market.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("AllProducts");
             }
-            Category cat = catManager.Find(x => x.Id == id);
-            return View(cat);
+            IQueryable<Product> prdsFilterCat = prdManager.ListQueryable().Where(x => x.CategoryId == id);
+            return RedirectToAction("AllProducts",prdsFilterCat);
         }
-
-
 
         [HttpPost]
         public JsonResult ExchangeRate()

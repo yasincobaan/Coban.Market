@@ -1,0 +1,51 @@
+﻿@using Coban.Market.Language
+@model IEnumerable<Coban.Market.Web.Models.OrderModels.AdminOrderModel>
+@{
+    ViewBag.Title = Language.Orders;
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <a class="d-block card-header py-3">
+                <h6 class="m-0 font-weight-bold text-success text-center">
+                    @Language.Orders
+                </h6>
+            </a>
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+                            <th class="text-black">@Language.Id</th>
+                            <th>@Language.OrderNumber</th>
+                            <th>@Language.OrderDateTime</th>
+                            <th>@Language.OrderStatu</th>
+                            <th>@Language.TotalPrice</th>
+                            <th>@Language.TotalProducts</th>
+                            <th>@Language.Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.OrderNumber</td>
+                                <td>@item.OrderDate.ToShortDateString()</td>
+                                <td>@item.OrderState</td>
+                                <td>@item.Count</td>
+                                <td>@item.Total</td>
+                                <td>@Html.ActionLink("Detaylar", "Details", new { id = @item.Id }, new { @class = "btn btn-info btn-sm" })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

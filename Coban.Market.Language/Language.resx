@@ -360,4 +360,25 @@
   <data name="FeaturedProducts" xml:space="preserve">
     <value>Featured Products</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="OrderDateTime" xml:space="preserve">
+    <value>Order DateTime</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
+  <data name="OrderStatu" xml:space="preserve">
+    <value>Order Statu</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Total Price</value>
+  </data>
+  <data name="TotalProducts" xml:space="preserve">
+    <value>Total Products</value>
+  </data>
 </root>
