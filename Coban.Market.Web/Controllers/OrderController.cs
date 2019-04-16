@@ -61,21 +61,21 @@ namespace Coban.Market.Web.Controllers
             return View(entity);
         }
 
-        //public ActionResult UpdateOrderState(int OrderId, EnumOrderState OrderState)
-        //{
-        //    var order = db.Orders.FirstOrDefault(i => i.Id == OrderId);
+        public ActionResult UpdateOrderState(int OrderId, EnumOrderState OrderState)
+        {
+            var order = orderManager.Find(i => i.Id == OrderId);
 
-        //    if (order != null)
-        //    {
-        //        order.OrderState = OrderState;
-        //        db.SaveChanges();
+            if (order != null)
+            {
+                order.OrderState = OrderState;
+                orderManager.Update(order);
 
-        //        TempData["message"] = "Bilgileriniz Kayıt Edildi";
+                TempData["message"] = "Bilgileriniz Kayıt Edildi";
 
-        //        return RedirectToAction("Details", new { id = OrderId });
-        //    }
+                return RedirectToAction("Details", new { id = OrderId });
+            }
 
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
     }
 }

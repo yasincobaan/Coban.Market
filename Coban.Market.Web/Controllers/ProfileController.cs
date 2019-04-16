@@ -32,7 +32,7 @@ namespace Coban.Market.Web.Controllers
 
             return View(res.Result);
         }
-        
+
         public ActionResult EditProfile()
         {
             BusinessLayerResult<MarketUser> res = mrktUserManager.GetUserById(CurrentSession.User.Id);
@@ -50,8 +50,8 @@ namespace Coban.Market.Web.Controllers
 
             return View(res.Result);
         }
-        
-       
+
+
         public ActionResult ActivityLog()
         {
             return View();
@@ -59,6 +59,13 @@ namespace Coban.Market.Web.Controllers
         public ActionResult Settings()
         {
             return View();
+        }
+
+        public ActionResult ShowCustomer(string username)
+        {
+            MarketUser mrktUser = mrktUserManager.Find(x => x.Username == username);
+
+            return View(mrktUser);
         }
     }
 }

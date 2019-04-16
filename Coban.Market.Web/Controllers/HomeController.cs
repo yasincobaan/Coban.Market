@@ -11,14 +11,34 @@ namespace Coban.Market.Web.Controllers
 {
     public class HomeController : Controller
     {
-        CategoryManager catManager = new CategoryManager();
-        ProductManager prdManager = new ProductManager();
+
+        #region Variables
+        private CategoryManager catManager = new CategoryManager();
+        private ProductManager prdManager = new ProductManager();
+        #endregion
+
+
+
+
         public ActionResult Index()
         {
-            ViewData["catList"] = catManager.ListQueryable();
-            ViewData["prdList"] = prdManager.List().OrderByDescending(x => x.Id);
             return View();
         }
+
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
         public ActionResult Change(String languageSelect)
         {
             if (languageSelect != null)
@@ -33,6 +53,9 @@ namespace Coban.Market.Web.Controllers
 
             return View("Index");
         }
+
+
+
 
         public ActionResult Search(string site_search)
         {
@@ -51,6 +74,6 @@ namespace Coban.Market.Web.Controllers
             Product mrktUser = prdManager.Find(x => x.Id == id);
             return View(mrktUser);
         }
-      
+
     }
 }

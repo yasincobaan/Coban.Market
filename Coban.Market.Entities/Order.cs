@@ -20,12 +20,14 @@ namespace Coban.Market.Entities
         public string Neighborhood { get; set; }
         public string PostCode { get; set; }
 
+        public string TrackOrderNumber { get; set; }
+
 
         public virtual List<OrderLine> Orderlines { get; set; }
     }
-    public class OrderLine:MyEntityBase
+    public class OrderLine : MyEntityBase
     {
-      
+
         public int OrderId { get; set; }
         public virtual Order Order { get; set; }
         public int Quantity { get; set; }

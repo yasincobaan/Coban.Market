@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Coban.Market.BL.Results
 {
@@ -20,9 +16,6 @@ namespace Coban.Market.BL.Results
         public string ErrorMessage { get; set; }
         public Byte ErrorType { get; set; }
         public object Response { get; set; }
-
-
-
     }
     public class OperationResult<T> : OperationResult
     {

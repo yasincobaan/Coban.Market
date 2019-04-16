@@ -10,6 +10,7 @@ namespace Coban.Market.Web
             bundles.Add(new ScriptBundle("~/jquery").Include(
                 "~/ContentAdmin/Theme/js/jquery.js",
                 "~/ContentAdmin/Theme/js/popper.js"
+
             ));
             #endregion
 
@@ -19,7 +20,8 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Theme/css/bootstrap.css",
                 "~/ContentAdmin/Theme/css/sb-admin-2.css",
                 "~/ContentAdmin/Theme/css/font.css",
-                "~/ContentAdmin/Theme/css/custom.css"
+                "~/ContentAdmin/Theme/css/custom.css",
+                "~/font/css/all.css"
             ));
 
             //Layout Js
@@ -30,7 +32,8 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Theme/js/moment.js",
                 "~/ContentAdmin/Theme/js/custom.js",
                 "~/ContentAdmin/Other/SweetAlert/js/sweetalert.js",
-                "~/ContentAdmin/Other/jquery.easing.js"
+                "~/ContentAdmin/Other/jquery.easing.js",
+                "~/font/css/all.js"
 
             ));
             #endregion

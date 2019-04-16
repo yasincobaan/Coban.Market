@@ -79,6 +79,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adress.
+        /// </summary>
+        public static string Adress {
+            get {
+                return ResourceManager.GetString("Adress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Of.
         /// </summary>
         public static string Allof {
@@ -448,6 +457,24 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order Details.
+        /// </summary>
+        public static string OrderDetails {
+            get {
+                return ResourceManager.GetString("OrderDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Id.
+        /// </summary>
+        public static string OrderId {
+            get {
+                return ResourceManager.GetString("OrderId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order Number.
         /// </summary>
         public static string OrderNumber {
@@ -520,11 +547,29 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Count.
+        /// </summary>
+        public static string ProductCount {
+            get {
+                return ResourceManager.GetString("ProductCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ProductDescription.
         /// </summary>
         public static string ProductDescription {
             get {
                 return ResourceManager.GetString("ProductDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product Details.
+        /// </summary>
+        public static string ProductDetails {
+            get {
+                return ResourceManager.GetString("ProductDetails", resourceCulture);
             }
         }
         
@@ -817,6 +862,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {
@@ -849,6 +903,15 @@ namespace Coban.Market.Language {
         public static string ViewProducts {
             get {
                 return ResourceManager.GetString("ViewProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ViewSite.
+        /// </summary>
+        public static string ViewSite {
+            get {
+                return ResourceManager.GetString("ViewSite", resourceCulture);
             }
         }
     }

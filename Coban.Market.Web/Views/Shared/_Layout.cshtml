@@ -12,28 +12,21 @@
     <title>Coban Market | @ViewBag.Title</title>
     @Styles.Render("~/main/css")
     @Scripts.Render("~/jquery")
-
-    <!--
-    Bundle'a eklenecek
-    -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-
-
 </head>
 <body id="page-top">
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("AdminIndex","Home")">
                 <div class="sidebar-brand-text mx-3">
                     Coban
                 </div>
                 <div class="sidebar-brand-icon">
-                    <img src="~/ContentAdmin/Images/logo.png" class="logo" />
+                    <img class="logo" />
                 </div>
             </a>
             <hr class="sidebar-divider my-0">
             <li id="focusHome" class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index","Home")">
+                <a class="nav-link" href="@Url.Action("AdminIndex","Home")">
                     <i class="fa fa-home"></i>
                     <span>@Language.Home</span>
                 </a>
@@ -101,17 +94,34 @@
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown no-arrow">
+                        <li class="websiteView">
+                            <a class="websiteViewLink" href="@Url.Action("AllProducts", "Customer")">
+                                <i class="fa fa-eye"></i>
+                                @Language.ViewSite
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown no-arrow languagePicture">
                             @Html.Partial("_PartialLanguage")
                         </li>
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item no-arrow ">
                             <div id="profiledropdown" class="dropdown">
-                                <a class="btn btn-default btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-default btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                     @if (CurrentSession.User != null)
                                     {
+                                        <b class="text-uppercase username">
+                                            @CurrentSession.User.Name
+                                        </b>
+                                        <span>
+                                            &nbsp;
+                                        </span>
+                                        <b class="text-uppercase username">
+                                            @CurrentSession.User.Surname
+                                        </b>
+                                        <span>
+                                            &nbsp;
+                                        </span>
                                         <img id="profileimage" src="../../Images/MarketUser/@CurrentSession.User.ProfileImageFilename" />
-                                        @CurrentSession.User.Name @CurrentSession.User.Surname
                                     }
                                 </a>
                                 <div id="profilelinks" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -139,9 +149,7 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-primary">
-                            @ViewBag.Title
-                        </h1>
+                        <h1 class="h3 mb-0 text-primary"></h1>
                     </div>
                     @RenderBody()
                 </div>
@@ -153,7 +161,7 @@
 
         </i>
     </a>
-    <input id="url" value="@HttpContext.Current.Request.RawUrl"/>
+    <input id="url" value="@HttpContext.Current.Request.RawUrl" />
     @Scripts.Render("~/main/js")
     @RenderSection("scripts", false)
 </body>

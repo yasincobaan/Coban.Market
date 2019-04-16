@@ -6,6 +6,7 @@ using Coban.Market.Web.Models.ViewModels;
 using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
+using Coban.Market.Entities.Enums;
 using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers
@@ -19,7 +20,7 @@ namespace Coban.Market.Web.Controllers
         private ProductManager prdManager = new ProductManager();
 
         #endregion
-        
+
         #region Login-Register
         public ActionResult Account()
         {
@@ -44,7 +45,11 @@ namespace Coban.Market.Web.Controllers
                     return View("Account");
                 }
                 CurrentSession.Set<MarketUser>("login", res.Result);
-                return RedirectToAction("Index", "Home");
+                if (res.Result.Role == MarketUserRole.NewUser)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                return RedirectToAction("AdminIndex", "Home");
             }
 
             return View("Account", model);
@@ -131,7 +136,7 @@ namespace Coban.Market.Web.Controllers
             {
                 return View(mrktUser);
             }
-   
+
             return View();
         }
         [HttpPost]

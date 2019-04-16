@@ -1,0 +1,230 @@
+﻿@model Coban.Market.Web.Models.ViewModels.FaqViewModel
+@{
+    ViewBag.Title = "Faq";
+}
+@Html.Partial("_Partialbreadcrumbs")
+<div class="container padding-top-1x padding-bottom-3x">
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            <nav class="list-group">
+                <a class="list-group-item active" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+                <a class="list-group-item" href="#">
+                    Lorem ipsum dolor sit amet
+                </a>
+            </nav>
+            <div class="padding-bottom-3x hidden-md-up"></div>
+        </div>
+
+        <div class="col-lg-9 col-md-8">
+            <div class="accordion" id="accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse show" id="collapseOne" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseTwo" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseThree" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseThree" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseFour" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseFour" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseFive" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseFive" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseSix" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseSix" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab">
+                        <h6>
+                            <a class="collapsed" href="#collapseSeven" data-toggle="collapse" data-parent="#accordion">
+                                Lorem ipsum dolor sit amet
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="collapse" id="collapseSeven" role="tabpanel">
+                        <div class="card-body">
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="padding-top-2x">
+                Lorem ipsum dolor sit amet
+            </h3>
+            <p class="text-muted mb-30">
+                Lorem ipsum dolor sit amet
+            </p>
+            @using (Html.BeginForm("Faq", "Support"))
+            {<div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="help_name">
+                                Your Name
+                            </label>
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control form-control-rounded" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="help_email">
+                                Your Email
+                            </label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control form-control-rounded" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="help_subject">
+                                Subject
+                            </label>
+                            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control form-control-rounded" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="help_category">
+                                Problem Types
+                            </label>
+                            @Html.EnumDropDownListFor(x => x.ProblemTypes)
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="help_question">
+                                Problem
+                            </label>
+                            @Html.TextAreaFor(x => x.Problem, new { @class = "form-control form-control-rounded", @rows = "8" })
+                        </div>
+                    </div>
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary btn-rounded" type="submit">
+                            Submit Question
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

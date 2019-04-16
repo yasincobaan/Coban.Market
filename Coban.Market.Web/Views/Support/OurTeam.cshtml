@@ -1,0 +1,33 @@
+﻿@model IQueryable<Coban.Market.Entities.MarketUser>
+@{
+    ViewBag.Title = "OurTeam";
+}
+@Html.Partial("_Partialbreadcrumbs")
+<div class="container padding-top-1x padding-bottom-3x">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 mb-4">
+                <div class="card text-center">
+                    <img class="card-img-top" src="~/Images/MarketUser/@item.ProfileImageFilename" alt="@item.Username">
+                    <div class="card-body">
+                        <h5 class="card-title mb-2">
+                            @item.Name @item.Surname
+                        </h5>
+                        <p class="text-muted mb-2">
+                            @item.Job
+                        </p>
+                        <div class="social-bar">
+                            <a class="social-button shape-circle sb-facebook" href="@item.Facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                                <i class="socicon-facebook"></i>
+                            </a>
+                            <a class="social-button shape-circle sb-twitter" href="@item.Twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                                <i class="socicon-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    </div>

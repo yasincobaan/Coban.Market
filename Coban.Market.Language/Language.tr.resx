@@ -351,4 +351,25 @@
   <data name="TotalProducts" xml:space="preserve">
     <value>Ürün Sayısı</value>
   </data>
+  <data name="OrderDetails" xml:space="preserve">
+    <value>Sipariş Detayları</value>
+  </data>
+  <data name="Adress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="OrderId" xml:space="preserve">
+    <value>Sipariş Kimliği</value>
+  </data>
+  <data name="ProductCount" xml:space="preserve">
+    <value>Ürün Adedi</value>
+  </data>
+  <data name="ProductDetails" xml:space="preserve">
+    <value>Ürün Detayları</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="ViewSite" xml:space="preserve">
+    <value>Siteyi Görüntüle</value>
+  </data>
 </root>

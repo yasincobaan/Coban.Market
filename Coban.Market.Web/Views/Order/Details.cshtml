@@ -1,121 +1,176 @@
-﻿@model Coban.Market.Web.Models.OrderModels.OrderDetailsModel
+﻿@using Coban.Market.Language
+@model Coban.Market.Web.Models.OrderModels.OrderDetailsModel
 @{
     ViewBag.Title = "Details";
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <h2 class="mt-3">Sipariş Detay Bilgileri</h2>
-                <hr />
-                @if (TempData["message"] != null)
-                {
-                    <div class="alert alert-success">
-                        @TempData["message"]
-                    </div>
-                }
-
-                <dl class="row">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-                    <dt class="col-sm-3">Kullanıcı Adı</dt>
-                    <dd class="col-sm-9 alert alert-success">@Model.UserName
-                    <dd>
 
-                    <dt class="col-sm-3">Sipariş Durumu</dt>
-                    <dd class="col-sm-9">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <a class="d-block card-header py-3">
+                <h6 class="m-0 font-weight-bold text-success text-center">
+                    @Language.OrderDetails
+                </h6>
+            </a>
 
-                        @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @if (TempData["message"] != null)
                         {
-                            @Html.HiddenFor(i => i.OrderId)
-
-                            <dl class="row">
-                                <dt class="col-sm-8">
-                                    @Html.EnumDropDownListFor(i => i.OrderState, "Sipariş Durumunu Seçiniz", new { @class = "form-control" })
-                                </dt>
-                                <dd class="col-sm-4">
-                                    <button type="submit" class="btn btn-primary">Güncelle</button>
-                                </dd>
-                            </dl>
+                            <div class="alert alert-success">
+                                @TempData["message"]
+                            </div>
                         }
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                @Language.Username
+                            </dt>
+                            <dd class="col-sm-3 alert alert-success text-center" style="border: 1px solid black;">
+                                <a href="@Url.Action("ShowCustomer","Profile",new{id=Model.UserName})" target="_blank">
+                                    <b class="text-danger">
+                                        @Model.UserName.ToUpper()
+                                    </b>
+                                </a>
+                            <dd>
+                            <dd class="col-sm-6">
 
-                    </dd>
-
-                    <dt class="col-sm-3">Sipariş Id'si</dt>
-                    <dd class="col-sm-9">@Model.OrderId</dd>
-
-                    <dt class="col-sm-3">Sipariş Numarası</dt>
-                    <dd class="col-sm-9">@Model.OrderNumber</dd>
-
-                    <dt class="col-sm-3">Toplam Tutar</dt>
-                    <dd class="col-sm-9">
-                        <i class="fa fa-try" aria-hidden="true"></i>
-                        @Model.Total
-                    </dd>
-
-                    <dt class="col-sm-3">Sipariş Verilen Tarih</dt>
-                    <dd class="col-sm-9">@Model.OrderDate</dd>
-
-
-                    <dt class="col-sm-3">Adres</dt>
-                    <dd class="col-sm-9">
-                        @Model.AdresBasligi
-                        <hr />
-                        @Model.Adres
-                        <br />
-                        @Model.Sehir - @Model.Semt - @Model.Mahalle
-                        <br />
-                        @Model.PostaKodu
-                    </dd>
-
-                    <dt class="col-sm-3">Ürünler</dt>
-                    <dd class="col-sm-9">
-                        <table class="table table-bordered">
-
-                            <thead>
-                                <tr>
-                                    <th>Ürünün Resmi</th>
-                                    <th style="width: 45%;">Ürünün İsmi</th>
-                                    <th>Miktar</th>
-                                    <th>Fiyat</th>
-                                    <th style="width: 10%;"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                @foreach (var item in Model.Orderlines)
+                            <dd>
+                            <dt class="col-sm-3">
+                                @Language.OrderStatu
+                            </dt>
+                            <dd class="col-sm-3">
+                                @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
                                 {
-                                    <tr>
-                                        <td>
-                                            <img src="/Upload/@item.Image" width="70" />
-                                        </td>
-                                        <td>
-                                            @item.ProductName
-                                        </td>
-                                        <td>
-                                            @item.Quantity
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-try" aria-hidden="true"></i>
-                                            @item.Price
-                                        </td>
-                                        <td>
-                                            <a href="/Home/Details/@item.ProductId" class="btn btn-info btn-sm" target="_blank">
-                                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                Ürün Detayları
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    @Html.HiddenFor(i => i.OrderId)
+                                    <dl class="row">
+                                        <dt class="col-sm-8">
+                                            @Html.EnumDropDownListFor(i => i.OrderState, "Sipariş Durumunu Seçiniz", new { @class = "form-control" })
+                                        </dt>
+                                        <dd class="col-sm-4">
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                @Language.Update
+                                            </button>
+                                        </dd>
+                                    </dl>
                                 }
-                            </tbody>
-                        </table>
-                    </dd>
+                            </dd>
+                            <dd class="col-sm-6">
 
-                </dl>
+                            </dd>
+                            <dt class="col-sm-3">
+                                @Language.OrderId
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Model.OrderId
+                            </dd>
 
+                            <dt class="col-sm-3">
+                                @Language.OrderNumber
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Model.OrderNumber
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Language.TotalPrice
+                            </dt>
+                            <dd class="col-sm-9">
+                                <i class="fa fa-try" aria-hidden="true"></i>
+                                @Model.Total.ToString("C2")
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Language.OrderDateTime
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Model.OrderDate.ToShortDateString()
+                            </dd>
+
+
+                            <dt class="col-sm-3">
+                                @Language.Adress
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Model.AdresBasligi
+                                <hr />
+                                @Model.Adres
+                                <br />
+                                @Model.Sehir - @Model.Semt - @Model.Mahalle
+                                <br />
+                                @Model.PostaKodu
+                            </dd>
+
+                            <dt class="col-sm-3">
+                                @Language.Products
+                            </dt>
+                            <dd class="col-sm-9">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Language.ProductImage
+                                            </th>
+                                            <th style="width: 45%;">
+                                                @Language.ProductName
+                                            </th>
+                                            <th>
+                                                @Language.ProductCount
+                                            </th>
+                                            <th>
+                                                @Language.Price
+                                            </th>
+                                            <th>
+                                                @Language.Details
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Orderlines)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <a data-fancybox="gallery" id="@item.Image" href="/Images/Product/@item.Image">
+                                                        <img style="width: 70px;" src="/Images/Product/@item.Image" />
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    @item.ProductName
+                                                </td>
+                                                <td>
+                                                    @item.Quantity
+                                                </td>
+                                                <td>
+                                                    <i class="fa fa-try" aria-hidden="true"></i>
+                                                    @item.Price.ToString("C2")
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("SingleProduct","Customer",new {id=item.ProductId})" class="btn btn-dark btn-sm" target="_blank">
+                                                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                                        @Language.ProductDetails
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
 
 

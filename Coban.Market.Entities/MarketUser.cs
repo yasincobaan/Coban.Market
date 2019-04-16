@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Coban.Market.Entities.Enums;
@@ -68,9 +67,9 @@ namespace Coban.Market.Entities
 
 
 
-
-
-
+        public virtual List<ProductWishlist> Wishlists { get; set; }
+        public virtual List<Blog> Blogs { get; set; }
+        public virtual List<UserAddress> Address { get; set; }
         public virtual List<Product> Products { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Liked> Likes { get; set; }

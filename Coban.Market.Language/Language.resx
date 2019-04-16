@@ -381,4 +381,25 @@
   <data name="TotalProducts" xml:space="preserve">
     <value>Total Products</value>
   </data>
+  <data name="OrderDetails" xml:space="preserve">
+    <value>Order Details</value>
+  </data>
+  <data name="Adress" xml:space="preserve">
+    <value>Adress</value>
+  </data>
+  <data name="OrderId" xml:space="preserve">
+    <value>Order Id</value>
+  </data>
+  <data name="ProductCount" xml:space="preserve">
+    <value>Product Count</value>
+  </data>
+  <data name="ProductDetails" xml:space="preserve">
+    <value>Product Details</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="ViewSite" xml:space="preserve">
+    <value>ViewSite</value>
+  </data>
 </root>

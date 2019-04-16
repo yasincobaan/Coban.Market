@@ -33,12 +33,39 @@
     color: crimson;
 }
 
-#profiledropdown {
-    padding-right: 70px;
-}
+
 .logo {
     width: 50px;
+    content: url(../../../ContentAdmin/Images/logo.png)
 }
+
 #url {
     display: none;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.websiteView {
+    margin-right: 15px;
+    margin-top: 12px;
+}
+
+.languagePicture {
+    margin-top: 12px;
+}
+
+.websiteViewLink {
+    text-decoration: none;
+    color: white;
+}
+
+    .websiteViewLink:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+.username {
+    color: white;
 }

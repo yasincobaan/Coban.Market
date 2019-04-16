@@ -147,6 +147,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketUserController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -178,6 +179,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContentAdmin\Images\404_art.jpg" />
+    <Content Include="ContentAdmin\Images\fabrika.jpg" />
     <Content Include="ContentAdmin\Images\login-bg.jpeg" />
     <Content Include="ContentAdmin\Images\logo.png" />
     <Content Include="ContentAdmin\Images\user.png" />
@@ -415,6 +418,11 @@
     <Content Include="ContentCustomer\Theme\js\script.js" />
     <Content Include="ContentCustomer\Theme\js\velocity.min.js" />
     <Content Include="favicon.ico" />
+    <Content Include="font\css\all.css" />
+    <Content Include="font\js\all.js" />
+    <Content Include="font\webfonts\fa-brands-400.svg" />
+    <Content Include="font\webfonts\fa-regular-400.svg" />
+    <Content Include="font\webfonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Brand\apple1.png" />
     <Content Include="Images\Brand\monster.png" />
@@ -456,6 +464,18 @@
     <Content Include="ContentCustomer\Theme\fonts\socicon.ttf" />
     <Content Include="ContentCustomer\Theme\fonts\socicon.woff" />
     <Content Include="ContentCustomer\Theme\fonts\socicond41d.eot" />
+    <Content Include="font\webfonts\fa-brands-400.eot" />
+    <Content Include="font\webfonts\fa-brands-400.ttf" />
+    <Content Include="font\webfonts\fa-brands-400.woff" />
+    <Content Include="font\webfonts\fa-brands-400.woff2" />
+    <Content Include="font\webfonts\fa-regular-400.eot" />
+    <Content Include="font\webfonts\fa-regular-400.ttf" />
+    <Content Include="font\webfonts\fa-regular-400.woff" />
+    <Content Include="font\webfonts\fa-regular-400.woff2" />
+    <Content Include="font\webfonts\fa-solid-900.eot" />
+    <Content Include="font\webfonts\fa-solid-900.ttf" />
+    <Content Include="font\webfonts\fa-solid-900.woff" />
+    <Content Include="font\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Account.cshtml" />
@@ -490,6 +510,12 @@
     <Content Include="Views\Cart\Summary.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Support\OurCompany.cshtml" />
+    <Content Include="Views\Support\OurTeam.cshtml" />
+    <Content Include="Views\Errors\Error404.cshtml" />
+    <Content Include="Views\Errors\Error500.cshtml" />
+    <Content Include="Views\Support\Faq.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

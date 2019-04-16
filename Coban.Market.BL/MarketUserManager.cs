@@ -1,5 +1,4 @@
-﻿
-using Coban.Market.BL.Abstract;
+﻿using Coban.Market.BL.Abstract;
 using Coban.Market.BL.Results;
 using Coban.Market.Common.Helpers;
 using Coban.Market.Entities;
