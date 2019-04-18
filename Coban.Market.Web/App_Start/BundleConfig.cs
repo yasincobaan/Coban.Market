@@ -180,6 +180,19 @@ namespace Coban.Market.Web
 
             #endregion
 
+
+
+            #region FancyBox
+            // FancyBox
+            bundles.Add(new StyleBundle("~/fancybox/css").Include(
+                "~/ContentAdmin/Other/FancyBox/jquery.fancybox.min.css"
+            ));
+
+            // FancyBox
+            bundles.Add(new ScriptBundle("~/fancybox/js").Include(
+                "~/ContentAdmin/Other/FancyBox/jquery.fancybox.min.js"
+            ));
+            #endregion
         }
     }
 }

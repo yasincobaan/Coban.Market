@@ -4,4 +4,7 @@
 
     $("#acilirKapanirDatePicker").addClass("collapsed").attr("aria-expanded", "false");
     $("#datepicker").removeClass("show");
+
+
+  
 });

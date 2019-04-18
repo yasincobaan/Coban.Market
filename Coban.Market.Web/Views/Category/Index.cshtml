@@ -4,9 +4,9 @@
     ViewBag.Title = Language.Categories;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/fancybox/css")
+@Styles.Render("~/fancybox/js")
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 @Styles.Render("~/daterangepicker/css")
 @Styles.Render("~/category/index/css")
@@ -17,6 +17,10 @@
 @Scripts.Render("~/category/index/js")
 @Scripts.Render("~/daterangepicker/js")
 @Scripts.Render("~/dateRangeStart/js")
+
+
+
+
 
 <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -84,10 +88,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">
-                       @Language.Close
+                        @Language.Close
                     </button>
                     <button type="submit" class="btn btn-success">
-                       @Language.Save
+                        @Language.Save
                     </button>
                 </div>
             }

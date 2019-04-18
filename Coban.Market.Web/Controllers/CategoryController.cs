@@ -94,7 +94,7 @@ namespace Coban.Market.Web.Controllers
             return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
         }
         #endregion
-        
+
         #region Create
         public ActionResult Create()
         {
@@ -133,7 +133,7 @@ namespace Coban.Market.Web.Controllers
 
 
         #endregion
-        
+
         #region Edit
         [HttpPost]
         public ActionResult Edit(Category category, HttpPostedFileBase Image2)

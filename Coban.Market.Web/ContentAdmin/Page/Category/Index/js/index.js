@@ -54,7 +54,7 @@
         },
         { "data": "Title", "title": "Category Title", "name": "Title", "autoWidth": true },
         { "data": "Description", "title": "Category Description", "name": "Description", "autoWidth": true },
-        { "data": "Categories[<br/>].Title", "title": "Sub Categories", "name": "Categories.Title", "autoWidth": true },
+        { "data": "Categories[<br/>].Title", "title": "Sub Categories", "name": "Categories Title", "autoWidth": true },
         {
             "data": "Id", "title": "Operations",
             "render": function (data) {
@@ -160,8 +160,13 @@ function DelCategoryAjax(id) {
 
             }
             else {
-                $("#errorDiv").show();
-                $("#errorP").text(data.Response);
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'warning',
+                    title: data.Response,
+                    showConfirmButton: false,
+                    timer: 1000
+                })
             }
         }
     });
