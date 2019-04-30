@@ -45,26 +45,55 @@
             }
         ],
     "columns": [
-        { "data": "Id", "title": "Category Id", "name": "Id", "autoWidth": true },
         {
-            "data": "Image", "title": "Category Image", "name": "Image",
+            "data": "Id",
+            "title": "Category Id",
+            "name": "Id",
+            "autoWidth": true
+        },
+        {
+            "data": "Image",
+            "title": "Category Image",
+            "name": "Image",
             "render": function (data) {
                 return '<a data-fancybox="gallery" id="' + data + '" href="/Images/Category/' + data + '"><img style="width:70px;" src="/Images/Category/' + data + '"/></a>';
             }
         },
-        { "data": "Title", "title": "Category Title", "name": "Title", "autoWidth": true },
-        { "data": "Description", "title": "Category Description", "name": "Description", "autoWidth": true },
-        { "data": "Categories[<br/>].Title", "title": "Sub Categories", "name": "Categories Title", "autoWidth": true },
         {
-            "data": "Id", "title": "Operations",
+            "data": "Title",
+            "title": "Category Title",
+            "name": "Title",
+            "autoWidth": true
+        },
+        {
+            "data": "Description",
+            "title": "Category Description",
+            "name": "Description",
+            "autoWidth": true
+        },
+        {
+            "data": "Categories[<br/>].Title",
+            "title": "Sub Categories",
+            "name": "Categories Title",
+            "autoWidth": true
+        },
+        {
+            "data": "Id",
+            "title": "Operations",
             "render": function (data) {
                 return '<a class="btn btn-danger btn-sm float-right" onclick="DelCat(' + data + ')" style="color:white; cursor:pointer;">Delete</a>' +
-                    '<button class="float-right btn btn-warning btn-sm"    style="color:white; cursor:pointer; margin-right:10px;" id="editCat">Edit</button>';
+                    '<button class="float-right btn btn-warning btn-sm" style="color:white; cursor:pointer; margin-right:10px;" id="editCat">Edit</button>';
             }
         }
 
     ]
 });
+
+
+
+
+
+
 $('type[search]').on('keyup', function () {
     table.search(this.value).draw();
 });

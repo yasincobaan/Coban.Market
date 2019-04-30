@@ -15,8 +15,8 @@
             <div class="card-body">
                 <table class="table table-bordered table-striped table-condensed">
                     <thead>
-                        <tr>
-                            <th class="text-black">@Language.Id</th>
+                        <tr class="text-center">
+
                             <th>@Language.OrderNumber</th>
                             <th>@Language.OrderDateTime</th>
                             <th>@Language.OrderStatu</th>
@@ -28,15 +28,17 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.OrderNumber</td>
-                                <td>@item.OrderDate.ToShortDateString()</td>
-                                <td>@item.OrderState</td>
-                                <td>@item.Count</td>
-                                <td>@item.Total</td>
-                                <td>@Html.ActionLink("Detaylar", "Details", new { id = @item.Id }, new { @class = "btn btn-info btn-sm" })</td>
-                            </tr>
+                        <tr class="text-center">
+
+                            <td>@item.OrderNumber</td>
+                            <td>@item.OrderDate.ToShortDateString()</td>
+                            <td>@item.OrderState</td>
+                            <td>@item.Total.ToString("C2")</td>
+                            <td>@item.Count</td>
+                            <td>
+                                <a class="btn btn-info btn-sm" href="@Url.Action("Details","Order",new { id = @item.Id })">@Language.Details</a>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
@@ -44,6 +46,7 @@
         </div>
     </div>
 </div>
+
 
 
 

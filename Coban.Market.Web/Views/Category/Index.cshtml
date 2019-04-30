@@ -4,29 +4,22 @@
     ViewBag.Title = Language.Categories;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @Styles.Render("~/fancybox/css")
 @Styles.Render("~/fancybox/js")
-
-
 @Styles.Render("~/daterangepicker/css")
 @Styles.Render("~/category/index/css")
-
 @Html.Partial("_PartialSearchBox")
 @Html.Partial("_PartialDatatable")
-
 @Scripts.Render("~/category/index/js")
 @Scripts.Render("~/daterangepicker/js")
 @Scripts.Render("~/dateRangeStart/js")
-
-
-
-
 
 <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
+                <h5 class="modal-title text-danger text-center" id="exampleModalLongTitle">
                     @Language.LostData
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -49,7 +42,7 @@
                             </div>
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>@Language.CategoryTitle : </b>
+                                    <b class="text-primary">@Language.CategoryTitle</b>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="Title" class="form-control Title" id="Title" />
@@ -58,7 +51,7 @@
                             <br />
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>@Language.CategoryDescription : </b>
+                                    <b class="text-primary">@Language.CategoryDescription</b>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="Description" class="form-control Title" id="Description" />
@@ -67,7 +60,7 @@
                             <br />
                             <div class="form group row">
                                 <div class="control-label col-md-4">
-                                    <b>@Language.CategoryImage : </b>
+                                    <b class="text-primary">@Language.CategoryImage</b>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group ">
@@ -82,8 +75,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="modal-footer">

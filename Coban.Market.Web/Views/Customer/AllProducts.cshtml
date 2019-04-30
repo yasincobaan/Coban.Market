@@ -1,4 +1,5 @@
-﻿@model IQueryable<Coban.Market.Entities.Product>
+﻿@using Coban.Market.Language
+@model IQueryable<Coban.Market.Entities.Product>
 @{
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
@@ -48,22 +49,24 @@
                 {
                     <div class="grid-item">
                         <div class="product-card">
-                            <a class="product-thumb" href="#">
+                            <a class="product-thumb" href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
                                 <img src="~/Images/Product/@item.Image1" alt="@item.ProductName">
                             </a>
                             <h3 class="product-title">
-                                <a href="#">@item.ProductName</a>
+                                <a href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
+                                    @item.ProductName
+                                </a>
                             </h3>
                             <h4 class="product-price">
-                                <del>$@item.Price</del>$@item.DiscountedPrice
+                                <del>@item.Price.ToString("C2")</del>@item.DiscountedPrice.Value.ToString("C2")
                             </h4>
                             <div class="product-buttons">
-                                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
+                                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="@Language.Whishlist">
                                     <i class="icon-heart"></i>
                                 </button>
-                                <a class="btn btn-outline-primary btn-sm" href="@Url.Action("AddToCart", "Cart", new { id = item.Id })">Add to Cart</a>
-                             
-
+                                <a class="btn btn-outline-primary btn-sm" href="@Url.Action("AddToCart", "Cart", new { id = item.Id })">
+                                    @Language.AddCart
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -186,7 +189,7 @@
                                         <input type="hidden">
                                     </div> -
                                     <div class="ui-range-value-max">
-                                        $<span></span>
+                                                            $<span></span>
                                         <input type="hidden">
                                     </div>
                                 </div>
@@ -244,16 +247,6 @@
                         <label class="custom-control-label" for="s">1TB <span class="text-muted">(213)</span></label>
                     </div>
                 </section>
-                <!-- End Size Filter Widget -->
-                <!-- Start Promo Banner -->
-                <section class="promo-box shop-promo">
-                    <div class="promo-box-content text-center padding-top-3x padding-bottom-2x">
-                        <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                        <h3 class="text-bold text-light text-shadow">Smatphones</h3>
-                        <a class="btn btn-sm btn-primary" href="shop-grid-1.html">Shop Now</a>
-                    </div>
-                </section>
-                <!-- End Promo Banner -->
             </aside>
         </div>
         <!-- End Sidebar -->

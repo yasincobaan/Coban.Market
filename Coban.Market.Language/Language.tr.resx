@@ -372,4 +372,7 @@
   <data name="ViewSite" xml:space="preserve">
     <value>Siteyi Görüntüle</value>
   </data>
+  <data name="Whishlist" xml:space="preserve">
+    <value>İstek Listesi</value>
+  </data>
 </root>

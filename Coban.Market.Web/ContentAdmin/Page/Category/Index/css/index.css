@@ -1,6 +1,14 @@
 ﻿#marketTable_wrapper {
     width: -webkit-fill-available;
 }
+
 #Image {
     width: 250px;
+}
+
+.sorting {
+    text-align: center;
+}
+tbody {
+    text-align: center;
 }

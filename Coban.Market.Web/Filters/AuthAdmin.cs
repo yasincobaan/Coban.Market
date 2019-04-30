@@ -8,7 +8,7 @@ namespace Coban.Market.Web.Filters
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (CurrentSession.User != null && (CurrentSession.User.Role == MarketUserRole.Admin || CurrentSession.User.Role == MarketUserRole.FullAdmin))
+            if (CurrentSession.User != null && (CurrentSession.User.Role != MarketUserRole.Admin || CurrentSession.User.Role != MarketUserRole.FullAdmin))
             {
                 filterContext.Result = new RedirectResult("/Error/AccessDenied");
             }

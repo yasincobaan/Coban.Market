@@ -5,71 +5,95 @@
     ViewBag.Title = Language.CreateCategory;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row">
-  
     <div class="col-lg-8">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary text-center" >
+                <h6 class="m-0 font-weight-bold text-primary text-center">
                     @Language.CreateCategory
                 </h6>
             </div>
             <div class="card-body">
-
                 @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
                     <div class="form-group row">
-                        <div class="control-label col-md-4">
-                            <b class="noOpacity"> @Language.CategoryTitle</b>
-
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CategoryTitle
+                            </b>
                         </div>
-                        <div class="col-md-8" style="        opacity: 1">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin başlığını ifade etmektedir.Kısa ve öz cümleler ile ifade edebilirsiniz." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
                             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="control-label col-md-4">
-                            @Language.CategoryDescription
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CategoryDescription
+                            </b>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin açıklamasını ifade etmektedir. Uzun ve detaylı ifade etmeniz gerekmektedir." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
                             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="control-label col-md-4">
-                            @Language.ParentCategory
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.ParentCategory
+                            </b>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin hangi kategoriye bağlı olduğunu göstermektedir." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
                             @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="control-label col-md-4">
-                            @Language.CategoryImage
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CategoryImage
+                            </b>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Kategoriyi belirlemede yardımcı olan resim ifade edilmektedir." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-upload"></i></span>
+                                    <span class="input-group-text">
+                                        <i class="fa fa-upload"></i>
+                                    </span>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input Image" id="Image" name="Image">
-                                    <label class="custom-file-label" for="Image">@Language.Selectfile</label>
+                                    <label class="custom-file-label" for="Image">
+                                        @Language.Selectfile
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-7">
-
-                        </div>
+                        <div class="col-md-7"></div>
                         <div class="col-md-3">
                             <a href="@Url.Action("Index", "Category")" class="btn btn-primary float-right">
                                 <i class="fa fa-angle-double-left"></i>
@@ -86,5 +110,59 @@
                 }
             </div>
         </div>
-
+    </div>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+            $(':input[type="submit"]').prop('disabled', true);
+            $('#Title').focusout(function () {
+                var titleLength = $('#Title').val();
+                var descLength = $('#Description').val();
+
+                if (titleLength.length > 3 && descLength.length > 10) {
+                    $(':input[type="submit"]').prop('disabled', false);
+                }
+                else {
+                    $(':input[type="submit"]').prop('disabled', true);
+                    if (titleLength.length > 3) {
+
+                    } else {
+                        $('span[data-valmsg-for="Title"]').text('Title field must between 3-100');
+                    }
+                    if (descLength.length > 3) {
+
+                    } else {
+                        $('span[data-valmsg-for="Description"]').text('Description field must between 10-500');
+                    }
+
+
+                }
+            });
+            $('#Description').focusout(function () {
+                var titleLength = $('#Title').val();
+                var descLength = $('#Description').val();
+
+                if (titleLength.length > 3 && descLength.length > 10) {
+                    $(':input[type="submit"]').prop('disabled', false);
+                } else {
+                    $(':input[type="submit"]').prop('disabled', true);
+                    if (titleLength.length > 3) {
+
+                    } else {
+                        $('span[data-valmsg-for="Title"]').text('Title field must between 3-100');
+                    }
+                    if (descLength.length > 3) {
+
+                    } else {
+                        $('span[data-valmsg-for="Description"]').text('Description field must between 10-500');
+                    }
+                }
+            });
+        });
+
+    </script>
+}

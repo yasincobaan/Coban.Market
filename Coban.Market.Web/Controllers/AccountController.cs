@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Coban.Market.Entities;
 using Coban.Market.Entities.ValueObjects;
 using Coban.Market.Web.Models.ViewModels;

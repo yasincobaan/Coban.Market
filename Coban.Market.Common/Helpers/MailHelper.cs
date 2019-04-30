@@ -11,25 +11,20 @@ namespace Coban.Market.Common.Helpers
         {
             return SendMail(body, new List<string> { to }, subject, isHtml);
         }
-
         public static bool SendMail(string body, List<string> to, string subject, bool isHtml = true)
         {
             bool result = false;
-
             try
             {
                 var message = new MailMessage();
                 message.From = new MailAddress(ConfigHelper.Get<string>("MailUser"));
-
                 to.ForEach(x =>
                 {
                     message.To.Add(new MailAddress(x));
                 });
-
                 message.Subject = subject;
                 message.Body = body;
                 message.IsBodyHtml = isHtml;
-
                 using (var smtp = new SmtpClient(
                     ConfigHelper.Get<string>("MailHost"), 
                     ConfigHelper.Get<int>("MailPort")))

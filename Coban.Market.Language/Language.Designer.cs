@@ -914,5 +914,14 @@ namespace Coban.Market.Language {
                 return ResourceManager.GetString("ViewSite", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whishlist.
+        /// </summary>
+        public static string Whishlist {
+            get {
+                return ResourceManager.GetString("Whishlist", resourceCulture);
+            }
+        }
     }
 }

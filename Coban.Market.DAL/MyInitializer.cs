@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using Coban.Market.Entities;
 using Coban.Market.Entities.Enums;
 
@@ -11,7 +9,7 @@ namespace Coban.Market.DAL
     {
         protected override void Seed(DatabaseContext context)
         {
-       
+
             MarketUser admin = new MarketUser()
             {
                 Name = "Yasin",
@@ -100,7 +98,7 @@ namespace Coban.Market.DAL
                     ProductBrand = FakeData.NameData.GetCompanyName(),
                     ExchangeRate = PriceExchangeRate.Dollar,
                     Price = 1000,
-                    DiscountedPrice =10,
+                    DiscountedPrice = 10,
                     TaxPercent = 18,
                     Image1 = "prd_1_{i}",
                     Image2 = "prd_2_{i}",
@@ -121,8 +119,6 @@ namespace Coban.Market.DAL
                 context.Products.Add(prd);
             }
             context.SaveChanges();
-
-
 
         }
     }

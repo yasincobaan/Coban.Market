@@ -10,7 +10,7 @@ namespace Coban.Market.Web.Filters
         {
             if (CurrentSession.User == null)
             {
-                filterContext.Result = new RedirectResult("/Home/Login");
+                filterContext.Result = new RedirectResult("/Account/Account");
             }
         }
     }

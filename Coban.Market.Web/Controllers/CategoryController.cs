@@ -7,18 +7,18 @@ using System.Linq.Dynamic;
 using System.Web;
 using System.Web.Mvc;
 using Coban.Market.BL.Results;
+using Coban.Market.Web.Filters;
 
 namespace Coban.Market.Web.Controllers
 {
+    [Exc]
+    [Auth]
     public class CategoryController : Controller
     {
         #region Variables
         private CategoryManager categoryManager = new CategoryManager();
         #endregion
-
-
         #region Index
-
         public ActionResult Index()
         {
             return View();
@@ -94,14 +94,12 @@ namespace Coban.Market.Web.Controllers
             return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
         }
         #endregion
-
         #region Create
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -127,21 +125,17 @@ namespace Coban.Market.Web.Controllers
                 ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category.CategoryId);
                 return RedirectToAction("Index");
             }
-
             return View(category);
         }
 
 
         #endregion
-
         #region Edit
         [HttpPost]
         public ActionResult Edit(Category category, HttpPostedFileBase Image2)
         {
             Category cat = categoryManager.Find(x => x.Id == category.Id);
-
             OperationResult operation = new OperationResult();
-
             if (cat == null)
             {
                 operation.Response += "Kategori Bulunamadı.";
@@ -160,11 +154,7 @@ namespace Coban.Market.Web.Controllers
             operation.Result = true;
             return View("Index", operation);
         }
-
-
-
         #endregion
-
         #region Delete
         [HttpPost]
         public JsonResult Delete(int id)
@@ -185,6 +175,5 @@ namespace Coban.Market.Web.Controllers
 
         }
         #endregion
-
     }
 }

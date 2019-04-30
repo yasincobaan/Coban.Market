@@ -13,7 +13,6 @@ namespace Coban.Market.Web
 
             ));
             #endregion
-
             #region Layout Admin
             //Layout Css
             bundles.Add(new StyleBundle("~/main/css").Include(
@@ -37,7 +36,6 @@ namespace Coban.Market.Web
 
             ));
             #endregion
-
             #region Datatable
             //Datatable Css
             bundles.Add(new StyleBundle("~/datatable/css").Include(
@@ -63,7 +61,6 @@ namespace Coban.Market.Web
 
             ));
             #endregion
-
             #region Date Range Picker
             // DateRangePicker - Css
             bundles.Add(new StyleBundle("~/daterangepicker/css").Include(
@@ -83,7 +80,6 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/DateRangePicker/js/daterangestart.js"
             ));
             #endregion
-
             #region SearchBox
 
             bundles.Add(new ScriptBundle("~/searchBox/js").Include(
@@ -91,7 +87,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
             #region MarketUser
 
             // MarketUser - Index - Css
@@ -115,7 +110,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
             #region Product
 
             // Product - Index - Css
@@ -129,7 +123,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
             #region Category
 
             // Category - Index - Css
@@ -143,7 +136,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
             #region Layout Customer Js
             // Layout Customer js
             bundles.Add(new ScriptBundle("~/layoutCustomer/js").Include(
@@ -179,9 +171,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
-
-
             #region FancyBox
             // FancyBox
             bundles.Add(new StyleBundle("~/fancybox/css").Include(

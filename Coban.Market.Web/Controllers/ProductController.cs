@@ -13,33 +13,31 @@ namespace Coban.Market.Web.Controllers
 {
     public class ProductController : Controller
     {
-
+        #region Variables
         private ProductManager prdManager = new ProductManager();
         private CategoryManager categoryManager = new CategoryManager();
-      
-
+        #endregion
+        #region Index
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult LoadData()
         {
-
-
             var draw = Request.Form.GetValues("draw").FirstOrDefault();
             var start = Request.Form.GetValues("start").FirstOrDefault();
             var length = Request.Form.GetValues("length").FirstOrDefault();
             var sortColumn = Request.Form.GetValues("columns[" + Request.Form.GetValues("order[0][column]").FirstOrDefault() + "][name]").FirstOrDefault();
             var sortColumnDir = Request.Form.GetValues("order[0][dir]").FirstOrDefault();
             var searchValue = Request.Form.GetValues("search[value]").FirstOrDefault();
-
             int pageSize = length != null ? Convert.ToInt32(length) : 0;
             int skip = start != null ? Convert.ToInt32(start) : 0;
             int recordsTotal = 0;
-
             var prdData = prdManager.ListQueryable();
-
             if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
             {
                 prdData = prdData.OrderBy(sortColumn + " " + sortColumnDir);
             }
-
             if (!string.IsNullOrEmpty(searchValue))
             {
                 var searchcount = searchValue.Length;
@@ -98,19 +96,13 @@ namespace Coban.Market.Web.Controllers
             var data = prdData.Skip(skip).Take(pageSize).OrderByDescending(x => x.CreatedOn).ToList();
             return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
         }
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        #endregion
+        #region Create
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product prd, HttpPostedFileBase Image1, HttpPostedFileBase Image2, HttpPostedFileBase Image3, HttpPostedFileBase Image4)
@@ -125,28 +117,24 @@ namespace Coban.Market.Web.Controllers
                 prd.Owner = CurrentSession.User;
                 prdManager.Insert(prd);
                 prd = prdManager.Find(x => x.Id == prd.Id);
-
                 if (Image1 != null && (Image1.ContentType == "image/jpeg" || Image1.ContentType == "image/jpg" || Image1.ContentType == "image/png"))
                 {
                     string filename = $"prd_1_{prd.Id}.{Image1.ContentType.Split('/')[1]}";
                     Image1.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
                     prd.Image1 = filename;
                 }
-
                 if (Image2 != null && (Image2.ContentType == "image/jpeg" || Image2.ContentType == "image/jpg" || Image2.ContentType == "image/png"))
                 {
                     string filename = $"prd_2_{prd.Id}.{Image2.ContentType.Split('/')[1]}";
                     Image2.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
                     prd.Image2 = filename;
                 }
-
                 if (Image3 != null && (Image3.ContentType == "image/jpeg" || Image3.ContentType == "image/jpg" || Image3.ContentType == "image/png"))
                 {
                     string filename = $"prd_3_{prd.Id}.{Image3.ContentType.Split('/')[1]}";
                     Image3.SaveAs(Server.MapPath($"~/Images/Product/{filename}"));
                     prd.Image3 = filename;
                 }
-
                 if (Image4 != null && (Image4.ContentType == "image/jpeg" || Image4.ContentType == "image/jpg" || Image4.ContentType == "image/png"))
                 {
                     string filename = $"prd_4_{prd.Id}.{Image4.ContentType.Split('/')[1]}";
@@ -156,16 +144,15 @@ namespace Coban.Market.Web.Controllers
                 prdManager.Update(prd);
                 return RedirectToAction("Index");
             }
-
             ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", prd.CategoryId);
             return View(prd);
         }
+        #endregion
+        #region Delete
         [HttpPost]
-
         public JsonResult Delete(int id)
         {
             OperationResult operation = new OperationResult();
-
             Product prd = prdManager.Find(x => x.Id == id);
             if (prd != null)
             {
@@ -173,11 +160,10 @@ namespace Coban.Market.Web.Controllers
                 CacheHelper.RemoveCategoriesFromCache();
                 operation.Result = true;
                 return Json(operation, JsonRequestBehavior.AllowGet);
-
             }
             operation.Response += "Ürün Bulunamadı.";
             return Json(operation, JsonRequestBehavior.AllowGet);
-
         }
+        #endregion
     }
 }

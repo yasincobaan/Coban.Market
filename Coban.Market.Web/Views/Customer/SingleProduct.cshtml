@@ -1,7 +1,12 @@
 ﻿@model Coban.Market.Entities.Product
 
 @{
-    ViewBag.Title = "SingleProduct";
+    ViewBag.Title = Model.ProductName;
+
+    double? indirimyüzdesi = 100 - (Model.DiscountedPrice * 100 / Model.Price);
+
+
+    decimal result = Math.Ceiling(decimal.Parse(indirimyüzdesi.ToString()) * 100) / 100;
 }
 
 <div class="container padding-top-1x padding-bottom-3x">
@@ -9,33 +14,78 @@
         <div class="col-md-6">
             <div class="product-gallery">
                 <span class="product-badge text-danger">
-                  
-                    20% Off
+                    @if (Model.DiscountedPrice != 0 || Model.DiscountedPrice != null)
+                    {
+                        <b>
+                            @result
+                            % Off
+                        </b>
+                    }
                 </span>
                 <div class="gallery-wrapper">
-                    <div class="gallery-item active"><a href="assets/images/shop/single/01.jpg" data-hash="one" data-size="1000x667"></a></div>
-                    <div class="gallery-item"><a href="assets/images/shop/single/02.jpg" data-hash="two" data-size="1000x667"></a></div>
-                    <div class="gallery-item"><a href="assets/images/shop/single/03.jpg" data-hash="three" data-size="1000x667"></a></div>
-                    <div class="gallery-item"><a href="assets/images/shop/single/04.jpg" data-hash="four" data-size="1000x667"></a></div>
-                    <div class="gallery-item"><a href="assets/images/shop/single/05.jpg" data-hash="five" data-size="1000x667"></a></div>
+                    <div class="gallery-item active">
+                        <a href="~/Images/Product/@Model.Image1" data-hash="one" data-size="1000x667"></a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="~/Images/Product/@Model.Image1" data-hash="two" data-size="1000x667"></a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="~/Images/Product/@Model.Image1" data-hash="three" data-size="1000x667"></a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="~/Images/Product/@Model.Image1" data-hash="four" data-size="1000x667"></a>
+                    </div>
+                    <div class="gallery-item">
+                        <a href="~/Images/Product/@Model.Image1" data-hash="five" data-size="1000x667"></a>
+                    </div>
                 </div>
                 <div class="product-carousel owl-carousel">
-                    <div data-hash="one"><img src="assets/images/shop/single/01.jpg" alt="Product"></div>
-                    <div data-hash="two"><img src="assets/images/shop/single/02.jpg" alt="Product"></div>
-                    <div data-hash="three"><img src="assets/images/shop/single/03.jpg" alt="Product"></div>
-                    <div data-hash="four"><img src="assets/images/shop/single/04.jpg" alt="Product"></div>
-                    <div data-hash="five"><img src="assets/images/shop/single/05.jpg" alt="Product"></div>
+                    <div data-hash="one">
+                        <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                    </div>
+                    <div data-hash="two">
+                        <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                    </div>
+                    <div data-hash="three">
+                        <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                    </div>
+                    <div data-hash="four">
+                        <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                    </div>
+                    <div data-hash="five">
+                        <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                    </div>
                 </div>
                 <ul class="product-thumbnails">
-                    <li class="active"><a href="#one"><img src="assets/images/shop/single/th01.jpg" alt="Product"></a></li>
-                    <li><a href="#two"><img src="assets/images/shop/single/th02.jpg" alt="Product"></a></li>
-                    <li><a href="#three"><img src="assets/images/shop/single/th03.jpg" alt="Product"></a></li>
-                    <li><a href="#four"><img src="assets/images/shop/single/th04.jpg" alt="Product"></a></li>
-                    <li><a href="#five"><img src="assets/images/shop/single/th05.jpg" alt="Product"></a></li>
+                    <li class="active">
+                        <a href="#one">
+                            <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#two">
+                            <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#three">
+                            <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#four">
+                            <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#five">
+                            <img src="~/Images/Product/@Model.Image1" alt="@Model.ProductName">
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
-      
+
         <div class="col-md-6 single-shop">
             <div class="hidden-md-up"></div>
             <div class="rating-stars">
@@ -45,54 +95,37 @@
                 <i class="icon-star filled"></i>
                 <i class="icon-star filled"></i>
             </div>
-            <span class="text-muted align-middle">&nbsp;&nbsp;5 | 13 Customer Reviews</span>
-            <h2 class="padding-top-1x text-normal with-side">iPhone X Gold 128GB</h2>
-            <span class="h2 d-block with-side"><del class="text-muted text-normal">$899.00</del>&nbsp; $749.60</span>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ...</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five ...</p>
+            <span class="text-muted align-middle">
+                &nbsp;&nbsp;5 | 13 Customer Reviews
+            </span>
+            <h2 class="padding-top-1x text-normal with-side">
+                @Model.ProductName
+            </h2>
+            <span class="h2 d-block with-side">
+                @if (Model.DiscountedPrice != 0 || Model.DiscountedPrice != null)
+                {
+                    <del class="text-muted text-normal">
+                        @Model.Price.ToString("C2")
+                    </del>
+                    <span>&nbsp; @Model.DiscountedPrice.Value.ToString("C2")</span>
+                }
+                else
+                {
+                    <span class="text-normal">&nbsp; @Model.Price.ToString("C2")</span>
+                }
+            </span>
+            <p>
+                @Html.Raw(Model.LittleDescription)
+            </p>
             <div class="row margin-top-1x">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="size">Memory Size</label>
-                        <select class="form-control" id="size">
-                            <option>Chooze Size</option>
-                            <option>16GB</option>
-                            <option>32GB</option>
-                            <option>64GB</option>
-                            <option>128GB</option>
-                            <option>256GB</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <label for="color">Choose Color</label>
-                        <select class="form-control" id="color">
-                            <option>White / Red / Blue</option>
-                            <option>Black / Orange / Green</option>
-                            <option>Gray / Purple / White</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <select class="form-control" id="quantity">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
+              
+                @Html.Raw(Model.Description)
             </div>
-            <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #17685932</div>
+            <div class="pt-1 mb-2"><span class="text-medium">Stok Kodu:</span> #@Model.StockCode</div>
             <div class="padding-bottom-1x mb-2">
                 <span class="text-medium">Categories:&nbsp;</span>
-                <a class="navi-link" href="#">Apple,</a>
-                <a class="navi-link" href="#"> Smartphone,</a>
-                <a class="navi-link" href="#"> Mobile</a>
+                <a class="navi-link" href="#">@Model.Category.Title</a>
+
             </div>
         </div>
         <div class="col-md-12">
@@ -123,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Product Info -->
+
     </div>
 
     <div class="col-md-12">
@@ -137,7 +170,7 @@
                 <p class="mb-30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </div>
             <div class="tab-pane fade" id="reviews" role="tabpanel">
-                <!-- Start Review #1 -->
+
                 <div class="comment">
                     <div class="comment-author-ava"><img src="assets/images/reviews/01.jpg" alt="Review Author"></div>
                     <div class="comment-body">
@@ -151,8 +184,7 @@
                         <div class="comment-footer"><span class="comment-meta">John Doe</span></div>
                     </div>
                 </div>
-                <!-- End Review #1 -->
-                <!-- Start Review #2 -->
+
                 <div class="comment">
                     <div class="comment-author-ava"><img src="assets/images/reviews/02.jpg" alt="Review Author"></div>
                     <div class="comment-body">
@@ -166,8 +198,7 @@
                         <div class="comment-footer"><span class="comment-meta">Julia Smith</span></div>
                     </div>
                 </div>
-                <!-- End Review #2 -->
-                <!-- Start Review #3 -->
+
                 <div class="comment">
                     <div class="comment-author-ava"><img src="assets/images/reviews/03.jpg" alt="Review Author"></div>
                     <div class="comment-body">
@@ -181,8 +212,7 @@
                         <div class="comment-footer"><span class="comment-meta">Rick Armstrong</span></div>
                     </div>
                 </div>
-                <!-- End Review #3 -->
-                <!-- Start Review Form -->
+
                 <h5 class="mb-30 padding-top-1x">Leave Review</h5>
                 <form class="row" method="post">
                     <div class="col-sm-6">
@@ -225,34 +255,12 @@
                         <button class="btn btn-outline-primary" type="submit">Submit Review</button>
                     </div>
                 </form>
-                <!-- End Review Form -->
+
             </div>
         </div>
     </div>
 
-<h3 class="text-center padding-top-3x mb-30">
-    Releted Products
-</h3>
-    <div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "margin": 30, "responsive": {"0":{"items":1},"576":{"items":2},"768":{"items":3},"991":{"items":4},";1200":{"items":4}} }'>
-      
-        <div class="grid-item">
-            <div class="product-card">
-                <a class="product-thumb" href="shop-single-3.html">
-                    <img src="assets/images/shop/products/01.jpg" alt="Product">
-                </a>
-                <h3 class="product-title"><a href="shop-single-3.html">iPhone X</a></h3>
-                <h4 class="product-price">$749.99</h4>
-                <div class="product-buttons">
-                    <div class="product-buttons">
-                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
-                            <i class="icon-heart"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-    </div>
+   
+    
 
 </div>

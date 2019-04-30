@@ -217,6 +217,8 @@
     <Content Include="ContentAdmin\Page\MarketUser\Create\js\create.js" />
     <Content Include="ContentAdmin\Page\MarketUser\Index\css\index.css" />
     <Content Include="ContentAdmin\Page\MarketUser\Index\js\index.js" />
+    <Content Include="ContentAdmin\Page\Order\Index\css\index.css" />
+    <Content Include="ContentAdmin\Page\Order\Index\js\index.js" />
     <Content Include="ContentAdmin\Page\Product\Index\css\index.css" />
     <Content Include="ContentAdmin\Page\Product\Index\js\index.js" />
     <Content Include="ContentAdmin\Theme\css\bootstrap.css" />
