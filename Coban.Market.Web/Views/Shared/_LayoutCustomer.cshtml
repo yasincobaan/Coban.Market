@@ -42,27 +42,34 @@
                 </li>
                 @foreach (var item in list)
                 {
-                    if (item.Categories != null && item.Id != 1)
-                    {
-                        <li class="has-children">
-                            <span>
-                                <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
-                                    @item.Title
-                                </a>
+
+                    <li class="has-children">
+                        <span>
+                            <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
+                                @item.Title
+                            </a>
+                            @if (item.ChildCategories != null)
+                            {
                                 <span class="sub-menu-toggle"></span>
-                            </span>
+                            }
+                        </span>
+                        @if (item.ChildCategories != null)
+                        {
                             <ul class="offcanvas-submenu">
-                                @foreach (var subcategories in item.Categories)
+                                @foreach (var subcategories in item.ChildCategories)
                                 {
                                     <li>
                                         <a href="@Url.Action("ShopCategory", "Home", new {id = subcategories.Id})">
                                             @subcategories.Title
                                         </a>
                                     </li>
+
                                 }
+
                             </ul>
-                        </li>
-                    }
+                        }
+                    </li>
+
                 }
             </ul>
         </nav>
@@ -111,27 +118,33 @@
                 </li>
                 @foreach (var item in list)
                 {
-                    if (item.Categories != null && item.Id != 1)
-                    {
-                        <li class="has-children">
-                            <span>
-                                <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
-                                    @item.Title
-                                </a>
+
+                    <li class="has-children">
+                        <span>
+                            <a href="@Url.Action("ByCategory", "Customer", new {id = item.Id})">
+                                @item.Title
+                            </a>
+                            @if (item.ChildCategories != null)
+                            {
                                 <span class="sub-menu-toggle"></span>
-                            </span>
+                            }
+                        </span>
+                        @if (item.ChildCategories != null)
+                        {
                             <ul class="offcanvas-submenu">
-                                @foreach (var subcategories in item.Categories)
+
+                                @foreach (var subcategories in item.ChildCategories)
                                 {
                                     <li>
-                                        <a href="@Url.Action("ByCategory", "Customer", new {id = subcategories.Id})">
+                                        <a href="@Url.Action("ByCategory", "Customer", new { id = subcategories.Id })">
                                             @subcategories.Title
                                         </a>
                                     </li>
                                 }
                             </ul>
-                        </li>
-                    }
+                        }
+                    </li>
+
                 }
             </ul>
         </nav>
@@ -181,20 +194,26 @@
                 </a>
             </div>
         </div>
+ 
         <nav class="site-menu">
             <ul>
-                <li class="active">
-                    <a href="@Url.Action("ByCategory", "Customer")">
-                        <span>@Language.Categories</span>
-                    </a>  <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("ByCategory","Customer")"><span>@Language.Categories</span></a>
+                    <ul class="sub-menu">
                         @foreach (var item in list)
                         {
-                            if (item.Categories == null)
+                            if (item.ChildCategories != null)
                             {
-                                <li>
-                                    <a href="@Url.Action("ByCategory","Customer",new{id=item.Id})">
+                                <li class="has-children">
+                                    <a href="@Url.Action("ByCategory","Customer",new { id=item.Id})">
                                         <span>@item.Title</span>
                                     </a>
+                                    <ul class="sub-menu">
+                                        @foreach (var item2 in item.ChildCategories)
+                                        {
+                                            <li><a href="@Url.Action("ByCategory","Customer",new { id=item2.Id})">@item2.Title</a></li>
+                                        }
+                                    </ul>
                                 </li>
                             }
 
@@ -203,6 +222,7 @@
                 </li>
             </ul>
         </nav>
+    
         <div class="toolbar">
             <div class="inner">
                 <div class="tools">

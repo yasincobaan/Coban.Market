@@ -81,7 +81,7 @@ namespace Coban.Market.DAL
                     Title = FakeData.PlaceData.GetStreetName(),
                     Description = FakeData.PlaceData.GetAddress(),
                     Image = "cat_{i}",
-                    CategoryId = 1,
+                    ParentCategoryId = 1,
                     CreatedOn = DateTime.Now,
                     CreatedUsername = "systemAuth",
                     ModifiedOn = DateTime.Now.AddMinutes(5),

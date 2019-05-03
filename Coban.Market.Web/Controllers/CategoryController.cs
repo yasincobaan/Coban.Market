@@ -11,7 +11,7 @@ using Coban.Market.Web.Filters;
 
 namespace Coban.Market.Web.Controllers
 {
-    [Exc]
+   
     [Auth]
     public class CategoryController : Controller
     {
@@ -97,7 +97,7 @@ namespace Coban.Market.Web.Controllers
         #region Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
+            ViewBag.ParentCategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title");
             return View();
         }
 
@@ -114,15 +114,17 @@ namespace Coban.Market.Web.Controllers
             {
                 categoryManager.Insert(category);
                 CacheHelper.RemoveCategoriesFromCache();
-                category = categoryManager.Find(x => x.Id == category.Id);
+                
                 if (Image != null && (Image.ContentType == "image/jpeg" || Image.ContentType == "image/jpg" || Image.ContentType == "image/png"))
                 {
+                    category = categoryManager.Find(x => x.Id == category.Id);
                     string filename = $"cat_{category.Id}.{Image.ContentType.Split('/')[1]}";
                     Image.SaveAs(Server.MapPath($"~/Images/Category/{filename}"));
                     category.Image = filename;
+                    categoryManager.Update(category);
                 }
-                categoryManager.Update(category);
-                ViewBag.CategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category.CategoryId);
+               
+                ViewBag.ParentCategoryId = new SelectList(CacheHelper.GetCategoriesFromCache(), "Id", "Title", category);
                 return RedirectToAction("Index");
             }
             return View(category);
