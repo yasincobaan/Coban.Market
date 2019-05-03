@@ -13,11 +13,7 @@ namespace Coban.Market.Web.Controllers
     public class AccountController : Controller
     {
         #region Variables
-
         private MarketUserManager mrktUserManager = new MarketUserManager();
-        private CategoryManager catManager = new CategoryManager();
-        private ProductManager prdManager = new ProductManager();
-
         #endregion
 
         #region Login-Register
@@ -27,7 +23,7 @@ namespace Coban.Market.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(AccountViewModel model)
+        public JsonResult isLogin(AccountViewModel model)
         {
             ModelState.Remove("FirstName");
             ModelState.Remove("LastName");
@@ -35,23 +31,37 @@ namespace Coban.Market.Web.Controllers
             ModelState.Remove("FirstName");
             ModelState.Remove("RePassword");
             ModelState.Remove("Phone");
+
+
+            OperationResult operationresult = new OperationResult();
+
+           
+
             if (ModelState.IsValid)
             {
                 BusinessLayerResult<MarketUser> res = mrktUserManager.LoginUser(model);
+
                 if (res.Errors.Count > 0)
                 {
+
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
-                    return View("Account");
+
+                    operationresult.Response = res.Errors;
+
+                    return Json(operationresult, JsonRequestBehavior.AllowGet);
+
                 }
-                CurrentSession.Set<MarketUser>("login", res.Result);
-                if (res.Result.Role == MarketUserRole.NewUser)
+                else
                 {
-                    return RedirectToAction("Index", "Home");
+                    operationresult.Result = true;
+                    CurrentSession.Set<MarketUser>("login", res.Result);
+                    return Json(operationresult, JsonRequestBehavior.AllowGet);
                 }
-                return RedirectToAction("AdminIndex", "Home");
             }
 
-            return View("Account", model);
+            operationresult.Response += "Lütfen Giriş Alanlarını Belirtilen Şekilde Giriniz.";
+
+            return Json(operationresult, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -154,13 +164,11 @@ namespace Coban.Market.Web.Controllers
         #endregion
 
         #region Logout
-
         public ActionResult Logout()
         {
             CurrentSession.Clear();
             return RedirectToAction("Account");
         }
-
         #endregion
 
     }

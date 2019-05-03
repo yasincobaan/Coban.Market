@@ -15,7 +15,6 @@ namespace Coban.Market.Web.Controllers
         #region Variables
         private MarketUserManager mrktUserManager = new MarketUserManager();
         #endregion
-
         #region Index
         public ActionResult Index()
         {
@@ -52,46 +51,7 @@ namespace Coban.Market.Web.Controllers
         }
 
 
-        #endregion
-
-        #region Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(MarketUser mrktUser)
-        {
-            ModelState.Remove("CreatedOn");
-            ModelState.Remove("ModifiedOn");
-            ModelState.Remove("ModifiedUsername");
-            ModelState.Remove("CreatedUsername");
-
-            ModelState.Remove("Password");
-            ModelState.Remove("ProfileImageFilename");
-            ModelState.Remove("Role");
-            ModelState.Remove("IsActive");
-            ModelState.Remove("ActivateGuid");
-
-            if (ModelState.IsValid)
-            {
-                BusinessLayerResult<MarketUser> res = mrktUserManager.Insert(mrktUser);
-
-                if (res.Errors.Count > 0)
-                {
-                    res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
-                    return View(mrktUser);
-                }
-
-                return RedirectToAction("Index");
-            }
-
-            return View(mrktUser);
-        }
-
-
-        #endregion
+        #endregion       
 
         #region Delete
 

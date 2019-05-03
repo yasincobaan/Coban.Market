@@ -3,41 +3,46 @@
 @model Cart
 
 <div class="cart">
-    <a href="#"></a>
+    <a href="@Url.Action("Index","Cart")"></a>
     <i class="icon-bag"></i>
     <span class="count">
-
         @Model.CartLines.Count
     </span>
-    <span class="subtotal">@Model.Total()</span>
+    <span class="subtotal">
+        @Model.Total().ToString("C2")
+    </span>
     <div class="toolbar-dropdown">
         @if (Model.CartLines.Count > 0)
         {
             foreach (var item in Model.CartLines)
-             {
-                 <div class="dropdown-product-item">
-                     <span class="dropdown-product-remove">
-                         <i class="icon-cross"></i>
-                     </span>
-                     <a class="dropdown-product-thumb" href="#">
-                         <img src="~/Images/Product/@item.Product.Image1" alt="@item.Product.ProductName">
-                     </a>
-                     <div class="dropdown-product-info">
-                         <a class="dropdown-product-title" href="#">@item.Product.ProductName</a>
-                         <span class="dropdown-product-details">@item.Product.Price x @item.Quantity</span>
-                     </div>
-                 </div>
-             }
+            {
+                <div class="dropdown-product-item">
+                    <span class="dropdown-product-remove">
+
+                        <a href="@Url.Action("RemoveFromCart","Cart",new { id=item.Product.Id})">
+                            <i class="icon-cross"> </i>
+                        </a>
+
+                    </span>
+                    <a class="dropdown-product-thumb" href="@Url.Action("SingleProduct","Customer",new { id=item.Product.Id})">
+                        <img src="~/Images/Product/@item.Product.Image1" alt="@item.Product.ProductName">
+                    </a>
+                    <div class="dropdown-product-info">
+                        <a class="dropdown-product-title" href="@Url.Action("SingleProduct","Customer",new { id=item.Product.Id})">@item.Product.ProductName</a>
+                        <span class="dropdown-product-details">@item.Product.Price.ToString("C2") x @item.Quantity</span>
+                    </div>
+                </div>
+            }
         }
-           
-     
+
+
 
         <div class="toolbar-dropdown-group">
             <div class="column">
                 <span class="text-lg">Total:</span>
             </div>
             <div class="column text-right">
-                <span class="text-lg text-medium">@Model.Total() </span>
+                <span class="text-lg text-medium">@Model.Total().ToString("C2") </span>
             </div>
         </div>
 

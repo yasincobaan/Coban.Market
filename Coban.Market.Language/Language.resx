@@ -405,4 +405,64 @@
   <data name="Whishlist" xml:space="preserve">
     <value>Whishlist</value>
   </data>
+  <data name="AdressTitle" xml:space="preserve">
+    <value>Adress Title</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="Neighborhood" xml:space="preserve">
+    <value>Neighborhood</value>
+  </data>
+  <data name="PostCode" xml:space="preserve">
+    <value>PostCode</value>
+  </data>
+  <data name="ConfirmOrder" xml:space="preserve">
+    <value>Confirm Order</value>
+  </data>
+  <data name="Cargo" xml:space="preserve">
+    <value>Cargo</value>
+  </data>
+  <data name="FillYourOrderInformation" xml:space="preserve">
+    <value>Please fill in your order information.</value>
+  </data>
+  <data name="CargoCompanies" xml:space="preserve">
+    <value>Cargo Companies</value>
+  </data>
+  <data name="CargoDescription" xml:space="preserve">
+    <value>Cargo Description</value>
+  </data>
+  <data name="CargoName" xml:space="preserve">
+    <value>Cargo Name</value>
+  </data>
+  <data name="CargoPhone" xml:space="preserve">
+    <value>Cargo Phone</value>
+  </data>
+  <data name="CreateCargoCompany" xml:space="preserve">
+    <value>Create Cargo Company</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="Joined" xml:space="preserve">
+    <value>Joined</value>
+  </data>
+  <data name="YouSpend1" xml:space="preserve">
+    <value>You currently have  </value>
+  </data>
+  <data name="YouSpend2" xml:space="preserve">
+    <value>Reward Points to spend</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>Tickets</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
 </root>

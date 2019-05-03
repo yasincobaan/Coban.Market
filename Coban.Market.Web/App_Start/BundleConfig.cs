@@ -182,6 +182,22 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/FancyBox/jquery.fancybox.min.js"
             ));
             #endregion
+
+
+
+            #region Cargo
+
+            // Cargo - Index - Css
+            bundles.Add(new StyleBundle("~/cargo/index/css").Include(
+                "~/ContentAdmin/Page/Cargo/Index/css/index.css"
+            ));
+
+            // Cargo - Index - Js
+            bundles.Add(new ScriptBundle("~/cargo/index/js").Include(
+                "~/ContentAdmin/Page/Cargo/Index/js/index.js"
+            ));
+
+            #endregion
         }
     }
 }

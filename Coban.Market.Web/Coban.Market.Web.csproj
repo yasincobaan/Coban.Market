@@ -144,6 +144,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -211,6 +212,8 @@
     <Content Include="ContentAdmin\Other\SweetAlert\js\sweetalert.js" />
     <Content Include="ContentAdmin\Page\Account\Login\css\login.css" />
     <Content Include="ContentAdmin\Page\Account\Login\js\login.js" />
+    <Content Include="ContentAdmin\Page\Cargo\Index\css\index.css" />
+    <Content Include="ContentAdmin\Page\Cargo\Index\js\index.js" />
     <Content Include="ContentAdmin\Page\Category\Index\css\index.css" />
     <Content Include="ContentAdmin\Page\Category\Index\js\index.js" />
     <Content Include="ContentAdmin\Page\MarketUser\Create\css\create.css" />
@@ -407,6 +410,9 @@
     <Content Include="Images\Brand\monster.png" />
     <Content Include="Images\Brand\philips1.png" />
     <Content Include="Images\Brand\samsungbrand.png" />
+    <Content Include="Images\Index\category.jpg" />
+    <Content Include="Images\Index\product.png" />
+    <Content Include="Images\Index\users.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -420,6 +426,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ContentAdmin\Page\Cargo\Create\css\" />
+    <Folder Include="ContentAdmin\Page\Cargo\Create\js\" />
     <Folder Include="Images\Category\" />
     <Folder Include="Images\MarketUser\" />
     <Folder Include="Images\Product\" />
@@ -462,7 +470,6 @@
     <Content Include="Views\Shared\_PartialSearchBox.cshtml" />
     <Content Include="Views\Shared\_PartialDatatable.cshtml" />
     <Content Include="Views\Shared\_PartialLanguage.cshtml" />
-    <Content Include="Views\MarketUser\Create.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
@@ -475,7 +482,6 @@
     <Content Include="Views\Shared\_PartialFeaturedProducts.cshtml" />
     <Content Include="Views\Account\ForgotActivate.cshtml" />
     <Content Include="Views\Shared\_PartialServiceBrand.cshtml" />
-    <Content Include="Views\Shared\_Partialbreadcrumbs.cshtml" />
     <Content Include="Views\Support\AboutUs.cshtml" />
     <Content Include="Views\Shared\Ok.cshtml" />
     <Content Include="Views\Shared\_PartialProfileCard.cshtml" />
@@ -495,6 +501,10 @@
     <Content Include="Views\Errors\Error500.cshtml" />
     <Content Include="Views\Support\Faq.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Profile\ActivityLog.cshtml" />
+    <Content Include="Views\Profile\Settings.cshtml" />
+    <Content Include="Views\Cargo\Index.cshtml" />
+    <Content Include="Views\Cargo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coban.Market.BL\Coban.Market.BL.csproj">

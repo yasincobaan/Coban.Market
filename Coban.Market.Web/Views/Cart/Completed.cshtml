@@ -1,7 +1,20 @@
 ﻿
 @{
     ViewBag.Title = "Completed";
+
+
+    Random rastgele = new Random();
+    int sayi = rastgele.Next();
 }
 
-<h2>Completed</h2>
+@Html.Partial("_Partialbreadcrumbs")
 
+<div class="container padding-top-1x padding-bottom-3x">
+    <div class="row">
+        <h2>
+            Siparişleriniz en kısa sürede kargoya verilecektir.
+            Takip Numarası ile sitemizden takip edebilirsiniz.
+            Takip No : @sayi
+        </h2>
+    </div>
+</div>

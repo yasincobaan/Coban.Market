@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Coban.Market.Entities.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Coban.Market.Web.Models.OrderModels
 {
@@ -22,5 +23,8 @@ namespace Coban.Market.Web.Models.OrderModels
         public string Neighborhood { get; set; }
 
         public string PostCode { get; set; }
+
+       
+
     }
 }

@@ -11,7 +11,7 @@ namespace Coban.Market.Web.Controllers
 {
     public class ProfileController : Controller
     {
-        MarketUserManager mrktUserManager = new MarketUserManager();
+        private MarketUserManager mrktUserManager = new MarketUserManager();
 
 
 
@@ -50,6 +50,45 @@ namespace Coban.Market.Web.Controllers
 
             return View(res.Result);
         }
+        [HttpPost]
+        public ActionResult EditProfile(MarketUser model, HttpPostedFileBase ProfileImage)
+        {
+            ModelState.Remove("ModifiedUsername");
+            ModelState.Remove("ModifiedOn");
+            if (ModelState.IsValid)
+            {
+                if (ProfileImage != null &&
+                    (ProfileImage.ContentType == "image/jpeg" ||
+                    ProfileImage.ContentType == "image/jpg" ||
+                    ProfileImage.ContentType == "image/png"))
+                {
+                    string filename = $"user_{model.Id}.{ProfileImage.ContentType.Split('/')[1]}";
+
+                    ProfileImage.SaveAs(Server.MapPath($"~/Images/MarketUser/{filename}"));
+                    model.ProfileImageFilename = filename;
+                }
+
+                BusinessLayerResult<MarketUser> res = mrktUserManager.UpdateProfile(model);
+
+                if (res.Errors.Count > 0)
+                {
+                    ErrorViewModel errorNotifyObj = new ErrorViewModel()
+                    {
+                        Items = res.Errors,
+                        Title = "Profil Güncellenemedi.",
+                        RedirectingUrl = "/Profile/EditProfile"
+                    };
+
+                    return View("Error", errorNotifyObj);
+                }
+                CurrentSession.Set<MarketUser>("login", res.Result);
+
+                return RedirectToAction("ShowProfile");
+            }
+
+            return View(model);
+        }
+
 
 
         public ActionResult ActivityLog()

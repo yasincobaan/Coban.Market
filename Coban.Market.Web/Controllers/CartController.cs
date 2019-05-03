@@ -42,7 +42,10 @@ namespace Coban.Market.Web.Controllers
             {
                 GetCart().DeleteProduct(product);
             }
-
+            if (GetCart().CartLines.Count == 0)
+            {
+                return RedirectToAction("AllProduct", "Customer");
+            }
             return RedirectToAction("Index");
         }
 
@@ -66,7 +69,14 @@ namespace Coban.Market.Web.Controllers
 
         public ActionResult Checkout()
         {
-            return View(new ShippingDetails());
+            if (CurrentSession.User != null)
+            {
+                return View(new ShippingDetails());
+            }
+            else
+            {
+                return RedirectToAction("Account", "Account");
+            }
         }
 
         [HttpPost]
@@ -99,7 +109,7 @@ namespace Coban.Market.Web.Controllers
             order.Total = cart.Total();
             order.OrderDate = DateTime.Now;
             order.OrderState = EnumOrderState.Waiting;
-          
+
 
             order.AddressTitle = entity.AddressTitle;
             order.Address = entity.Address;
@@ -107,6 +117,7 @@ namespace Coban.Market.Web.Controllers
             order.District = entity.District;
             order.Neighborhood = entity.Neighborhood;
             order.PostCode = entity.PostCode;
+         
 
             order.Orderlines = new List<OrderLine>();
 
@@ -124,12 +135,21 @@ namespace Coban.Market.Web.Controllers
 
                 order.Orderlines.Add(orderline);
             }
-            order.CreatedOn=DateTime.Now;
+            order.CreatedOn = DateTime.Now;
             order.CreatedUsername = "system";
             order.ModifiedOn = DateTime.Now;
             order.ModifiedUsername = "system";
             orderManager.Insert(order);
-          
+
         }
+
+        public ActionResult EmptyCart()
+        {
+
+            GetCart().Clear();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

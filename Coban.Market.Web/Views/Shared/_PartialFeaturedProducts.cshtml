@@ -16,19 +16,19 @@
             <div class="grid-item">
                 <div class="product-card">
                     <a class="product-thumb" href="@Url.Action("SingleProduct","Home",new{id=item.Id})">
-                        <img  src="~/Images/Product/@item.Image1" alt="@item.LittleDescription">
+                        <img src="~/Images/Product/@item.Image1" alt="@item.ProductBrand">
                     </a>
                     <h3 class="product-title">
                         <a href="@Url.Action("SingleProduct", "Home", new {id = item.Id})">
                             @item.ProductName
                         </a>
                     </h3>
-                    <h4 class="product-price"><del>₺@item.Price</del>₺@item.DiscountedPrice</h4>
+                    <h4 class="product-price"><del>@item.Price.ToString("C2")</del>@item.DiscountedPrice.Value.ToString("C2")</h4>
                     <div class="product-buttons">
-                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
+                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="@Language.Whishlist">
                             <i class="icon-heart"></i>
                         </button>
-                        <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">@Language.AddCart</button>
+                        <a href="@Url.Action("AddToCart","Cart",new { id=item.Id})" class="btn btn-outline-primary btn-sm">@Language.AddCart</a>
                     </div>
                 </div>
             </div>

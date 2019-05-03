@@ -88,6 +88,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adress Title.
+        /// </summary>
+        public static string AdressTitle {
+            get {
+                return ResourceManager.GetString("AdressTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Of.
         /// </summary>
         public static string Allof {
@@ -111,6 +120,51 @@ namespace Coban.Market.Language {
         public static string BarCode {
             get {
                 return ResourceManager.GetString("BarCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargo.
+        /// </summary>
+        public static string Cargo {
+            get {
+                return ResourceManager.GetString("Cargo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargo Companies.
+        /// </summary>
+        public static string CargoCompanies {
+            get {
+                return ResourceManager.GetString("CargoCompanies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargo Description.
+        /// </summary>
+        public static string CargoDescription {
+            get {
+                return ResourceManager.GetString("CargoDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargo Name.
+        /// </summary>
+        public static string CargoName {
+            get {
+                return ResourceManager.GetString("CargoName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cargo Phone.
+        /// </summary>
+        public static string CargoPhone {
+            get {
+                return ResourceManager.GetString("CargoPhone", resourceCulture);
             }
         }
         
@@ -169,6 +223,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         public static string Clear {
@@ -183,6 +246,24 @@ namespace Coban.Market.Language {
         public static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Order.
+        /// </summary>
+        public static string ConfirmOrder {
+            get {
+                return ResourceManager.GetString("ConfirmOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Cargo Company.
+        /// </summary>
+        public static string CreateCargoCompany {
+            get {
+                return ResourceManager.GetString("CreateCargoCompany", resourceCulture);
             }
         }
         
@@ -232,6 +313,24 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to District.
+        /// </summary>
+        public static string District {
+            get {
+                return ResourceManager.GetString("District", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Profile.
+        /// </summary>
+        public static string EditProfile {
+            get {
+                return ResourceManager.GetString("EditProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -255,6 +354,15 @@ namespace Coban.Market.Language {
         public static string FeaturedProducts {
             get {
                 return ResourceManager.GetString("FeaturedProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please fill in your order information..
+        /// </summary>
+        public static string FillYourOrderInformation {
+            get {
+                return ResourceManager.GetString("FillYourOrderInformation", resourceCulture);
             }
         }
         
@@ -327,6 +435,15 @@ namespace Coban.Market.Language {
         public static string IsSale {
             get {
                 return ResourceManager.GetString("IsSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Joined.
+        /// </summary>
+        public static string Joined {
+            get {
+                return ResourceManager.GetString("Joined", resourceCulture);
             }
         }
         
@@ -417,6 +534,15 @@ namespace Coban.Market.Language {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neighborhood.
+        /// </summary>
+        public static string Neighborhood {
+            get {
+                return ResourceManager.GetString("Neighborhood", resourceCulture);
             }
         }
         
@@ -525,6 +651,24 @@ namespace Coban.Market.Language {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PostCode.
+        /// </summary>
+        public static string PostCode {
+            get {
+                return ResourceManager.GetString("PostCode", resourceCulture);
             }
         }
         
@@ -790,6 +934,15 @@ namespace Coban.Market.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sign Out.
+        /// </summary>
+        public static string SignOut {
+            get {
+                return ResourceManager.GetString("SignOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stock.
         /// </summary>
         public static string Stock {
@@ -831,6 +984,15 @@ namespace Coban.Market.Language {
         public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tickets.
+        /// </summary>
+        public static string Tickets {
+            get {
+                return ResourceManager.GetString("Tickets", resourceCulture);
             }
         }
         
@@ -921,6 +1083,24 @@ namespace Coban.Market.Language {
         public static string Whishlist {
             get {
                 return ResourceManager.GetString("Whishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You currently have  .
+        /// </summary>
+        public static string YouSpend1 {
+            get {
+                return ResourceManager.GetString("YouSpend1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reward Points to spend.
+        /// </summary>
+        public static string YouSpend2 {
+            get {
+                return ResourceManager.GetString("YouSpend2", resourceCulture);
             }
         }
     }

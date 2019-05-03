@@ -15,7 +15,6 @@ namespace Coban.Market.Web.Controllers
     {
         private OrderManager orderManager = new OrderManager();
 
-        // GET: Order
         public ActionResult Index()
         {
             var orders = orderManager.ListQueryable().Select(i => new AdminOrderModel()

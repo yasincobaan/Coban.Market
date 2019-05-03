@@ -2,6 +2,26 @@
     ViewBag.Title = "AdminIndex";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .brdr {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 5px;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-12">
+        <a href="@Url.Action("Index","Category")">
+            <img class="brdr" src="~/Images/Index/category.jpg" width="250px" />
+        </a>
+        <a href="@Url.Action("Index","Product")">
+            <img class="brdr" src="~/Images/Index/product.png" width="250px" />
+        </a>
+        <a href="@Url.Action("Index","MarketUser")">
+            <img class="brdr" src="~/Images/Index/users.png" width="250px" />
+        </a>
+    </div>
+</div>
 
 
 

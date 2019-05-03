@@ -1,58 +1,55 @@
 ﻿@model Coban.Market.Entities.MarketUser
+@using Coban.Market.Language
 @{
     ViewBag.Title = "ShowProfile";
 }
-@Html.Partial("_Partialbreadcrumbs")
-<div class="container padding-top-1x padding-bottom-3x">
-    <div class="row">
-        @Html.Partial("_PartialProfileCard", Model)
-        
-        <div class="col-lg-8">
-            <div class="padding-top-2x mt-2 hidden-lg-up"></div>
-            <div class="row">
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-fn">First Name</label>
-                        @Html.TextBoxFor(x => x.Name, new {@class = "form-control", @disabled = "disabled"})
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-ln">Last Name</label>
-                        @Html.TextBoxFor(x => x.Surname, new {@class = "form-control", @disabled = "disabled"})
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-ln">UserName</label>
-                        @Html.TextBoxFor(x => x.Username, new {@class = "form-control", @disabled = "disabled"})
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-email">E-Mail Address</label>
-                        @Html.TextBoxFor(x => x.Email, new {@class = "form-control", @disabled = "disabled"})
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-phone">Phone Number</label>
-                        @Html.TextBoxFor(x => x.Phone, new {@class = "form-control", @required = "required", @disabled = "disabled"})
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="account-pass">New Password</label>
-                        @Html.TextBoxFor(x => x.Password, new {@class = "form-control", @required = "required", @type = "password", @disabled = "disabled"})
-                    </div>
-                </div>
-                <span class="col-md-6"> </span>
-                <div class="col-md-6">
-                    <div class="form-group float-right">
-                        <a class="btn btn-primary btn-sm" href="#">Edit Profile</a>
-                    </div>
-                </div>
+
+@Html.Partial("_PartialProfileCard", Model)
+
+<div class="col-lg-8">
+    <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="account-fn">@Language.Name</label>
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="account-ln">@Language.Surname</label>
+                @Html.TextBoxFor(x => x.Surname, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="account-ln">@Language.Username</label>
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="account-email">@Language.Email</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="account-phone">@Language.Phone</label>
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @required = "required", @disabled = "disabled" })
+            </div>
+        </div>
+        <span class="col-md-6">
+         
+        </span>
+        <span class="col-md-6">
+
+        </span>
+        <div class="col-md-6">
+            <div class="form-group float-right">
+                <a class="btn btn-primary btn-sm" href="@Url.Action("EditProfile","Profile")">@Language.EditProfile</a>
             </div>
         </div>
     </div>

@@ -25,7 +25,8 @@ namespace Coban.Market.Web.Controllers
 
         public ActionResult OurTeam()
         {
-            return View(mrktUserManager.ListQueryable().Where(x => x.Role == MarketUserRole.FullAdmin || x.Role == MarketUserRole.Admin));
+            return View(mrktUserManager.ListQueryable()
+                .Where(x => x.Role == MarketUserRole.FullAdmin || x.Role == MarketUserRole.Admin));
         }
         public ActionResult OurCompany()
         {

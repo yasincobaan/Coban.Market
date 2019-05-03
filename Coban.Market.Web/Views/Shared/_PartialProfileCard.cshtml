@@ -1,57 +1,66 @@
 ﻿@model Coban.Market.Entities.MarketUser
+@using Coban.Market.Language
 
-    <div class="col-lg-4">
-        <aside class="user-info-wrapper">
-            <div class="user-cover account-details">
-                <div class="info-label" data-toggle="tooltip" title="You currently have @Model.RewardScore Reward Points to spend">
-                    <i class="icon-medal"></i>
-                    @Model.RewardScore
-                </div>
+<div class="col-lg-4">
+    <aside class="user-info-wrapper">
+        <div class="user-cover account-details">
+            <div class="info-label" data-toggle="tooltip" title="@Language.YouSpend1 @Model.RewardScore @Language.YouSpend2">
+                <i class="icon-medal"></i>
+                @Model.RewardScore
             </div>
-            <div class="user-info">
-                <div class="user-avatar">
-                    <a class="edit-avatar" href="#"></a>
-                    <img src="~/Images/MarketUser/@Model.ProfileImageFilename" alt="@Model.Username">
-                </div>
-                <div class="user-data">
-                    <h4>
-                        @Model.Name @Model.Surname
-                    </h4>
-                    <span>
-                        Joined @Model.CreatedOn.Date
-                    </span>
-                </div>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <a class="edit-avatar" href="#"></a>
+                <img src="~/Images/MarketUser/@Model.ProfileImageFilename" alt="@Model.Username">
             </div>
-        </aside>
-        <nav class="list-group">
-            <a class="list-group-item active" href="#">
-                <i class="icon-head"></i>
-                My Profile
-            </a>
-            <a class="list-group-item with-badge" href="#">
-                <i class="icon-bag"></i>
-                My Orders
-                <span class="badge badge-primary badge-pill">
-                    6
+            <div class="user-data">
+                <h4>
+                    @Model.Name @Model.Surname
+                </h4>
+                <span>
+                    @Language.Joined @Model.CreatedOn.ToShortDateString()
                 </span>
-            </a>
-            <a class="list-group-item" href="#">
-                <i class="icon-map"></i>
-                My Addresses
-            </a>
-            <a class="list-group-item with-badge" href="#">
-                <i class="icon-heart"></i>
-                My Wishlist
-                <span class="badge badge-primary badge-pill">
-                    3
-                </span>
-            </a>
-            <a class="list-group-item with-badge" href="#">
-                <i class="icon-tag"></i>
-                My Tickets
-                <span class="badge badge-primary badge-pill">
-                    4
-                </span>
-            </a>
-        </nav>
-    </div>
+            </div>
+        </div>
+    </aside>
+    <nav class="list-group">
+        <a id="profile" class="list-group-item" href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-head"></i>
+            @Language.ShowProfile
+        </a>
+        <a class="list-group-item" href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-bag"></i>
+            @Language.Orders
+        </a>
+        <a class="list-group-item" href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-map"></i>
+            @Language.Adress
+        </a>
+        <a class="list-group-item" href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-heart"></i>
+            @Language.Whishlist
+        </a>
+        <a class="list-group-item " href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-tag"></i>
+            @Language.Tickets
+        </a>
+        <a class="list-group-item " href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-tag"></i>
+            @Language.ActivityLog
+        </a>
+        <a class="list-group-item " href="@Url.Action("ShowProfile","Profile")">
+            <i class="icon-tag"></i>
+            @Language.Settings
+        </a>
+    </nav>
+</div>
+
+@section Scripts{
+    <script>
+        var Id = $("#url").val();
+        if (Id == "/Profile/ShowProfile") {
+            $("#profile").addClass("active");
+        }
+    </script>
+}

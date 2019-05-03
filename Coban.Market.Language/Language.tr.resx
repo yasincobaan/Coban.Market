@@ -375,4 +375,64 @@
   <data name="Whishlist" xml:space="preserve">
     <value>İstek Listesi</value>
   </data>
+  <data name="AdressTitle" xml:space="preserve">
+    <value>Adres Başlığı</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Şehir</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Semt</value>
+  </data>
+  <data name="Neighborhood" xml:space="preserve">
+    <value>Mahalle</value>
+  </data>
+  <data name="PostCode" xml:space="preserve">
+    <value>Posta Kodu</value>
+  </data>
+  <data name="ConfirmOrder" xml:space="preserve">
+    <value>Siparişi Onayla</value>
+  </data>
+  <data name="Cargo" xml:space="preserve">
+    <value>Kargo</value>
+  </data>
+  <data name="FillYourOrderInformation" xml:space="preserve">
+    <value>Lütfen sipariş bilgilerinizi doldurunuz.</value>
+  </data>
+  <data name="CargoCompanies" xml:space="preserve">
+    <value>Kargo Firmaları</value>
+  </data>
+  <data name="CargoDescription" xml:space="preserve">
+    <value>Kargo Açıklaması</value>
+  </data>
+  <data name="CargoName" xml:space="preserve">
+    <value>Kargo Adı</value>
+  </data>
+  <data name="CargoPhone" xml:space="preserve">
+    <value>Kargo Telefonu</value>
+  </data>
+  <data name="CreateCargoCompany" xml:space="preserve">
+    <value>Kargo Firması Oluştur</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="Joined" xml:space="preserve">
+    <value>Kaydolma Tarihi</value>
+  </data>
+  <data name="YouSpend1" xml:space="preserve">
+    <value>Senin şuanda harcamak için</value>
+  </data>
+  <data name="YouSpend2" xml:space="preserve">
+    <value>ödül puanın bulunmaktadır.</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>Yöneticiye Mesajlar</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Profili Düzenle</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
 </root>

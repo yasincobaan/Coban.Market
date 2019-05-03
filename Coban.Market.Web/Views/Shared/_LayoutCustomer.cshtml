@@ -1,7 +1,6 @@
 ﻿@using Coban.Market.Entities
 @using Coban.Market.Language
 @using Coban.Market.Web.Models
-
 @{
     List<Category> list = CacheHelper.GetCategoriesFromCache();
 }
@@ -30,14 +29,14 @@
     </div>
     <div class="offcanvas-container" id="shop-categories">
         <div class="offcanvas-header">
-            <h3 class="offcanvas-title text-center">Shop Categories</h3>
+            <h3 class="offcanvas-title text-center">@Language.Categories</h3>
         </div>
         <nav class="offcanvas-menu">
             <ul class="menu">
                 <li class="has-children active">
                     <span>
                         <a href="@Url.Action("ShopCategory", "Home")">
-                            All Categories
+                            @Language.Categories
                         </a>
                     </span>
                 </li>
@@ -88,26 +87,25 @@
             else
             {
                 <div class="user-ava">
-                    <img src="~/Images/MarketUser/user.png" alt="Username">
+                    <img src="~/Images/MarketUser/user_boy.png" alt="@Language.Username">
                 </div>
                 <div class="user-info">
                     <h6 class="user-name">
-                        <b>Name</b>
-                        <b>Surname</b>
+                        <b>@Language.Name</b>
+                        <b>@Language.Surname</b>
                     </h6>
                     <span class="text-sm text-white opacity-60">
                         0 @Language.RewardPoint
                     </span>
                 </div>
             }
-
         </a>
         <nav class="offcanvas-menu">
             <ul class="menu">
                 <li class="has-children active">
                     <span>
                         <a href="@Url.Action("ByCategory", "Customer")">
-                            All Categories
+                            @Language.Categories
                         </a>
                     </span>
                 </li>
@@ -174,29 +172,26 @@
                 </div>
             </div>
         }
-
         <div class="site-branding">
             <div class="inner">
                 <a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
                 <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
                 <a class="site-logo" href="@Url.Action("Index", "Home")">
-                    <img style="width: 50px;" src="~/ContentAdmin/Images/logo.png" alt="Coban">
+                    <img style="width: 50px;" class="logoPng" src="~/ContentAdmin/Images/logo.png" alt="Coban Market">
                 </a>
             </div>
         </div>
-
-
         <nav class="site-menu">
             <ul>
                 <li class="active">
                     <a href="@Url.Action("ByCategory", "Customer")">
-                        <span>Kategoriler</span>
+                        <span>@Language.Categories</span>
                     </a>  <ul class="sub-menu">
                         @foreach (var item in list)
                         {
                             if (item.Categories == null)
                             {
-                                <li class="">
+                                <li>
                                     <a href="@Url.Action("ByCategory","Customer",new{id=item.Id})">
                                         <span>@item.Title</span>
                                     </a>
@@ -208,64 +203,78 @@
                 </li>
             </ul>
         </nav>
-
         <div class="toolbar">
             <div class="inner">
                 <div class="tools">
                     <div class="search">
                         <i class="icon-search"></i>
                     </div>
-
                     <div class="account">
-                        <a href="#"></a><i class="icon-head"></i>
+                        <a href="@Url.Action("ShowProfile","Profile")"></a><i class="icon-head"></i>
                         <ul class="toolbar-dropdown">
                             <li class="sub-menu-user">
-                                <div class="user-ava">
-                                    @if (CurrentSession.User != null)
-                                    {
+                                @if (CurrentSession.User != null)
+                                {
+                                    <div class="user-ava">
                                         <img src="~/Images/MarketUser/@CurrentSession.User.ProfileImageFilename" alt="@CurrentSession.User.Username">
-
-                                    }
-                                    else
-                                    {
-                                        <img src="~/ContentAdmin/Images/user.png" alt="Username">
-
-                                    }
-                                </div>
-                                <div class="user-info">
-                                    <h6 class="user-name">
-                                        @if (CurrentSession.User != null)
-                                        {
+                                    </div>
+                                    <div class="user-info">
+                                        <h6 class="user-name">
                                             <b>@CurrentSession.User.Username</b>
-                                        }
-                                        else
-                                        {
-                                            <b>Username</b>
+                                        </h6>
+                                        <span class="text-xs text-muted">
+                                            @CurrentSession.User.RewardScore @Language.RewardPoint
+                                        </span>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="user-ava">
+                                        <img src="~/Images/MarketUser/user_boy.png" alt="@Language.Username">
+                                    </div>
+                                    <div class="user-info">
+                                        <h6 class="user-name">
+                                            <b>@Language.Username</b>
+                                        </h6>
+                                        <span class="text-xs text-muted">
+                                            0 @Language.RewardPoint
+                                        </span>
+                                    </div>
+                                }
 
-                                        }
-                                    </h6>
-                                    <span class="text-xs text-muted">530 Reward Points</span>
-                                </div>
                             </li>
-                            <li><a href="@Url.Action("ShowProfile","Profile")">My Profile</a></li>
-                            <li><a href="@Url.Action("Orders","Order")">My Orders</a></li>
-                            <li><a href="@Url.Action("Wishlist","Profile")">My Wishlist</a></li>
+                            <li><a href="@Url.Action("ShowProfile","Profile")">@Language.ShowProfile</a></li>
+                            <li><a href="@Url.Action("Orders","Order")">@Language.Orders</a></li>
+                            <li><a href="@Url.Action("Wishlist","Profile")">@Language.Whishlist</a></li>
                             <li class="sub-menu-separator"></li>
-                            <li><a href="@Url.Action("Logout","Account")"><i class="fa fa-lock"></i> Sign Out</a></li>
+                            <li><a href="@Url.Action("Logout","Account")"><i class="fa fa-lock"></i> @Language.SignOut</a></li>
                         </ul>
                     </div>
                     @Html.Action("Summary", "Cart")
-
-
                 </div>
             </div>
         </div>
-
     </header>
     <div class="offcanvas-wrapper">
-
-        @RenderBody()
-
+        <div class="page-title">
+            <div class="container">
+                <div class="column">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+                <div class="column">
+                    <ul class="breadcrumbs">
+                        <li><a href="@Url.Action("Index","Home")">@Language.Home</a></li>
+                        <li class="separator">&nbsp;</li>
+                        <li>@ViewBag.Title</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
     </div>
     <a class="scroll-to-top-btn" href="#">
         <i class="icon-arrow-up"></i>
@@ -273,6 +282,7 @@
     <div class="site-backdrop">
 
     </div>
+    <input id="url" value="@HttpContext.Current.Request.RawUrl" />
     @Scripts.Render("~/layoutCustomer/js")
     @RenderSection("scripts", false)
 </body>

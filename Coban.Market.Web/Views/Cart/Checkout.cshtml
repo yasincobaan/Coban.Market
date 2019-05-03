@@ -1,102 +1,134 @@
 ﻿@model Coban.Market.Web.Models.OrderModels.ShippingDetails
+@using Coban.Market.Web.Models
+@using Coban.Market.Language
+
 @{
-    ViewBag.Title = "Checkout";
+    ViewBag.Title = "Sipariş Bilgileriniz";
 }
-
+@Html.Partial("_Partialbreadcrumbs")
 <style>
-
-
-    .field-validation-error {
-        color: #f00;
-    }
-
-    .field-validation-valid {
-        display: none;
-    }
-
     .input-validation-error {
         border: 1px solid #f00;
         background-color: #fee;
     }
 
-    .validation-summary-errors {
-        font-weight: bold;
-        color: #f00;
-    }
-
-    .validation-summary-valid {
-        display: none;
+    .userFont {
+        font-size: 15px;
     }
 </style>
-<div class="container">
+<div class="container padding-top-1x padding-bottom-3x">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="mt-3">Sipariş Bilgileriniz</h2>
-            <p>Lütfen sipariş bilgilerinizi doldurunuz.</p>
+            <p>
+                <h4>
+                    @Language.FillYourOrderInformation
+                </h4>
+            </p>
             <hr />
+            <br />
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary()
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
-                    <div class="col-sm-6">
-                        <span class="badge-danger">
-                            @User.Identity.Name
+                    <label class="col-sm-2 col-form-label">
+                        @Language.Username
+                    </label>
+                    <div class="col-sm-6 text-center mt-2">
+                        <span class=" text-primary text-normal userFont">
+                            @CurrentSession.User.Username
                         </span>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Adres Tanımı</label>
-                    <div class="col-sm-6">
+                    <label class="col-sm-2 col-form-label">
+                        @Language.AdressTitle
+                    </label>
+                    <div class="col-sm-1">
+                        <div class="text-success float-right">
+                            <i data-toggle="tooltip" data-placement="top" title="Adresinizi tanımlayınız. Örn: Ev adresim, İş adresim" class="fa fa-question-circle ques"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
                         @Html.TextBoxFor(x => x.AddressTitle, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Adres</label>
-                    <div class="col-sm-6">
+                    <label class="col-sm-2 col-form-label">
+                        @Language.Adress
+                    </label>
+                    <div class="col-sm-1">
+                        <div class="text-success float-right">
+                            <i data-toggle="tooltip" data-placement="top" title="Açık adresini il, ilçe, mahalle dahil giriniz." class="fa fa-question-circle ques"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
                         @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Şehir</label>
+                    <label class="col-sm-2 col-form-label">
+                        @Language.City
+                    </label>
                     <div class="col-sm-6">
                         @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Semt</label>
+                    <label class="col-sm-2 col-form-label">
+                        @Language.District
+                    </label>
                     <div class="col-sm-6">
                         @Html.TextBoxFor(x => x.District, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Mahalle</label>
+                    <label class="col-sm-2 col-form-label">
+                        @Language.Neighborhood
+                    </label>
                     <div class="col-sm-6">
                         @Html.TextBoxFor(x => x.Neighborhood, new { @class = "form-control" })
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Posta Kodu</label>
+                    <label class="col-sm-2 col-form-label">
+                        @Language.PostCode
+                    </label>
                     <div class="col-sm-6">
                         @Html.TextBoxFor(x => x.PostCode, new { @class = "form-control" })
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
+                    <label class="col-sm-2 col-form-label">
+                        @Language.Cargo
+                    </label>
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-primary">Siparişi Onayla</button>
+                        @Html.EnumDropDownListFor(x => x.Cargo, new { @class = "form-control" })
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary">
+                            @Language.ConfirmOrder
+                        </button>
+                    </div>
+                </div>
+
+
 
             }
         </div>
     </div>
 </div>
+
+
+
+@Html.Partial("_PartialFooter")

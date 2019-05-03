@@ -3,122 +3,98 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
 }
+@Html.Partial("_Partialbreadcrumbs")
+<div class="container padding-top-1x padding-bottom-3x">
 
-
-@if (Model.CartLines.Count > 0)
-{
-    <div class="table-responsive shopping-cart">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th class="text-center">Quantity</th>
-                    <th class="text-center">Subtotal</th>
-                    <th class="text-center">Discount</th>
-                    <th class="text-center">
-                        <a class="btn btn-sm btn-outline-danger" href="#">Empty Cart</a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.CartLines)
-                {
+    @if (Model.CartLines.Count > 0)
+    {
+        <div class="table-responsive shopping-cart">
+            <table class="table">
+                <thead>
                     <tr>
-
-                        <td>
-                            <div class="product-item">
-                                <a class="product-thumb" href="#">
-                                    <img src="~/Images/Product/@item.Product.Image1" alt="@item.Product.ProductName">
-                                </a>
-                                <div class="product-info">
-                                    <h4 class="product-title"><a href="#">@item.Product.ProductName</a></h4>
-                                    <span>
-                                        #<em>@item.Product.StockCode</em>
-                                    </span>
-
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-center">
-                            <div class="count-input">
-                                <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td class="text-center text-lg text-medium">
-                            @item.Product.Price
-                        </td>
-                        <td class="text-center text-lg text-medium">
-                         
-                              @item.Product.Price
-                           
-
-                            
-                        </td>
-                        <td class="text-center">
-                            <a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a>
-                        </td>
+                        <th>
+                            Product Name
+                        </th>
+                        <th class="text-center">
+                            Quantity
+                        </th>
+                        <th class="text-center">
+                            Subtotal
+                        </th>
+                        <th class="text-center">
+                            Discount
+                        </th>
+                        <th class="text-center">
+                            <a class="btn btn-sm btn-outline-danger" href="@Url.Action("EmptyCart","Cart")">
+                                Empty Cart
+                            </a>
+                        </th>
                     </tr>
-                }
-                /**/
-            </tbody>
-        </table>
-    </div>
-    <div class="shopping-cart-footer">
-        <div class="column">
-            <form class="coupon-form" method="post">
-                <input class="form-control form-control-sm" type="text" placeholder="Coupon Code" required>
-                <button class="btn btn-outline-primary btn-sm" type="submit">Add Coupon</button>
-            </form>
-        </div>
-        <div class="column text-lg">Total: <span class="text-medium">$1899</span></div>
-    </div>
-    <div class="shopping-cart-footer">
-        <div class="column">
-            <a class="btn btn-outline-secondary" href="shop-grid-1.html"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a>
-        </div>
-        <div class="column">
-            <a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="checkout-address.html">Checkout</a>
-        </div>
-    </div>
-}
-else
-{
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CartLines)
+                    {
+                        <tr>
 
-    <div class="alert alert-info alert-dismissible fade show text-center margin-bottom-1x">
-        <span class="alert-close" data-dismiss="alert"></span>
-        <p><i class="fa fa-bell"></i>Sepetinizde ürün bulunmamaktadır.</p>
-    </div>
-}
+                            <td>
+                                <div class="product-item">
+                                    <a class="product-thumb" href="#">
+                                        <img src="~/Images/Product/@item.Product.Image1" alt="@item.Product.ProductName">
+                                    </a>
+                                    <div class="product-info">
+                                        <h4 class="product-title"><a href="#">@item.Product.ProductName</a></h4>
+                                        <span>
+                                            #<em>@item.Product.StockCode</em>
+                                        </span>
 
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                @item.Quantity
+                            </td>
+                            <td class="text-center text-lg text-medium">
+                                @item.Product.Price.ToString("C2")
+                            </td>
+                            <td class="text-center text-lg text-medium">
+                                @item.Product.Price.ToString("C2")
+                            </td>
+                            <td class="text-center">
+                                <a class="remove-from-cart" href="@Url.Action("RemoveFromCart","Cart",new { id=item.Product.Id})"><i class="icon-cross"></i></a>
+                            </td>
+                        </tr>
+                    }
 
-<!-- End Shopping Cart -->
-<!-- Start Related Products -->
-<h3 class="text-center padding-top-3x mb-30">
-    Releted Products
-</h3>
-<div class="owl-carousel" data-owl-carousel='{ "nav": false, "dots": false, "margin": 30, "responsive": {"0":{"items":1},"576":{"items":2},"768":{"items":3},"991":{"items":4},";1200":{"items":4}} }'>
-    <div class="grid-item">
-        <div class="product-card">
-            <a class="product-thumb" href="shop-single-3.html">
-                <img src="assets/images/shop/products/01.jpg" alt="Product">
-            </a>
-            <h3 class="product-title"><a href="shop-single-3.html">iPhone X</a></h3>
-            <h4 class="product-price">$749.99</h4>
-            <div class="product-buttons">
-                <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist">
-                        <i class="icon-heart"></i>
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+                </tbody>
+            </table>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column">
+                <div class="coupon-form" method="post">
+                    <input class="form-control form-control-sm" type="text" placeholder="Coupon Code" required>
+                    <button class="btn btn-outline-primary btn-sm" type="submit">Add Coupon</button>
                 </div>
             </div>
+            <div class="column text-lg">Total: <span class="text-medium">@Model.Total().ToString("C2")</span></div>
         </div>
-    </div>
+        <div class="shopping-cart-footer">
+            <div class="column">
+                <a class="btn btn-outline-secondary" href="@Url.Action("AllProducts","Customer")">
+                    <i class="icon-arrow-left"></i>&nbsp;Back to Shopping
+                </a>
+            </div>
+            <div class="column">
+                <a class="btn btn-success" href="@Url.Action("Checkout","Cart")">Checkout</a>
+            </div>
+        </div>
+    }
+    else
+    {
+
+        <div class="alert alert-info alert-dismissible fade show text-center margin-bottom-1x">
+            <span class="alert-close" data-dismiss="alert"></span>
+            <p><i class="fa fa-bell"></i>Sepetinizde ürün bulunmamaktadır.</p>
+        </div>
+    }
 </div>
 

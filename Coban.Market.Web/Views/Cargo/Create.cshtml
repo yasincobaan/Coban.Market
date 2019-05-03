@@ -1,0 +1,91 @@
+﻿@using Coban.Market.Language
+@model Coban.Market.Entities.CargoNames
+
+@{
+    ViewBag.Title = Language.CreateCargoCompany;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary text-center">
+                    @Language.CreateCargoCompany
+                </h6>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Cargo", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group row">
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CargoName
+                            </b>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin başlığını ifade etmektedir.Kısa ve öz cümleler ile ifade edebilirsiniz." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.EditorFor(model => model.CargoName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
+                            @Html.ValidationMessageFor(model => model.CargoName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CargoDescription
+                            </b>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin açıklamasını ifade etmektedir. Uzun ve detaylı ifade etmeniz gerekmektedir." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.EditorFor(model => model.CargoDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CargoDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <div class="control-label col-md-3">
+                            <b class="text-center text-primary">
+                                @Language.CargoPhone
+                            </b>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="text-success float-right">
+                                <i data-toggle="tooltip" data-placement="top" title="Bu alan kategorinin açıklamasını ifade etmektedir. Uzun ve detaylı ifade etmeniz gerekmektedir." class="fa fa-question-circle ques"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            @Html.EditorFor(model => model.CargoPhone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CargoPhone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-7"></div>
+                        <div class="col-md-3">
+                            <a href="@Url.Action("Index", "Cargo")" class="btn btn-primary float-right">
+                                <i class="fa fa-angle-double-left"></i>
+                                @Language.BackToList
+                            </a>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-save"></i>
+                                @Language.Save
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

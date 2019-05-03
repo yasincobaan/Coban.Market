@@ -1,8 +1,11 @@
 ﻿@using Coban.Market.Language
+@using Coban.Market.Web.Models
+@using Coban.Market.Entities
 @model IQueryable<Coban.Market.Entities.Product>
 @{
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
 }
 @Html.Partial("_Partialbreadcrumbs")
 
@@ -24,20 +27,6 @@
                             <option>Name A - Z Order</option>
                             <option>Name Z - A Order</option>
                         </select><span class="text-muted">Show: </span><span> 1 - 12 items</span>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="shop-view">
-                        <a class="grid-view active" href="shop-grid-1.html">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                        <a class="list-view" href="shop-list-1.html">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -92,95 +81,40 @@
                     <a class="btn btn-outline-secondary btn-sm" href="#">Next <i class="icon-arrow-right"></i></a>
                 </div>
             </nav>
-            <!-- End Pagination -->
+
         </div>
-        <!-- End Categories Content -->
-        <!-- Start Sidebar -->
+
         <div class="col-lg-3 order-lg-1 hidden-md-down">
             <aside class="sidebar">
                 <div class="padding-top-2x hidden-lg-up"></div>
-                <!-- Start Categories Widget -->
                 <section class="widget widget-categories">
-                    <h3 class="widget-title">Shop Categories</h3>
+                    <h3 class="widget-title">
+                        @Language.Categories
+                    </h3>
                     <ul>
-                        <li class="has-children expanded">
-                            <a href="#">Mobile Phones</a><span>(1277)</span>
-                            <ul>
-                                <li>
-                                    <a href="#">Apple</a><span>(700)</span>
-                                    <ul>
-                                        <li><a href="#">iPhone x 64GB</a></li>
-                                        <li><a href="#">iPhone 8 128GB</a></li>
-                                        <li><a href="#">iPhone 7 Red</a></li>
-                                        <li><a href="#">iPhone 6 Plus</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Samsung</a><span>(500)</span>
-                                    <ul>
-                                        <li><a href="#">Samsung Galaxy S8</a></li>
-                                        <li><a href="#">Samsung Galaxy S7</a></li>
-                                        <li><a href="#">Samsung Galaxy J5</a></li>
-                                        <li><a href="#">Samsung Golden A5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Nokia Mobile</a><span>(37)</span></li>
-                                <li><a href="#">BlackBerry Phones</a><span>(42)</span></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#">PC & Laptops</a><span>(800)</span>
-                            <ul>
-                                <li>
-                                    <a href="#">Apple</a><span>(500)</span>
-                                    <ul>
-                                        <li><a href="#">MacBook Pro 13.3</a></li>
-                                        <li><a href="#">MacBook Pro 15.6</a></li>
-                                        <li><a href="#">MacBook Pro 17</a></li>
-                                        <li><a href="#">MacBook Pro 19</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Lenovo</a><span>(250)</span>
-                                    <ul>
-                                        <li><a href="#">Lenovo Core i3</a></li>
-                                        <li><a href="#">Lenovo Core i5</a></li>
-                                        <li><a href="#">Lenovo Core i7</a></li>
-                                        <li><a href="#">Lenovo Core 2 Quad</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Asus</a><span>(50)</span></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#">Tabs & Tablets</a><span>(420)</span>
-                            <ul>
-                                <li><a href="#">iPad 3 1TB</a><span>(180)</span></li>
-                                <li><a href="#">Samsung Tab Pro</a><span>(140)</span></li>
-                                <li><a href="#">Lenovo Tab 3TB</a><span>(100)</span></li>
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#">Accessories</a><span>(760)</span>
-                            <ul>
-                                <li><a href="#">Televisions</a><span>(160)</span></li>
-                                <li><a href="#">Camcorders</a><span>(100)</span></li>
-                                <li><a href="#">Watches</a><span>(100)</span></li>
-                                <li><a href="#">Jewelry</a><span>(200)</span></li>
-                                <li><a href="#">Other</a><span>(200)</span></li>
-                            </ul>
-                        </li>
+                        @foreach (var item in list)
+                        {
+                            <li class="has-children">
+                                <a href="#">
+                                    @item.Title
+                                </a><span>
+                                    (@item.Products.Count)
+                                </span>
+                            </li>
+                        }
                     </ul>
                 </section>
-                <!-- End Categories Widget -->
+
                 <!--  Start Price Range Widget -->
                 <section class="widget widget-categories">
                     <h3 class="widget-title">Price Range</h3>
-                    <form class="price-range-slider" method="post" data-start-min="250" data-start-max="970" data-min="0" data-max="1500" data-step="1">
+                    <div class="price-range-slider" data-start-min="0" data-start-max="999" data-min="0" data-max="9999" data-step="10">
                         <div class="ui-range-slider"></div>
                         <footer class="ui-range-slider-footer">
                             <div class="column">
-                                <button class="btn btn-outline-primary btn-sm" type="submit">Filter</button>
+                                <button class="btn btn-outline-primary btn-sm" type="submit">
+                                    Filter
+                                </button>
                             </div>
                             <div class="column">
                                 <div class="ui-range-values">
@@ -189,67 +123,19 @@
                                         <input type="hidden">
                                     </div> -
                                     <div class="ui-range-value-max">
-                                                            $<span></span>
+                                        $<span></span>
                                         <input type="hidden">
                                     </div>
                                 </div>
                             </div>
                         </footer>
-                    </form>
-                </section>
-                <!--  End Price Range Widget -->
-                <!-- Start Brand Filter Widget -->
-                <section class="widget">
-                    <h3 class="widget-title">Filter by Brand</h3>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="adidas">
-                        <label class="custom-control-label" for="adidas">Apple <span class="text-muted">(197)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="bilabong">
-                        <label class="custom-control-label" for="bilabong">Samsung <span class="text-muted">(123)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="klein">
-                        <label class="custom-control-label" for="klein">Sony <span class="text-muted">(148)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="nike">
-                        <label class="custom-control-label" for="nike">Lenovo <span class="text-muted">(164)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="bahama">
-                        <label class="custom-control-label" for="bahama">Panasonic <span class="text-muted">(139)</span></label>
                     </div>
                 </section>
-                <!-- End Brand Filter Widget -->
-                <!-- Start Size Filter Widget -->
-                <section class="widget">
-                    <h3 class="widget-title">Filter by Size</h3>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="xl">
-                        <label class="custom-control-label" for="xl">64GB <span class="text-muted">(208)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="l">
-                        <label class="custom-control-label" for="l">128GB <span class="text-muted">(311)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="m">
-                        <label class="custom-control-label" for="m">256GB <span class="text-muted">(485)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="s">
-                        <label class="custom-control-label" for="s">512GB <span class="text-muted">(213)</span></label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="ss">
-                        <label class="custom-control-label" for="s">1TB <span class="text-muted">(213)</span></label>
-                    </div>
-                </section>
+
+
             </aside>
         </div>
-        <!-- End Sidebar -->
+
     </div>
 </div>
 

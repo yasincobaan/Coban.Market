@@ -19,8 +19,7 @@ namespace Coban.Market.Entities
         public string District { get; set; }
         public string Neighborhood { get; set; }
         public string PostCode { get; set; }
-
-        public string TrackOrderNumber { get; set; }
+ 
 
 
         public virtual List<OrderLine> Orderlines { get; set; }
