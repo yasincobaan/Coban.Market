@@ -97,7 +97,7 @@ namespace Coban.Market.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CargoNames cargo)
+        public ActionResult Create(Cargo cargo)
         {
             ModelState.Remove("CreatedOn");
             ModelState.Remove("CreatedUsername");
@@ -116,9 +116,9 @@ namespace Coban.Market.Web.Controllers
         #endregion
         #region Edit
         [HttpPost]
-        public ActionResult Edit(CargoNames cargo)
+        public ActionResult Edit(Cargo cargo)
         {
-            CargoNames cargo2 = cargoManager.Find(x => x.Id == cargo.Id);
+            Cargo cargo2 = cargoManager.Find(x => x.Id == cargo.Id);
             OperationResult operation = new OperationResult();
             if (cargo2 == null)
             {
@@ -140,7 +140,7 @@ namespace Coban.Market.Web.Controllers
         {
             OperationResult operation = new OperationResult();
 
-            CargoNames category = cargoManager.Find(x => x.Id == id);
+            Cargo category = cargoManager.Find(x => x.Id == id);
             if (category != null)
             {
                 cargoManager.Delete(category);

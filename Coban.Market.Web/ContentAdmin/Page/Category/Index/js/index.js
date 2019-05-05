@@ -72,9 +72,15 @@
             "autoWidth": true
         },
         {
-            "data": "Categories[<br/>].Title",
-            "title": "Sub Categories",
-            "name": "Categories Title",
+            "data": "ParentCategory.Title",
+            "title": "Parent Category",
+            "name": "Parent Category",
+            "autoWidth": true
+        },
+        {
+            "data": "ChildCategories[<br/>].Title",
+            "title": "Child Categories",
+            "name": "Child Categories",
             "autoWidth": true
         },
         {

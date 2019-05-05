@@ -9,7 +9,7 @@ namespace Coban.Market.Web.Filters
         public void OnAuthorization(AuthorizationContext filterContext)
         {
             if (CurrentSession.User != null && 
-                (CurrentSession.User.Role != MarketUserRole.Editör || 
+                (CurrentSession.User.Role != MarketUserRole.Editor || 
                  CurrentSession.User.Role != MarketUserRole.FullAdmin || 
                  CurrentSession.User.Role != MarketUserRole.Admin)
                 )

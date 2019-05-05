@@ -12,8 +12,7 @@ using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers
 {
-    [Exc]
-    [Auth]
+
     public class ProductController : Controller
     {
         #region Variables

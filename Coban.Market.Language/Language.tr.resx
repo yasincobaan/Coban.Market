@@ -435,4 +435,7 @@
   <data name="Phone" xml:space="preserve">
     <value>Telefon</value>
   </data>
+  <data name="SerialNumber" xml:space="preserve">
+    <value>Seri Numarası</value>
+  </data>
 </root>

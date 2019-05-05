@@ -7,135 +7,131 @@
     Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
     List<Category> list = CacheHelper.GetCategoriesFromCache();
 }
-@Html.Partial("_Partialbreadcrumbs")
 
 
-<div class="container padding-top-1x padding-bottom-3x">
-    <div class="row">
 
-        <div class="col-lg-9 order-lg-2">
 
-            <div class="shop-toolbar mb-30">
-                <div class="column">
-                    <div class="shop-sorting">
-                        <label for="sorting">Sort by:</label>
-                        <select class="form-control" id="sorting">
-                            <option>Item Popularity</option>
-                            <option>Avarage Rating</option>
-                            <option>Low - High Price</option>
-                            <option>High - Low Price</option>
-                            <option>Name A - Z Order</option>
-                            <option>Name Z - A Order</option>
-                        </select><span class="text-muted">Show: </span><span> 1 - 12 items</span>
+<div class="col-lg-9 order-lg-2">
+
+    <div class="shop-toolbar mb-30">
+        <div class="column">
+            <div class="shop-sorting">
+                <label for="sorting">Sort by:</label>
+                <select class="form-control" id="sorting">
+                    <option>Item Popularity</option>
+                    <option>Avarage Rating</option>
+                    <option>Low - High Price</option>
+                    <option>High - Low Price</option>
+                    <option>Name A - Z Order</option>
+                    <option>Name Z - A Order</option>
+                </select><span class="text-muted">Show: </span><span> 1 - 12 items</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="isotope-grid cols-3">
+        <div class="gutter-sizer"></div>
+        <div class="grid-sizer"></div>
+        @foreach (var item in Model)
+        {
+            <div class="grid-item">
+                <div class="product-card">
+                    <a class="product-thumb" href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
+                        <img src="~/Images/Product/@item.Image1" alt="@item.ProductName">
+                    </a>
+                    <h3 class="product-title">
+                        <a href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
+                            @item.ProductName
+                        </a>
+                    </h3>
+                    <h4 class="product-price">
+                        <del>@item.Price.ToString("C2")</del>@item.DiscountedPrice.Value.ToString("C2")
+                    </h4>
+                    <div class="product-buttons">
+                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="@Language.Whishlist">
+                            <i class="icon-heart"></i>
+                        </button>
+                        <a class="btn btn-outline-primary btn-sm" href="@Url.Action("AddToCart", "Cart", new { id = item.Id })">
+                            @Language.AddCart
+                        </a>
                     </div>
                 </div>
             </div>
+        }
 
-            <div class="isotope-grid cols-3">
-                <div class="gutter-sizer"></div>
-                <div class="grid-sizer"></div>
-                @foreach (var item in Model)
+
+
+    </div>
+
+    <nav class="pagination">
+        <div class="column">
+            <ul class="pages">
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li>...</li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#">30</a></li>
+            </ul>
+        </div>
+        <div class="column text-right hidden-xs-down">
+            <a class="btn btn-outline-secondary btn-sm" href="#">Next <i class="icon-arrow-right"></i></a>
+        </div>
+    </nav>
+
+</div>
+
+<div class="col-lg-3 order-lg-1 hidden-md-down">
+    <aside class="sidebar">
+        <div class="padding-top-2x hidden-lg-up"></div>
+        <section class="widget widget-categories">
+            <h3 class="widget-title">
+                @Language.Categories
+            </h3>
+            <ul>
+                @foreach (var item in list)
                 {
-                    <div class="grid-item">
-                        <div class="product-card">
-                            <a class="product-thumb" href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
-                                <img src="~/Images/Product/@item.Image1" alt="@item.ProductName">
-                            </a>
-                            <h3 class="product-title">
-                                <a href="@Url.Action("SingleProduct","Customer",new { id=item.Id})">
-                                    @item.ProductName
-                                </a>
-                            </h3>
-                            <h4 class="product-price">
-                                <del>@item.Price.ToString("C2")</del>@item.DiscountedPrice.Value.ToString("C2")
-                            </h4>
-                            <div class="product-buttons">
-                                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="@Language.Whishlist">
-                                    <i class="icon-heart"></i>
-                                </button>
-                                <a class="btn btn-outline-primary btn-sm" href="@Url.Action("AddToCart", "Cart", new { id = item.Id })">
-                                    @Language.AddCart
-                                </a>
+                    <li class="has-children">
+                        <a href="#">
+                            @item.Title
+                        </a><span>
+                            (@item.Products.Count)
+                        </span>
+                    </li>
+                }
+            </ul>
+        </section>
+
+        <!--  Start Price Range Widget -->
+        <section class="widget widget-categories">
+            <h3 class="widget-title">Price Range</h3>
+            <div class="price-range-slider" data-start-min="0" data-start-max="999" data-min="0" data-max="9999" data-step="10">
+                <div class="ui-range-slider"></div>
+                <footer class="ui-range-slider-footer">
+                    <div class="column">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">
+                            Filter
+                        </button>
+                    </div>
+                    <div class="column">
+                        <div class="ui-range-values">
+                            <div class="ui-range-value-min">
+                                $<span></span>
+                                <input type="hidden">
+                            </div> -
+                            <div class="ui-range-value-max">
+                                $<span></span>
+                                <input type="hidden">
                             </div>
                         </div>
                     </div>
-                }
-
-
-
+                </footer>
             </div>
-
-            <nav class="pagination">
-                <div class="column">
-                    <ul class="pages">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li>...</li>
-                        <li><a href="#">10</a></li>
-                        <li><a href="#">20</a></li>
-                        <li><a href="#">30</a></li>
-                    </ul>
-                </div>
-                <div class="column text-right hidden-xs-down">
-                    <a class="btn btn-outline-secondary btn-sm" href="#">Next <i class="icon-arrow-right"></i></a>
-                </div>
-            </nav>
-
-        </div>
-
-        <div class="col-lg-3 order-lg-1 hidden-md-down">
-            <aside class="sidebar">
-                <div class="padding-top-2x hidden-lg-up"></div>
-                <section class="widget widget-categories">
-                    <h3 class="widget-title">
-                        @Language.Categories
-                    </h3>
-                    <ul>
-                        @foreach (var item in list)
-                        {
-                            <li class="has-children">
-                                <a href="#">
-                                    @item.Title
-                                </a><span>
-                                    (@item.Products.Count)
-                                </span>
-                            </li>
-                        }
-                    </ul>
-                </section>
-
-                <!--  Start Price Range Widget -->
-                <section class="widget widget-categories">
-                    <h3 class="widget-title">Price Range</h3>
-                    <div class="price-range-slider" data-start-min="0" data-start-max="999" data-min="0" data-max="9999" data-step="10">
-                        <div class="ui-range-slider"></div>
-                        <footer class="ui-range-slider-footer">
-                            <div class="column">
-                                <button class="btn btn-outline-primary btn-sm" type="submit">
-                                    Filter
-                                </button>
-                            </div>
-                            <div class="column">
-                                <div class="ui-range-values">
-                                    <div class="ui-range-value-min">
-                                        $<span></span>
-                                        <input type="hidden">
-                                    </div> -
-                                    <div class="ui-range-value-max">
-                                        $<span></span>
-                                        <input type="hidden">
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
-                </section>
+        </section>
 
 
-            </aside>
-        </div>
-
-    </div>
+    </aside>
 </div>
+
 

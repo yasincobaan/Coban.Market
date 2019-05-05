@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Coban.Market.BL;
-using Coban.Market.DAL;
 using Coban.Market.Entities.Enums;
 using Coban.Market.Web.Models.OrderModels;
 

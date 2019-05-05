@@ -5,7 +5,6 @@ using Coban.Market.Web.Models.ViewModels;
 using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
-using Coban.Market.Entities.Enums;
 using Coban.Market.Web.Models;
 
 namespace Coban.Market.Web.Controllers

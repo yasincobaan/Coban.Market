@@ -3,7 +3,7 @@ using Coban.Market.Entities;
 
 namespace Coban.Market.BL
 {
-    public class CargoManager : ManagerBase<CargoNames>
+    public class CargoManager : ManagerBase<Cargo>
     {
 
     }

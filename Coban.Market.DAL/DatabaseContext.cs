@@ -17,7 +17,7 @@ namespace Coban.Market.DAL
         public DbSet<ProductWishlist> ProductWishlists { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<UserAddress> UserAddresss { get; set; }
-        public DbSet<CargoNames> Cargo { get; set; }
+        public DbSet<Cargo> Cargo { get; set; }
         public DatabaseContext()
         {
             Database.SetInitializer(new MyInitializer());

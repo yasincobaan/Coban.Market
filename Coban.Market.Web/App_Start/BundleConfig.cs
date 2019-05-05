@@ -198,6 +198,54 @@ namespace Coban.Market.Web
             ));
 
             #endregion
+
+
+
+
+
+
+            #region Account
+
+            #endregion
+            #region Cargo
+
+            #endregion
+            #region Cart
+
+            #endregion
+            #region Category
+
+            #endregion
+            #region Customer
+
+            #endregion
+
+
+            #region Errors
+
+            #endregion
+            #region Home
+
+            #endregion
+            #region MarketUser
+
+            #endregion
+            #region Order
+
+            #endregion
+            #region Product
+
+            #endregion
+
+
+
+            #region Profile
+
+            #endregion
+            #region Support
+
+            #endregion
+           
         }
     }
 }

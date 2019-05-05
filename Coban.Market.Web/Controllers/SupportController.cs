@@ -1,11 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Services.Description;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
 using Coban.Market.Entities;
 using Coban.Market.Entities.Enums;
-using Coban.Market.Web.Models.ViewModels;
 
 namespace Coban.Market.Web.Controllers
 {

@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using Coban.Market.BL;
 using Coban.Market.BL.Results;
 using Coban.Market.Entities;
-using Coban.Market.Web.Filters;
 using Coban.Market.Web.Models;
 using Coban.Market.Web.Models.ViewModels;
 

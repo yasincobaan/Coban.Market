@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Coban.Market.Entities
 {
-    public class CargoNames : MyEntityBase
+    [Table("CargoCompanies")]
+    public class Cargo : MyEntityBase
     {
         public string CargoName { get; set; }
         public string CargoPhone { get; set; }

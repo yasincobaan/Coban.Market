@@ -104,6 +104,17 @@
                                     @Html.ValidationMessageFor(model => model.LittleDescription, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                <div class="control-label col-md-4">
+                                product property
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(model => model.ProductPropertys, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProductPropertys, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <div class="control-label col-md-4">
                                     @Language.IsSale
@@ -117,16 +128,16 @@
                             </div>
                             <div class="form-group row">
                                 <div class="control-label col-md-4">
-                                   Product Barcode
+                                    @Language.SerialNumber
                                 </div>
                                 <div class="col-md-8">
-                                    @Html.TextBoxFor(model => model.BarCode, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.BarCode, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(model => model.SerialNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="control-label col-md-4">
-                                    @Language.StockCode
+                                    @Language.Stock
                                 </div>
                                 <div class="col-md-8">
                                     @Html.TextBoxFor(model => model.StockCode, new { @class = "form-control" })
@@ -138,8 +149,8 @@
                                     @Language.Stock
                                 </div>
                                 <div class="col-md-8">
-                                    @Html.TextBoxFor(model => model.Stock, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(model => model.StockNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.StockNumber, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group row">

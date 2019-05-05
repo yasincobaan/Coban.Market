@@ -9,8 +9,7 @@ namespace Coban.Market.Entities
     [Table("MarketUsers")]
     public class MarketUser : MyEntityBase
     {
-        [Required(ErrorMessage = "The name field required."),
-         StringLength(50, MinimumLength = 3, ErrorMessage = "The name field must contain max 50 min 3 characters.")]
+        [Required(ErrorMessage = "The name field required."),StringLength(50, MinimumLength = 3, ErrorMessage = "The name field must contain max 50 min 3 characters.")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "The surname field required."),
@@ -34,38 +33,16 @@ namespace Coban.Market.Entities
         public string ProfileImageFilename { get; set; }
 
         public MarketUserRole Role { get; set; }
-
-
         public bool IsActive { get; set; }
-
-
         public string Job { get; set; }
-
-
-
         public string Facebook { get; set; }
-
-
         public string Twitter { get; set; }
-
-
         public string Instagram { get; set; }
-
-
-
         [Required(ErrorMessage = "The phone field required.")]
         public string Phone { get; set; }
-
-
         public int? RewardScore { get; set; }
-
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }
-
-
-
-
-
 
         public virtual List<ProductWishlist> Wishlists { get; set; }
         public virtual List<Blog> Blogs { get; set; }

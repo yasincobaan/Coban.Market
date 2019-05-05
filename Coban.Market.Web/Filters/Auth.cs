@@ -1,5 +1,4 @@
-﻿
-using Coban.Market.Web.Models;
+﻿using Coban.Market.Web.Models;
 using System.Web.Mvc;
 
 namespace Coban.Market.Web.Filters

@@ -36,7 +36,7 @@ namespace Coban.Market.DAL
                 MyEntityBase o = obj as MyEntityBase;
                 DateTime now = DateTime.Now;
 
-                
+
 
                 o.CreatedOn = now;
                 o.CreatedUsername = App.Common.GetCurrentUsername();
@@ -45,29 +45,27 @@ namespace Coban.Market.DAL
             }
             return Save();
         }
-
         public int Update(T obj)
         {
             if (obj is MyEntityBase)
             {
                 MyEntityBase o = obj as MyEntityBase;
-                o.ModifiedOn = DateTime.Now;
+                DateTime now = DateTime.Now;
+
+                o.ModifiedOn = now;
                 o.ModifiedUsername = App.Common.GetCurrentUsername();
             }
             return Save();
         }
-
         public int Delete(T obj)
         {
             _objectSet.Remove(obj);
             return Save();
         }
-
         public int Save()
         {
             return context.SaveChanges();
         }
-
         public T Find(Expression<Func<T, bool>> where)
         {
             return _objectSet.FirstOrDefault(where);

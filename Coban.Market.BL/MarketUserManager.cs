@@ -38,7 +38,7 @@ namespace Coban.Market.BL
                     Password = data.Password,
                     ActivateGuid = Guid.NewGuid(),
                     IsActive = false,
-                    Role = MarketUserRole.NewUser,
+                    Role = MarketUserRole.Customer,
                     Phone = data.Phone
                 });
 
@@ -252,9 +252,9 @@ namespace Coban.Market.BL
             }
             else
             {
-                res.Result.Password =data.Password;
+                res.Result.Password = data.Password;
                 res.Result.IsActive = false;
-                res.Result.ProfileImageFilename = "user.png";
+                res.Result.ProfileImageFilename = "user_boy.png";
                 res.Result.ActivateGuid = Guid.NewGuid();
 
                 if (base.Insert(res.Result) == 0)
@@ -273,7 +273,6 @@ namespace Coban.Market.BL
 
             return res;
         }
-
         public new BusinessLayerResult<MarketUser> Update(MarketUser data)
         {
             MarketUser db_user = Find(x => x.Username == data.Username || x.Email == data.Email);

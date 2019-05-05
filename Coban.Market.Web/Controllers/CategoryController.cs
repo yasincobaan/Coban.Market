@@ -91,7 +91,7 @@ namespace Coban.Market.Web.Controllers
             }
             recordsTotal = catData.Count();
             var data = catData.Skip(skip).Take(pageSize).OrderByDescending(x => x.CreatedOn).ToList();
-            return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
+                      return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data });
         }
         #endregion
         #region Create
