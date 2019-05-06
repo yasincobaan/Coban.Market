@@ -44,9 +44,7 @@ namespace Coban.Market.Entities
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }
 
-        public virtual List<ProductWishlist> Wishlists { get; set; }
-        public virtual List<Blog> Blogs { get; set; }
-        public virtual List<UserAddress> Address { get; set; }
+       
         public virtual List<Product> Products { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Liked> Likes { get; set; }

@@ -144,7 +144,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CargoController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -208,6 +207,8 @@
     <Content Include="ContentAdmin\Other\FancyBox\jquery.fancybox.min.css" />
     <Content Include="ContentAdmin\Other\FancyBox\jquery.fancybox.min.js" />
     <Content Include="ContentAdmin\Other\jquery.easing.js" />
+    <Content Include="ContentAdmin\Other\JqueryMask\js\jquery.mask.js" />
+    <Content Include="ContentAdmin\Other\MoneyMask\js\jquery.maskMoney.js" />
     <Content Include="ContentAdmin\Other\SearchBox\js\searchBox.js" />
     <Content Include="ContentAdmin\Other\SweetAlert\js\sweetalert.js" />
     <Content Include="ContentAdmin\Page\Account\Login\css\login.css" />

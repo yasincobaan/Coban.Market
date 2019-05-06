@@ -8,6 +8,7 @@
 
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script src="~/ContentAdmin/Other/MoneyMask/js/jquery.maskMoney.js"></script>
 
 
 <div class="row">
@@ -107,7 +108,7 @@
 
                             <div class="form-group row">
                                 <div class="control-label col-md-4">
-                                product property
+                                    product property
                                 </div>
                                 <div class="col-md-8">
                                     @Html.TextBoxFor(model => model.ProductPropertys, new { @class = "form-control" })
@@ -173,91 +174,104 @@
                             </div>
 
                         </div>
-                    <div class="col-lg-6">
-                        <h3 style="border-bottom: 1px solid crimson" class="text-center text-success pb-2">Product Image</h3>
-                        <div class="form-group row">
-                            <div class="control-label col-md-4">
-                                @Language.Image
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input Image1" id="Image1" name="Image1">
-                                        <label class="custom-file-label" for="Image1">Dosya Seçiniz</label>
+                        <div class="col-lg-6">
+                            <h3 style="border-bottom: 1px solid crimson" class="text-center text-success pb-2">Product Image</h3>
+                            <div class="form-group row">
+                                <div class="control-label col-md-4">
+                                    @Language.Image
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-upload"></i>
+                                            </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input Image1" id="Image1" name="Image1">
+                                            <label class="custom-file-label" for="Image1">Dosya Seçiniz</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="control-label col-md-4">
-                                @Language.Image
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input Image2" id="Image2" name="Image2">
-                                        <label class="custom-file-label" for="Image2">Dosya Seçiniz</label>
+                            <div class="form-group row">
+                                <div class="control-label col-md-4">
+                                    @Language.Image
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-upload"></i>
+                                            </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input Image2" id="Image2" name="Image2">
+                                            <label class="custom-file-label" for="Image2">Dosya Seçiniz</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="control-label col-md-4">
-                                @Language.Image
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input Image3" id="Image3" name="Image3">
-                                        <label class="custom-file-label" for="Image3">Dosya Seçiniz</label>
+                            <div class="form-group row">
+                                <div class="control-label col-md-4">
+                                    @Language.Image
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-upload"></i>
+                                            </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input Image3" id="Image3" name="Image3">
+                                            <label class="custom-file-label" for="Image3">Dosya Seçiniz</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="control-label col-md-4">
-                                @Language.Image
-                            </div>
-                            <div class="col-md-8">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-upload"></i>
-                                        </span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input Image4" id="Image4" name="Image4">
-                                        <label class="custom-file-label" for="Image4">Dosya Seçiniz</label>
+                            <div class="form-group row">
+                                <div class="control-label col-md-4">
+                                    @Language.Image
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-upload"></i>
+                                            </span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input Image4" id="Image4" name="Image4">
+                                            <label class="custom-file-label" for="Image4">Dosya Seçiniz</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                       
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
+                        <div class="form-group row">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
                         </div>
-                    </div>
                     </div>
                 }
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            $('#DiscountedPrice').maskMoney();
+            $('#Price').maskMoney();
+        
+
+
+
+        })
+    </script>
+}
 

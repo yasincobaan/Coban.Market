@@ -12,7 +12,7 @@ using Coban.Market.Web.Filters;
 namespace Coban.Market.Web.Controllers
 {
    
-    [Auth]
+  
     public class CategoryController : Controller
     {
         #region Variables

@@ -182,9 +182,6 @@ namespace Coban.Market.Web
                 "~/ContentAdmin/Other/FancyBox/jquery.fancybox.min.js"
             ));
             #endregion
-
-
-
             #region Cargo
 
             // Cargo - Index - Css
@@ -198,12 +195,6 @@ namespace Coban.Market.Web
             ));
 
             #endregion
-
-
-
-
-
-
             #region Account
 
             #endregion
@@ -219,8 +210,6 @@ namespace Coban.Market.Web
             #region Customer
 
             #endregion
-
-
             #region Errors
 
             #endregion
@@ -236,16 +225,13 @@ namespace Coban.Market.Web
             #region Product
 
             #endregion
-
-
-
             #region Profile
 
             #endregion
             #region Support
 
             #endregion
-           
+
         }
     }
 }

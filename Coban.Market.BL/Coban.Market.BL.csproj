@@ -49,12 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ManagerBase.cs" />
-    <Compile Include="AddressManager.cs" />
-    <Compile Include="BlogManager.cs" />
-    <Compile Include="CargoManager.cs" />
     <Compile Include="CategoryManager.cs" />
     <Compile Include="CommentManager.cs" />
-    <Compile Include="FaqManager.cs" />
     <Compile Include="LikedManager.cs" />
     <Compile Include="MarketUserManager.cs" />
     <Compile Include="OrderManager.cs" />
@@ -63,8 +59,6 @@
     <Compile Include="Results\BusinessLayerResult.cs" />
     <Compile Include="Results\ExchangeRateResult.cs" />
     <Compile Include="Results\OperationResult.cs" />
-    <Compile Include="TicketManager.cs" />
-    <Compile Include="WishlistManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

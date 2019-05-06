@@ -35,17 +35,6 @@ namespace Coban.Market.Web.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public JsonResult Faq(FAQ model)
-        {
-            OperationResult res = new OperationResult();
-
-            if (model.Email != null && model.Problem != null)
-            {
-
-            }
-
-            return Json(res, JsonRequestBehavior.AllowGet);
-        }
+       
     }
 }

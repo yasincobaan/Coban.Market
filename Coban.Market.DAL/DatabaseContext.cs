@@ -12,12 +12,8 @@ namespace Coban.Market.DAL
         public DbSet<Liked> Likes { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<FAQ> Faqs { get; set; }
-        public DbSet<ProductWishlist> ProductWishlists { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<UserAddress> UserAddresss { get; set; }
-        public DbSet<Cargo> Cargo { get; set; }
+    
+
         public DatabaseContext()
         {
             Database.SetInitializer(new MyInitializer());
